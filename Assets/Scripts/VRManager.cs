@@ -9,10 +9,4 @@ public class VRManager : MonoBehaviour
     {
         UnityEngine.XR.XRSettings.showDeviceView = false;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
