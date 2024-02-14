@@ -10,7 +10,8 @@ public class PlayerCam : MonoBehaviour
 
     public float mouseSensitivity = 100f;
 
-    float xRotation = 0f;
+    float xRotation;
+    float yRotation;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,7 @@ public class PlayerCam : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
         xRotation -= mouseY;
+        yRotation += mouseX;
         xRotation = Mathf.Clamp(xRotation, -90f, minViewDistance);
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
