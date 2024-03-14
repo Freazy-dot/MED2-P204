@@ -11,7 +11,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]private float playerMovementSpeed = 1f;
     private PlayerInputMaster controls;
     private Vector3 velocity;
-    private float gravity = -9.81f; // more or less equal to earth's gravity
+    private readonly float _gravity = -9.81f; // more or less equal to earth's gravity
+    [SerializeField] private float gravityMultiplier = 3.0f;
+    
     private Vector2 move;
     [SerializeField]float jumpHeight = 2.4f;
     private CharacterController controller;
@@ -43,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -2f; // arbitrary value; makes the player jump up slightly after hitting the ground. Can be turned into a Serialized variable later.
         }
 
-        velocity.y += gravity * Time.deltaTime;
+        velocity.y += _gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
 
@@ -59,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (controls.Player.Jump.triggered)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); // idk why he wants the -2f, we can fix later, potentially integrate into grav or smthing idk
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * _gravity); // idk why he wants the -2f, we can fix later, potentially integrate into grav or smthing idk
         }
     }
 
