@@ -9,24 +9,24 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]private float playerMovementSpeed = 1f;
-    private PlayerInputMaster controls;
-    private Vector3 velocity;
+    private PlayerInputMaster _controls;
+    private Vector3 _velocity;
     private readonly float _gravity = -9.81f; // more or less equal to earth's gravity
     [SerializeField] private float gravityMultiplier = 3.0f;
     
-    private Vector2 move;
+    private Vector2 _move;
     [SerializeField]float jumpHeight = 2.4f;
-    private CharacterController controller;
+    private CharacterController _controller;
 
     public Transform ground;
     public float distanceToGround = 0.4f;
     public LayerMask groundMask;
-    private bool isGrounded;
+    private bool _isGrounded;
 
     private void Awake()
     {
-        controls = new PlayerInputMaster();
-        controller = GetComponent<CharacterController>();
+        _controls = new PlayerInputMaster();
+        _controller = GetComponent<CharacterController>();
     }
 
     private void Update()
@@ -38,40 +38,40 @@ public class PlayerMovement : MonoBehaviour
 
     private void Gravity()
     {
-        isGrounded = Physics.CheckSphere(ground.position, distanceToGround, groundMask);
+        _isGrounded = Physics.CheckSphere(ground.position, distanceToGround, groundMask);
 
-        if (isGrounded && velocity.y < 0)
+        if (_isGrounded && _elocity.y < 0)
         {
-            velocity.y = -2f; // arbitrary value; makes the player jump up slightly after hitting the ground. Can be turned into a Serialized variable later.
+            _velocity.y = -2f; // arbitrary value; makes the player jump up slightly after hitting the ground. Can be turned into a Serialized variable later.
         }
 
-        velocity.y += _gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+        _velocity.y += _gravity * Time.deltaTime;
+        _controller.Move(_velocity * Time.deltaTime);
     }
 
     private void PlayerMove()
     {
-        move = controls.Player.Move.ReadValue<Vector2>();
+        _move = _controls.Player.Move.ReadValue<Vector2>();
 
-        Vector3 movement = (move.y * transform.forward) + (move.x * transform.right);
-        controller.Move(movement * (playerMovementSpeed * Time.deltaTime));
+        Vector3 movement = (_move.y * transform.forward) + (_move.x * transform.right);
+        _controller.Move(movement * (playerMovementSpeed * Time.deltaTime));
     }
 
     private void Jump()
     {
-        if (controls.Player.Jump.triggered)
+        if (_controls.Player.Jump.triggered)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * _gravity); // idk why he wants the -2f, we can fix later, potentially integrate into grav or smthing idk
+            _velocity.y = Mathf.Sqrt(jumpHeight * -2f * _gravity); // idk why he wants the -2f, we can fix later, potentially integrate into grav or smthing idk
         }
     }
 
     private void OnEnable()
     {
-        controls.Enable();
+        _controls.Enable();
     }
 
     private void OnDisable()
     {
-        controls.Disable();
+        _controls.Disable();
     }
 }
