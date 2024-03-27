@@ -366,10 +366,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e549ca61c60b43b7965679031d70e83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementForce: 1
-  jumpForce: 5
-  maxSpeed: 5
-  playerCamera: {fileID: 1828701090}
+  playerSpeed: 2
+  jumpHeight: 1
+  gravityValue: -9.81
 --- !u!54 &729444066
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -479,7 +478,7 @@ Transform:
   m_GameObject: {fileID: 729444064}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.387, y: 1.894, z: -2.935}
+  m_LocalPosition: {x: 1.387, y: 2.159, z: -2.935}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
