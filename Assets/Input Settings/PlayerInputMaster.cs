@@ -38,7 +38,7 @@ public partial class @PlayerInputMaster: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Look"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""99e504df-ef06-49f4-90b1-8fb5588e715b"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -189,7 +189,7 @@ public partial class @PlayerInputMaster: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8c8e490b-c610-4785-884f-f04217b23ca4"",
-                    ""path"": ""<Pointer>/delta"",
+                    ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse;Touch"",
