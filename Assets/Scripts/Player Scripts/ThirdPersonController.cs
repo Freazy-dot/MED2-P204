@@ -1,17 +1,35 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(CharacterController))]
 public class ThirdPersonController : MonoBehaviour
 {
     private CharacterController _controller;
     private Vector3 _playerVelocity;
+    private InputActionReference movementControl;
+    private InputActionReference jumpControl;
     private bool _groundedPlayer;
+    private Transform cameraPlayerTransform;
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float jumpHeight = 1.0f;
     [SerializeField] private float gravityValue = -9.81f;
 
+
+    private void OnEnable()
+    {
+        movementControl.action.Enable();
+        jumpControl.action.Enable();
+    }
+
+    private void OnDisable()
+    {
+        movementControl.action.Disable();
+        jumpControl.action.Disable();
+    }
     private void Start()
     {
-        _controller = gameObject.AddComponent<CharacterController>();
+        _controller = gameObject.GetComponent<CharacterController>();
+        cameraPlayerTransform = Camera.main.transform; // skal måske ændres
     }
 
     void Update()
@@ -22,13 +40,13 @@ public class ThirdPersonController : MonoBehaviour
             _playerVelocity.y = 0f;
         }
 
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        Vector2 movement = movementControl.action.ReadValue<Vector2>();
+        Vector3 move = new Vector3(movement.x, 0, movement.y);
+        move = cameraPlayerTransform.forward * move.z + cameraPlayerTransform.right * move.x;
         _controller.Move(move * (Time.deltaTime * playerSpeed));
 
-        if (move != Vector3.zero)
-        {
-            gameObject.transform.forward = move;
-        }
+
+     
 
         // Changes the height position of the player..
         if (Input.GetButtonDown("Jump") && _groundedPlayer)
