@@ -101,6 +101,7 @@ public class PlayerLocomotion : MonoBehaviour
 
    public void HandleJumping()
     {
+        if (isGrounded)
         StartCoroutine(JumpEvent());
     }
 
