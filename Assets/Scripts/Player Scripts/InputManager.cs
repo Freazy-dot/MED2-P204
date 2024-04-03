@@ -41,8 +41,8 @@ public class InputManager : MonoBehaviour
 
     public void HandleAllInputs()
     {
-        HandleMovementInput();
-        HandleJumpingInput();
+       HandleMovementInput();
+       HandleJumpingInput();
     }
 
     private void HandleMovementInput()
@@ -54,7 +54,7 @@ public class InputManager : MonoBehaviour
         cameraInputY = cameraInput.y;
     }
 
-    private void HandleJumpingInput()
+   private void HandleJumpingInput()
     {
         if (jumpInput)
         {

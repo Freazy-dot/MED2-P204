@@ -15,6 +15,13 @@ public class PlayerLocomotion : MonoBehaviour
     public float moveSpeed = 7;
     public float rotationSpeed = 15;
 
+    public float inAirTimer;
+    public float leapingVelocity;
+    public float fallingVelocity;
+    public float rayCastHeightOffset = 0.5f;
+    public float rayCastMaxDistance = 1;
+    public LayerMask groundLayer;
+
     public bool isGrounded;
     public bool isJumping;
 
@@ -29,13 +36,16 @@ public class PlayerLocomotion : MonoBehaviour
 
     public void HandleAllMovement()
     {
-        if (playerManager.isInteracting)
+        HandleFallingAndLanding();
+        if (playerManager.isInteracting || isJumping)
             return;
+        
         HandleMovement();
         HandleRotation();
     }
     private void HandleMovement()
     {
+       
         moveDirection = cameraObject.forward * inputManager.verticalInput;
         moveDirection = moveDirection + cameraObject.right * inputManager.horizontalInput;
         moveDirection.Normalize();
@@ -48,8 +58,7 @@ public class PlayerLocomotion : MonoBehaviour
 
     private void HandleRotation()
     {
-        if (isJumping)
-            return;
+        
         Vector3 targetDirection = Vector3.zero;
         targetDirection = cameraObject.forward * inputManager.verticalInput;
         targetDirection = targetDirection + cameraObject.right * inputManager.horizontalInput;
@@ -65,7 +74,29 @@ public class PlayerLocomotion : MonoBehaviour
         transform.rotation = playerRotation;
     }
 
-    public void HandleJumping()
+    private void HandleFallingAndLanding()
+    {
+        RaycastHit hit;
+        Vector3 rayCastOrigin = transform.position;
+        rayCastOrigin.y = rayCastOrigin.y + rayCastHeightOffset;
+        
+
+       if(Physics.SphereCast(rayCastOrigin, 0.5f, -Vector3.up, out hit, rayCastMaxDistance, groundLayer))
+        {
+            inAirTimer = 0;
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+        }
+
+        inAirTimer = inAirTimer + Time.deltaTime;
+        PlayerRB.AddForce(transform.up * leapingVelocity);
+        PlayerRB.AddForce(-Vector3.up * fallingVelocity * inAirTimer);
+    }
+
+   public void HandleJumping()
     {
         if(isGrounded)
         {
