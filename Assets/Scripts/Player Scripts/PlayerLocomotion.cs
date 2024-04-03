@@ -6,20 +6,31 @@ using UnityEngine;
 public class PlayerLocomotion : MonoBehaviour
 {
     InputManager inputManager;
+    PlayerManager playerManager;
 
     Vector3 moveDirection;
     [SerializeField]Transform cameraObject;
     Rigidbody PlayerRB;
+
     public float moveSpeed = 7;
     public float rotationSpeed = 15;
+
+    public bool isGrounded;
+    public bool isJumping;
+
+    public float jumpHeight = 3;
+    public float gravityIntensity = -15;
     public void Awake()
     {
+        playerManager = GetComponent<PlayerManager>();
         inputManager = GetComponent<InputManager>();
         PlayerRB = GetComponent<Rigidbody>();
     }
 
     public void HandleAllMovement()
     {
+        if (playerManager.isInteracting)
+            return;
         HandleMovement();
         HandleRotation();
     }
@@ -37,6 +48,8 @@ public class PlayerLocomotion : MonoBehaviour
 
     private void HandleRotation()
     {
+        if (isJumping)
+            return;
         Vector3 targetDirection = Vector3.zero;
         targetDirection = cameraObject.forward * inputManager.verticalInput;
         targetDirection = targetDirection + cameraObject.right * inputManager.horizontalInput;
@@ -50,6 +63,17 @@ public class PlayerLocomotion : MonoBehaviour
         Quaternion playerRotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
         transform.rotation = playerRotation;
+    }
+
+    public void HandleJumping()
+    {
+        if(isGrounded)
+        {
+            float jumpingVelocity = Mathf.Sqrt(-2 * gravityIntensity * jumpHeight);
+            Vector3 playerVelocity = moveDirection;
+            playerVelocity.y = jumpingVelocity;
+            PlayerRB.velocity = playerVelocity;
+        }
     }
 
 }

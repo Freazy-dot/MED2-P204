@@ -5,6 +5,7 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     PlayerInputMaster playerInput;
+    PlayerLocomotion playerLocomotion;
 
     public Vector2 movementInput;
     public Vector2 cameraInput;
@@ -14,6 +15,8 @@ public class InputManager : MonoBehaviour
 
     public float verticalInput;
     public float horizontalInput;
+
+    public bool jumpInput;
     private void OnEnable()
     {
         if (playerInput == null)
@@ -24,6 +27,8 @@ public class InputManager : MonoBehaviour
 
             playerInput.Player.Move.canceled += i => movementInput = Vector2.zero;
             playerInput.Player.Look.performed += i => cameraInput = i.ReadValue<Vector2>();
+
+            playerInput.Player.Jump.performed += i => jumpInput = true;
         }
 
         playerInput.Enable();
@@ -37,6 +42,7 @@ public class InputManager : MonoBehaviour
     public void HandleAllInputs()
     {
         HandleMovementInput();
+        HandleJumpingInput();
     }
 
     private void HandleMovementInput()
@@ -46,5 +52,14 @@ public class InputManager : MonoBehaviour
 
         cameraInputX = cameraInput.x;
         cameraInputY = cameraInput.y;
+    }
+
+    private void HandleJumpingInput()
+    {
+        if (jumpInput)
+        {
+            jumpInput = false;
+            playerLocomotion.HandleJumping();
+        }
     }
 }

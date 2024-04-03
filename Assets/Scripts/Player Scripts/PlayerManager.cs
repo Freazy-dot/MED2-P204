@@ -9,9 +9,12 @@ public class PlayerManager : MonoBehaviour
     CameraManager cameraManager;
     PlayerLocomotion playerLocomotion;
 
+    public bool isInteracting;
+
     // Start is called before the first frame update
     private void Awake()
     {
+
         inputManager = GetComponent<InputManager>();
         cameraManager = FindObjectOfType<CameraManager>();
         playerLocomotion = GetComponent<PlayerLocomotion>();

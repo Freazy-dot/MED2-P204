@@ -2819,7 +2819,6 @@ MonoBehaviour:
   collisionLayers:
     serializedVersion: 2
     m_Bits: 320
-  defaultPosition: 0
   cameraCollsionOffset: 0.2
   minimumCollisionOffset: 0.2
   cameraCollisionRadius: 2
@@ -5700,6 +5699,10 @@ MonoBehaviour:
   cameraObject: {fileID: 113957672}
   moveSpeed: 7
   rotationSpeed: 15
+  isGrounded: 0
+  isJumping: 0
+  jumpHeight: 3
+  gravityIntensity: -15
 --- !u!114 &1687624822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5730,6 +5733,7 @@ MonoBehaviour:
   cameraInputY: 0
   verticalInput: 0
   horizontalInput: 0
+  jumpInput: 0
 --- !u!136 &1687624825
 CapsuleCollider:
   m_ObjectHideFlags: 0
