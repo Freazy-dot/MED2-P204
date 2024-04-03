@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
@@ -17,6 +18,12 @@ public class InputManager : MonoBehaviour
     public float horizontalInput;
 
     public bool jumpInput;
+    
+    
+    private void Awake()
+    {
+        playerLocomotion = GetComponent<PlayerLocomotion>();
+    }   
     private void OnEnable()
     {
         if (playerInput == null)
@@ -54,7 +61,7 @@ public class InputManager : MonoBehaviour
         cameraInputY = cameraInput.y;
     }
 
-   private void HandleJumpingInput()
+    private void HandleJumpingInput()
     {
         if (jumpInput)
         {

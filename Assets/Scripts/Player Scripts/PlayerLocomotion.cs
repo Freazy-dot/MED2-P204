@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerLocomotion : MonoBehaviour
@@ -9,8 +8,10 @@ public class PlayerLocomotion : MonoBehaviour
     PlayerManager playerManager;
 
     Vector3 moveDirection;
+    Vector3 playerVelocity;
     [SerializeField]Transform cameraObject;
-    Rigidbody PlayerRB;
+    [SerializeField]Rigidbody PlayerRB;
+   
 
     public float moveSpeed = 7;
     public float rotationSpeed = 15;
@@ -32,14 +33,14 @@ public class PlayerLocomotion : MonoBehaviour
         playerManager = GetComponent<PlayerManager>();
         inputManager = GetComponent<InputManager>();
         PlayerRB = GetComponent<Rigidbody>();
+        
     }
 
     public void HandleAllMovement()
     {
         HandleFallingAndLanding();
-        if (playerManager.isInteracting || isJumping)
+        if (isJumping)
             return;
-        
         HandleMovement();
         HandleRotation();
     }
@@ -58,7 +59,6 @@ public class PlayerLocomotion : MonoBehaviour
 
     private void HandleRotation()
     {
-        
         Vector3 targetDirection = Vector3.zero;
         targetDirection = cameraObject.forward * inputManager.verticalInput;
         targetDirection = targetDirection + cameraObject.right * inputManager.horizontalInput;
@@ -79,9 +79,14 @@ public class PlayerLocomotion : MonoBehaviour
         RaycastHit hit;
         Vector3 rayCastOrigin = transform.position;
         rayCastOrigin.y = rayCastOrigin.y + rayCastHeightOffset;
-        
 
-       if(Physics.SphereCast(rayCastOrigin, 0.5f, -Vector3.up, out hit, rayCastMaxDistance, groundLayer))
+        if (!isGrounded && !isJumping)
+            { 
+            inAirTimer = inAirTimer + Time.deltaTime;
+            PlayerRB.AddForce(transform.up * leapingVelocity);
+            PlayerRB.AddForce(-Vector3.up * fallingVelocity * inAirTimer);
+            }
+        if (Physics.SphereCast(rayCastOrigin, 0.5f, -Vector3.up, out hit, rayCastMaxDistance, groundLayer))
         {
             inAirTimer = 0;
             isGrounded = true;
@@ -91,20 +96,23 @@ public class PlayerLocomotion : MonoBehaviour
             isGrounded = false;
         }
 
-        inAirTimer = inAirTimer + Time.deltaTime;
-        PlayerRB.AddForce(transform.up * leapingVelocity);
-        PlayerRB.AddForce(-Vector3.up * fallingVelocity * inAirTimer);
+       
     }
 
    public void HandleJumping()
     {
-        if(isGrounded)
-        {
-            float jumpingVelocity = Mathf.Sqrt(-2 * gravityIntensity * jumpHeight);
-            Vector3 playerVelocity = moveDirection;
-            playerVelocity.y = jumpingVelocity;
-            PlayerRB.velocity = playerVelocity;
-        }
+        StartCoroutine(JumpEvent());
+    }
+
+    IEnumerator JumpEvent()
+    {
+        PlayerRB.velocity = new Vector3(PlayerRB.velocity.x, 0, PlayerRB.velocity.z);
+        float jumpVelocity = Mathf.Sqrt(-2 * gravityIntensity * jumpHeight);
+        PlayerRB.AddForce(transform.up * jumpVelocity, ForceMode.VelocityChange);
+        isGrounded = false;
+        isJumping = true;
+        yield return new WaitForSeconds(0.5f);
+        isJumping = false;
     }
 
 }
