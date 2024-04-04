@@ -39,8 +39,6 @@ public class PlayerLocomotion : MonoBehaviour
     public void HandleAllMovement()
     {
         HandleFallingAndLanding();
-        if (isJumping)
-            return;
         HandleMovement();
         HandleRotation();
     }

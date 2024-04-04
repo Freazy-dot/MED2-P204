@@ -7,7 +7,7 @@ public class InputManager : MonoBehaviour
 {
     PlayerInputMaster playerInput;
     PlayerLocomotion playerLocomotion;
-
+    PlayerInteraction playerInteraction;
     public Vector2 movementInput;
     public Vector2 cameraInput;
 
@@ -23,6 +23,7 @@ public class InputManager : MonoBehaviour
     private void Awake()
     {
         playerLocomotion = GetComponent<PlayerLocomotion>();
+        playerInteraction = GetComponent<PlayerInteraction>();
     }   
     private void OnEnable()
     {
@@ -34,6 +35,8 @@ public class InputManager : MonoBehaviour
 
             playerInput.Player.Move.canceled += i => movementInput = Vector2.zero;
             playerInput.Player.Look.performed += i => cameraInput = i.ReadValue<Vector2>();
+
+            playerInput.Player.Interact.performed += i => HandleInteraction();
 
             playerInput.Player.Jump.performed += i => jumpInput = true;
         }
@@ -68,5 +71,10 @@ public class InputManager : MonoBehaviour
             jumpInput = false;
             playerLocomotion.HandleJumping();
         }
+    }
+
+    private void HandleInteraction()
+    {
+        playerInteraction.Interact(3);
     }
 }
