@@ -6,6 +6,8 @@ TagManager:
   tags:
   - VRCamera
   - PCCamera
+  - whatIsVRGround
+  - whatIsPCGround
   layers:
   - Default
   - TransparentFX
@@ -17,8 +19,8 @@ TagManager:
   - VRplayer
   - Walls
   - 
-  - whatIsGround
-  - 
+  - whatIsPCGround
+  - whatIsVRGround
   - 
   - 
   - 
