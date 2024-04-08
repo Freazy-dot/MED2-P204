@@ -45,7 +45,7 @@ public class PlayerLocomotion : MonoBehaviour
         HandleMovement();
         HandleRotation();
     }
-    ¨//Handles the movement of the player
+    //Handles the movement of the player
     private void HandleMovement()
     {
        

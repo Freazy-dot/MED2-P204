@@ -6,9 +6,13 @@ public class PlayerInteraction : MonoBehaviour , IInteractable
 {
     PlayerInventory playerInventory;
 
-    public void Awake()
+    public void Start()
     {
         playerInventory = GetComponent<PlayerInventory>();
+        if (playerInventory == null)
+        {
+            Debug.LogWarning("PlayerInventory component not found on PlayerInteraction script.");
+        }
     }
 
     public void Interact(int objectType, GameObject gameObject)
@@ -37,6 +41,7 @@ public class PlayerInteraction : MonoBehaviour , IInteractable
     {
         playerInventory.AddBattery();
         Debug.Log("Equipping object");
+        Destroy(gameObject);
     }
 
     public void UnequipBattery()

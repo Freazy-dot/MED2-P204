@@ -8,6 +8,9 @@ TagManager:
   - PCCamera
   - whatIsVRGround
   - whatIsPCGround
+  - Battery
+  - BatterySlot
+  - MiscellaneousInteractable
   layers:
   - Default
   - TransparentFX
