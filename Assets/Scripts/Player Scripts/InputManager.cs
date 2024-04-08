@@ -78,9 +78,29 @@ public class InputManager : MonoBehaviour
             playerLocomotion.HandleJumping();
         }
     }
+<<<<<<< Updated upstream
     //Handles the interaction input by calling the Interact method in the PlayerInteraction script
     private void HandleInteraction()
+=======
+
+private void HandleInteraction()
+>>>>>>> Stashed changes
     {
-        playerInteraction.Interact(3);
+    // Create a ray that starts at the player's position and points forward
+    Ray ray = new Ray(transform.position, transform.forward);
+    RaycastHit hit;
+
+        // Perform the raycast
+        if (Physics.Raycast(ray, out hit, 5f))
+        {
+            // Check if the object hit has the ObjectType component
+            ObjectType objectType = hit.collider.gameObject.GetComponent<ObjectType>();
+            if (objectType != null)
+            {
+                int type = objectType.objectType;
+                Debug.Log($"Object of type {type} is within 5 meters in front of the player");
+                playerInteraction.Interact(type, hit.collider.gameObject);
+            }
+        }
     }
 }
