@@ -78,13 +78,8 @@ public class InputManager : MonoBehaviour
             playerLocomotion.HandleJumping();
         }
     }
-<<<<<<< Updated upstream
     //Handles the interaction input by calling the Interact method in the PlayerInteraction script
-    private void HandleInteraction()
-=======
-
 private void HandleInteraction()
->>>>>>> Stashed changes
     {
     // Create a ray that starts at the player's position and points forward
     Ray ray = new Ray(transform.position, transform.forward);
