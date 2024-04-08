@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -555,9 +555,9 @@ GameObject:
   - component: {fileID: 39237150}
   - component: {fileID: 39237149}
   - component: {fileID: 39237148}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: whatIsPCGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3712,9 +3712,9 @@ GameObject:
   - component: {fileID: 1311639212}
   - component: {fileID: 1311639211}
   - component: {fileID: 1311639210}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane (2)
-  m_TagString: Untagged
+  m_TagString: whatIsPCGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3923,9 +3923,9 @@ GameObject:
   - component: {fileID: 1356591715}
   - component: {fileID: 1356591714}
   - component: {fileID: 1356591713}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane (3)
-  m_TagString: Untagged
+  m_TagString: whatIsPCGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5694,9 +5694,9 @@ GameObject:
   - component: {fileID: 1755449174}
   - component: {fileID: 1755449173}
   - component: {fileID: 1755449172}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane (1)
-  m_TagString: Untagged
+  m_TagString: whatIsPCGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6483,17 +6483,69 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1674572364828523584, guid: 9d459b3fb64d1fa4b8e15ffb2ef5e29f, type: 3}
+      propertyPath: m_Drag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1674572364828523584, guid: 9d459b3fb64d1fa4b8e15ffb2ef5e29f, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1674572364828523584, guid: 9d459b3fb64d1fa4b8e15ffb2ef5e29f, type: 3}
+      propertyPath: m_AngularDrag
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853322528574033399, guid: 9d459b3fb64d1fa4b8e15ffb2ef5e29f, type: 3}
+      propertyPath: jumpHeight
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 1853322528574033399, guid: 9d459b3fb64d1fa4b8e15ffb2ef5e29f, type: 3}
       propertyPath: cameraObject
       value: 
       objectReference: {fileID: 113957672}
+    - target: {fileID: 1853322528574033399, guid: 9d459b3fb64d1fa4b8e15ffb2ef5e29f, type: 3}
+      propertyPath: fallMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853322528574033399, guid: 9d459b3fb64d1fa4b8e15ffb2ef5e29f, type: 3}
+      propertyPath: fallingVelocity
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853322528574033399, guid: 9d459b3fb64d1fa4b8e15ffb2ef5e29f, type: 3}
+      propertyPath: leapingVelocity
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853322528574033399, guid: 9d459b3fb64d1fa4b8e15ffb2ef5e29f, type: 3}
+      propertyPath: gravityIntensity
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853322528574033399, guid: 9d459b3fb64d1fa4b8e15ffb2ef5e29f, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 1025
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853322528574033399, guid: 9d459b3fb64d1fa4b8e15ffb2ef5e29f, type: 3}
+      propertyPath: rayCastHeightOffset
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447841446360605620, guid: 9d459b3fb64d1fa4b8e15ffb2ef5e29f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447841446360605620, guid: 9d459b3fb64d1fa4b8e15ffb2ef5e29f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447841446360605620, guid: 9d459b3fb64d1fa4b8e15ffb2ef5e29f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6447841446360605620, guid: 9d459b3fb64d1fa4b8e15ffb2ef5e29f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6447841446360605620, guid: 9d459b3fb64d1fa4b8e15ffb2ef5e29f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.51
+      value: 15.78
       objectReference: {fileID: 0}
     - target: {fileID: 6447841446360605620, guid: 9d459b3fb64d1fa4b8e15ffb2ef5e29f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6526,6 +6578,10 @@ PrefabInstance:
     - target: {fileID: 6447841446360605620, guid: 9d459b3fb64d1fa4b8e15ffb2ef5e29f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447841446360605620, guid: 9d459b3fb64d1fa4b8e15ffb2ef5e29f, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7253897597902174213, guid: 9d459b3fb64d1fa4b8e15ffb2ef5e29f, type: 3}
       propertyPath: m_Name

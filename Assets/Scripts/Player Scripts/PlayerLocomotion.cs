@@ -9,9 +9,9 @@ public class PlayerLocomotion : MonoBehaviour
 
     Vector3 moveDirection; //The direction the player is moving in
     Vector3 playerVelocity; //The velocity of the player
-    [SerializeField]Transform cameraObject; //Reference to the camera object
-    [SerializeField]Rigidbody PlayerRB; //Reference to the rigidbody component
-   
+    [SerializeField] Transform cameraObject; //Reference to the camera object
+    [SerializeField] Rigidbody PlayerRB; //Reference to the rigidbody component
+
 
     public float moveSpeed = 7; //The speed the player is moving at
     public float rotationSpeed = 15; //The speed the player is rotating at
@@ -26,7 +26,7 @@ public class PlayerLocomotion : MonoBehaviour
     public bool isGrounded; //Bool for if the player is grounded
     public bool isJumping; //Bool for if the player is jumping
 
-    public float jumpHeight = 3; //The height of the jump
+    public float jumpHeight; //The height of the jump
     public float gravityIntensity = -15; //The intensity of the gravity
 
     // Awake is called when the script instance is being loaded
@@ -36,7 +36,7 @@ public class PlayerLocomotion : MonoBehaviour
         playerManager = GetComponent<PlayerManager>();
         inputManager = GetComponent<InputManager>();
         PlayerRB = GetComponent<Rigidbody>();
-        
+
     }
     //Handles all movement of the PC Player
     public void HandleAllMovement()
@@ -48,7 +48,6 @@ public class PlayerLocomotion : MonoBehaviour
     //Handles the movement of the player
     private void HandleMovement()
     {
-       
         moveDirection = cameraObject.forward * inputManager.verticalInput;
         moveDirection = moveDirection + cameraObject.right * inputManager.horizontalInput;
         moveDirection.Normalize();
@@ -64,7 +63,7 @@ public class PlayerLocomotion : MonoBehaviour
         Vector3 targetDirection = Vector3.zero;
         targetDirection = cameraObject.forward * inputManager.verticalInput;
         targetDirection = targetDirection + cameraObject.right * inputManager.horizontalInput;
-        targetDirection.Normalize();    
+        targetDirection.Normalize();
         targetDirection.y = 0;
 
         if (targetDirection == Vector3.zero)
@@ -83,11 +82,11 @@ public class PlayerLocomotion : MonoBehaviour
         rayCastOrigin.y = rayCastOrigin.y + rayCastHeightOffset;
 
         if (!isGrounded && !isJumping)
-            { 
+        {
             inAirTimer = inAirTimer + Time.deltaTime;
             PlayerRB.AddForce(transform.up * leapingVelocity);
             PlayerRB.AddForce(-Vector3.up * fallingVelocity * inAirTimer);
-            }
+        }
         if (Physics.SphereCast(rayCastOrigin, 0.5f, -Vector3.up, out hit, rayCastMaxDistance, groundLayer))
         {
             inAirTimer = 0;
@@ -97,25 +96,55 @@ public class PlayerLocomotion : MonoBehaviour
         {
             isGrounded = false;
         }
-
-       
     }
 
-   public void HandleJumping()
+    public void HandleJumping()
     {
         if (isGrounded)
-        StartCoroutine(JumpEvent());
+        {
+            // Calculate the initial jump velocity based on the desired jump height and gravity
+            float jumpVelocity = Mathf.Sqrt(-2 * gravityIntensity * jumpHeight);
+
+            // Set the initial vertical velocity of the player
+            playerVelocity.y = jumpVelocity;
+
+            // Calculate the time it takes to reach the peak of the jump
+            float timeToPeak = Mathf.Abs(jumpVelocity / gravityIntensity);
+
+            // Calculate the time it takes to fall back down
+            float timeToFall = Mathf.Sqrt(2 * jumpHeight / -gravityIntensity);
+
+            // Set the total air time for the jump
+            float totalAirTime = timeToPeak + timeToFall;
+
+            // Adjust the total air time to make the jump finish faster
+            totalAirTime *= 0.2f; // Change this value to adjust the jump duration
+
+            // Apply the jump velocity over the total air time
+            StartCoroutine(JumpCoroutine(totalAirTime));
+        }
     }
 
-    IEnumerator JumpEvent()
+    IEnumerator JumpCoroutine(float totalAirTime)
     {
-        PlayerRB.velocity = new Vector3(PlayerRB.velocity.x, 0, PlayerRB.velocity.z);
-        float jumpVelocity = Mathf.Sqrt(-2 * gravityIntensity * jumpHeight);
-        PlayerRB.AddForce(transform.up * jumpVelocity, ForceMode.VelocityChange);
-        isGrounded = false;
+    
         isJumping = true;
-        yield return new WaitForSeconds(0.5f);
+
+        float timeInAir = 0;
+
+        while (timeInAir < totalAirTime)
+        {
+            float normalizedTime = timeInAir / totalAirTime;
+
+            float jumpForce = Mathf.Lerp(jumpHeight, 0, normalizedTime);
+
+            PlayerRB.AddForce(transform.up * jumpForce);
+
+            timeInAir += Time.deltaTime;
+
+            yield return null;
+        }
+
         isJumping = false;
     }
-
 }
