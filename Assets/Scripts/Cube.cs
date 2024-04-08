@@ -6,12 +6,12 @@ public class Cube : MonoBehaviour
 
 
 {
-    InstantiateCubes instantiateCubes;
+    InstantiateCubes instantiateCubes; //Reference to the InstantiateCubes script
 
-    private Rigidbody _rb;
-    private Vector3 spawnPosition;
+    private Rigidbody _rb; //Reference to the rigidbody component
+    private Vector3 spawnPosition; //The spawn position of the cube, Called in start
 
-
+    //Rigidbody property, makes sure that the rigidbody is not null
     public Rigidbody Rb
     {         
         get
@@ -24,13 +24,14 @@ public class Cube : MonoBehaviour
             return _rb;
         }
     }
-    // Start is called before the first frame update
+  
     void Start()
     {
         _rb = GetComponent<Rigidbody>();   
         spawnPosition = transform.position;
     }
 
+    //On Collision with the ground, the cube will be reset to its spawn position
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("whatIsVRGround"))

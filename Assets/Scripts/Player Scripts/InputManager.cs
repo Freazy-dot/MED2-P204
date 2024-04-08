@@ -5,26 +5,30 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
-    PlayerInputMaster playerInput;
-    PlayerLocomotion playerLocomotion;
-    PlayerInteraction playerInteraction;
-    public Vector2 movementInput;
-    public Vector2 cameraInput;
+    PlayerInputMaster playerInput; //Reference to the PlayerInputMaster script
+    PlayerLocomotion playerLocomotion; //Reference to the PlayerLocomotion script
+    PlayerInteraction playerInteraction; //Reference to the PlayerInteraction script
+    public Vector2 movementInput; //Vector2 for the movement input
+    public Vector2 cameraInput; //Vector2 for the camera input
 
-    public float cameraInputX;
-    public float cameraInputY;
+    public float cameraInputX; //Float for the camera input on the x axis
+    public float cameraInputY; //Float for the camera input on the y axis
 
-    public float verticalInput;
-    public float horizontalInput;
+    public float verticalInput; //Float for the vertical input
+    public float horizontalInput; //Float for the horizontal input
 
-    public bool jumpInput;
+    public bool jumpInput; //Bool for the jump input
     
-    
+    // Awake is called when the script instance is being loaded
+    //Sets the references to the PlayerLocomotion and PlayerInteraction scripts
     private void Awake()
     {
         playerLocomotion = GetComponent<PlayerLocomotion>();
         playerInteraction = GetComponent<PlayerInteraction>();
     }   
+
+    //OnEnable is called when the object becomes enabled and active
+    //Sets up the player input
     private void OnEnable()
     {
         if (playerInput == null)
@@ -43,18 +47,20 @@ public class InputManager : MonoBehaviour
 
         playerInput.Enable();
     }
-
+    //OnDisable is called when the behaviour becomes disabled
+    //Disables the player input
     private void OnDisable()
     {
         playerInput.Disable();
     }
-
+    //Handles all inputs
+    //Calls the HandleMovementInput and HandleJumpingInput methods
     public void HandleAllInputs()
     {
        HandleMovementInput();
        HandleJumpingInput();
     }
-
+    //Handles the movement input by setting the vertical and horizontal input to the y and x values of the movement input
     private void HandleMovementInput()
     {
         verticalInput = movementInput.y;
@@ -63,7 +69,7 @@ public class InputManager : MonoBehaviour
         cameraInputX = cameraInput.x;
         cameraInputY = cameraInput.y;
     }
-
+    //Handles the jumping input by calling the HandleJumping method in the PlayerLocomotion script
     private void HandleJumpingInput()
     {
         if (jumpInput)
@@ -72,7 +78,7 @@ public class InputManager : MonoBehaviour
             playerLocomotion.HandleJumping();
         }
     }
-
+    //Handles the interaction input by calling the Interact method in the PlayerInteraction script
     private void HandleInteraction()
     {
         playerInteraction.Interact(3);

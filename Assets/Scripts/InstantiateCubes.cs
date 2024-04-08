@@ -7,14 +7,15 @@ using Random = UnityEngine.Random;
 
 public class InstantiateCubes : MonoBehaviour
 {
-    public CubeSpawnPoints[] cubeSpawnPoints;
+    public CubeSpawnPoints[] cubeSpawnPoints; //Array of CubeSpawnPoints, which is set in the inspector
     
-    // Start is called before the first frame update
+    // Awake is called when the script instance is being loaded
+    //Calls the SpawnCube method
     void Awake()
     {
         SpawnCube();
     }
-
+    //Spawns the cube for each spawn point
     private void SpawnCube()
     {
         foreach (CubeSpawnPoints cubeSpawnPoint in cubeSpawnPoints)
@@ -28,10 +29,10 @@ public class InstantiateCubes : MonoBehaviour
 [Serializable]
 public class CubeSpawnPoints
 {
-    public Transform spawnPoint;
-    public GameObject[] cubePrefab;
+    public Transform spawnPoint; //The spawn point of the cube
+    public GameObject[] cubePrefab; //Array of cube prefabs
     [HideInInspector]public Cube cube;
-    
+    //check if the cube can be spawned
     public bool CanSpawnCube
     {
         get
@@ -52,7 +53,7 @@ public class CubeSpawnPoints
             return true;
         }
     }
-
+    //Spawn the cube
     public void SpawnCube()
     {
         if (CanSpawnCube)
