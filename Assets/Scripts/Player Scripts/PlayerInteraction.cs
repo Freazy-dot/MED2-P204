@@ -37,11 +37,10 @@ public class PlayerInteraction : MonoBehaviour , IInteractable
         }
     }
 
-    public void EquipBattery(GameObject gameObject) // equipping of battery needs implementation
+    public void EquipBattery(GameObject gameObject)
     {
-        playerInventory.AddBattery();
+        playerInventory.AddBattery(gameObject);
         Debug.Log("Equipping object");
-        Destroy(gameObject);
     }
 
     public void UnequipBattery()

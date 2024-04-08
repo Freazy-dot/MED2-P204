@@ -25,6 +25,9 @@ public class InputManager : MonoBehaviour
     {
         playerLocomotion = GetComponent<PlayerLocomotion>();
         playerInteraction = GetComponent<PlayerInteraction>();
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }   
 
     //OnEnable is called when the object becomes enabled and active
@@ -93,7 +96,7 @@ private void HandleInteraction()
             if (objectType != null)
             {
                 int type = objectType.objectType;
-                Debug.Log($"Object of type {type} is within 5 meters in front of the player");
+                Debug.Log($"Object of type {type}");
                 playerInteraction.Interact(type, hit.collider.gameObject);
             }
         }
