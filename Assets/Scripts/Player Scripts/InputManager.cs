@@ -13,6 +13,7 @@ public class InputManager : MonoBehaviour
 
     public float cameraInputX; //Float for the camera input on the x axis
     public float cameraInputY; //Float for the camera input on the y axis
+    [SerializeField] Transform playerCamera; //Reference to the camera
 
     public float verticalInput; //Float for the vertical input
     public float horizontalInput; //Float for the horizontal input
@@ -25,6 +26,7 @@ public class InputManager : MonoBehaviour
     {
         playerLocomotion = GetComponent<PlayerLocomotion>();
         playerInteraction = GetComponent<PlayerInteraction>();
+        playerCamera = GameObject.FindWithTag("PCCamera").GetComponent<Camera>().transform;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -82,23 +84,38 @@ public class InputManager : MonoBehaviour
         }
     }
     //Handles the interaction input by calling the Interact method in the PlayerInteraction script
-private void HandleInteraction()
+    private void HandleInteraction()
     {
-    // Create a ray that starts at the player's position and points forward
-    Ray ray = new Ray(transform.position, transform.forward);
-    RaycastHit hit;
+        // Create a ray that starts at the camera's position and points in the direction the camera is facing
+        Ray cameraRay = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
+        RaycastHit cameraHit;
+
+        // Perform the raycast with a range of 20 units
+        if (!Physics.Raycast(cameraRay, out cameraHit, 20f)) {
+            Debug.Log("Camera ray hit nothing");
+            return;
+        }
+
+        // Create a ray that starts at the player's position and points towards the point where the camera ray hit
+        Vector3 playerToCameraHit = cameraHit.point - transform.position;
+        Ray playerRay = new Ray(transform.position, playerToCameraHit);
+        RaycastHit playerHit;
+
+        // Check if the hit point is within a 120 degree cone in front of the player
+        if (Vector3.Angle(transform.forward, playerToCameraHit) > 60f) return;
 
         // Perform the raycast
-        if (Physics.Raycast(ray, out hit, 5f))
-        {
-            // Check if the object hit has the ObjectType component
-            ObjectType objectType = hit.collider.gameObject.GetComponent<ObjectType>();
-            if (objectType != null)
-            {
-                int type = objectType.objectType;
-                Debug.Log($"Object of type {type}");
-                playerInteraction.Interact(type, hit.collider.gameObject);
-            }
+        if (!Physics.Raycast(playerRay, out playerHit, playerToCameraHit.magnitude)) {
+            Debug.Log("Player ray hit nothing");
+            return;
         }
+
+        // Check if the object hit has the ObjectType component
+        ObjectType objectType = playerHit.collider.gameObject.GetComponent<ObjectType>();
+        if (objectType == null) return;
+
+        int type = objectType.objectType;
+        Debug.Log($"Object of type {type}");
+        playerInteraction.Interact(type, playerHit.collider.gameObject);
     }
 }

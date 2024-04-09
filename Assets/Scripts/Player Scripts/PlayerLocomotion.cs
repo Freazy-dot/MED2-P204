@@ -9,7 +9,7 @@ public class PlayerLocomotion : MonoBehaviour
 
     Vector3 moveDirection; //The direction the player is moving in
     Vector3 playerVelocity; //The velocity of the player
-    [SerializeField] Transform cameraObject; //Reference to the camera object
+    [SerializeField] private Transform playerCamera; //Reference to the camera object
     [SerializeField] Rigidbody PlayerRB; //Reference to the rigidbody component
 
 
@@ -37,6 +37,7 @@ public class PlayerLocomotion : MonoBehaviour
         inputManager = GetComponent<InputManager>();
         PlayerRB = GetComponent<Rigidbody>();
 
+        playerCamera = GameObject.FindWithTag("PCCamera").GetComponent<Camera>().transform;
     }
     //Handles all movement of the PC Player
     public void HandleAllMovement()
@@ -48,8 +49,8 @@ public class PlayerLocomotion : MonoBehaviour
     //Handles the movement of the player
     private void HandleMovement()
     {
-        moveDirection = cameraObject.forward * inputManager.verticalInput;
-        moveDirection = moveDirection + cameraObject.right * inputManager.horizontalInput;
+        moveDirection = playerCamera.forward * inputManager.verticalInput;
+        moveDirection = moveDirection + playerCamera.right * inputManager.horizontalInput;
         moveDirection.Normalize();
         moveDirection.y = 0;
         moveDirection = moveDirection * moveSpeed;
@@ -61,8 +62,8 @@ public class PlayerLocomotion : MonoBehaviour
     private void HandleRotation()
     {
         Vector3 targetDirection = Vector3.zero;
-        targetDirection = cameraObject.forward * inputManager.verticalInput;
-        targetDirection = targetDirection + cameraObject.right * inputManager.horizontalInput;
+        targetDirection = playerCamera.forward * inputManager.verticalInput;
+        targetDirection = targetDirection + playerCamera.right * inputManager.horizontalInput;
         targetDirection.Normalize();
         targetDirection.y = 0;
 
