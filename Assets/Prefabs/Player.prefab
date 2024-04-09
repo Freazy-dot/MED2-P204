@@ -250,17 +250,17 @@ MonoBehaviour:
   moveSpeed: 7
   rotationSpeed: 15
   inAirTimer: 0
-  leapingVelocity: 3
-  fallingVelocity: 500
-  rayCastHeightOffset: 0.1
+  leapingVelocity: 30
+  fallingVelocity: 1000
+  rayCastHeightOffset: 0.3
   rayCastMaxDistance: 1
   groundLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 1025
   isGrounded: 0
   isJumping: 0
-  jumpHeight: 3
-  gravityIntensity: -15
+  jumpHeight: 30
+  gravityIntensity: -30
 --- !u!54 &1674572364828523584
 Rigidbody:
   m_ObjectHideFlags: 0
