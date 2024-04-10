@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour
 
-
 {
     InstantiateCubes instantiateCubes; //Reference to the InstantiateCubes script
 
@@ -39,5 +38,10 @@ public class Cube : MonoBehaviour
             transform.position = spawnPosition;
             
         }
+    }
+    public void MoveCube()
+    {
+        Debug.Log("Moving Cube");
+
     }
 }

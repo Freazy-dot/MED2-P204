@@ -11,6 +11,8 @@ TagManager:
   - Battery
   - BatterySlot
   - MiscellaneousInteractable
+  - Door
+  - Cube
   layers:
   - Default
   - TransparentFX
