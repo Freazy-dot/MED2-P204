@@ -10,10 +10,7 @@ public class PlayerInventory : MonoBehaviour
         return batteryCount > 0;
     }
     public void AddBattery(GameObject gameObject) {
-        if (batteryCount >= 2) {
-            Debug.LogWarning("Battery count is at maximum.");
-            return;
-        }
+        
         batteryCount++;
         Debug.Log("Battery added to inventory. Total: " + batteryCount);
     }
