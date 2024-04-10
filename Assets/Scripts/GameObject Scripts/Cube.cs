@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cube : MonoBehaviour
-
+public class Cube : MonoBehaviour, IPowerable
 {
+    public void InteractWithBatteryStation()
+    {
+        MoveCube();
+    }
     InstantiateCubes instantiateCubes; //Reference to the InstantiateCubes script
 
     private Rigidbody _rb; //Reference to the rigidbody component

@@ -5,10 +5,12 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour , IInteractable
 {
     PlayerInventory playerInventory;
-
+    BatteryStation batteryStation;
     public void Start()
     {
+
         playerInventory = GetComponent<PlayerInventory>();
+
         if (playerInventory == null)
         {
             Debug.LogWarning("PlayerInventory component not found on PlayerInteraction script.");
@@ -25,7 +27,7 @@ public class PlayerInteraction : MonoBehaviour , IInteractable
                 break;
             case 1:
                 Debug.Log("Interacting with object type 1 (Place Battery)");
-                PlaceBattery();
+                PlaceBattery(gameObject);
                 break;
             case 2:
                 Debug.Log("Interacting with object type 2 (Miscellaneous)");
@@ -39,7 +41,13 @@ public class PlayerInteraction : MonoBehaviour , IInteractable
 
     public void EquipBattery(GameObject gameObject)
     {
+        if (playerInventory.batteryCount >= 2)
+        {
+            Debug.LogWarning("Battery count is at maximum.");
+            return;
+        }
         playerInventory.AddBattery(gameObject);
+        Destroy(gameObject);
         Debug.Log("Equipping object");
     }
 
@@ -49,13 +57,45 @@ public class PlayerInteraction : MonoBehaviour , IInteractable
         Debug.Log("Unequipping object");
     }
 
-    public void PlaceBattery()
+    public void PlaceBattery(GameObject gameObject)
     {
+        batteryStation = gameObject.GetComponent<BatteryStation>();
+        if (batteryStation.HoldingBattery())
+        {
+            Debug.Log("Battery Station is already full");
+            ReturnBattery();
+            return;
+        }
         if (!playerInventory.HasBattery())
         {
             Debug.LogWarning("No Battery in inventory to place.");
             return;
         }
+        
+       
+        playerInventory.RemoveBattery();
+        
+        if (batteryStation != null)
+        {
+            batteryStation.InsertBattery();
+        }
+        else
+        {
+            Debug.LogWarning("BatteryStation component not found on object.");
+        }
         Debug.Log("Placing object");
+    }
+
+    public void ReturnBattery()
+    {
+        if (playerInventory.batteryCount == 2)
+        {
+            Debug.LogWarning("Inventory full.");
+            return;
+        }
+
+        playerInventory.AddBattery(gameObject);
+        batteryStation.RemoveBattery();
+        Debug.Log("Returning object");
     }
 }

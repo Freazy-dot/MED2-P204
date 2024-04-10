@@ -15,7 +15,6 @@ public class PlayerInventory : MonoBehaviour
             return;
         }
         batteryCount++;
-        Destroy(gameObject);
         Debug.Log("Battery added to inventory. Total: " + batteryCount);
     }
     public void RemoveBattery() {

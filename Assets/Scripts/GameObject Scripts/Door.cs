@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class Door : MonoBehaviour, IPowerable
 {
-  
-   public void OpenDoor()
+    public void InteractWithBatteryStation()
     {
-       Debug.Log("Opening Door");
-   }
+        OpenDoor();
+    }
+
+    public void OpenDoor()
+    {
+        Debug.Log("Opening Door");
+    }
 }
+  

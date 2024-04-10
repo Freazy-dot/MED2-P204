@@ -18,32 +18,32 @@ public class BatteryStation : MonoBehaviour
     {
         return holdingBattery;
     }
+    public void InsertBattery()
+    {
+        holdingBattery = true;
+        PerformAction();
+    }
 
     public void PerformAction()
     {
         if (linkedObject != null)
         {
-            if (linkedObject.CompareTag("Door"))
+         IPowerable powerable = linkedObject.GetComponent<IPowerable>();
+
+            if (powerable != null)
             {
-                linkedObject.GetComponent<Door>().OpenDoor();
+                powerable.InteractWithBatteryStation();
             }
-            else if (linkedObject.CompareTag("Cube"))
+            else
             {
-                linkedObject.GetComponent<Cube>().MoveCube();
+                Debug.LogWarning("No IPowerable interface found on linked object");
             }
         }
         
         else
         {
-            Debug.Log("No linked object");
+            Debug.LogWarning("No linked object");
         }
-    }
-
-    public void InsertBattery()
-    {
-        holdingBattery = true;
-        //playerInteraction.UnequipBattery();
-        PerformAction();
     }
 
     public void RemoveBattery()
