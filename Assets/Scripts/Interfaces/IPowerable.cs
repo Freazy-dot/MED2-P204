@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface IPowerable
 {
-    void InteractWithBatteryStation();
+    void PowerOn();
+    void PowerOff();
 }

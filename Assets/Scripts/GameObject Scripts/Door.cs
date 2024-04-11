@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Door : MonoBehaviour, IPowerable
 {
-    public void InteractWithBatteryStation()
-    {
-        OpenDoor();
-    }
-
-    public void OpenDoor()
+    public void PowerOn()
     {
         Debug.Log("Opening Door");
+    }
+
+    public void PowerOff()
+    {
+        Debug.Log("Closing Door");
     }
 }
   

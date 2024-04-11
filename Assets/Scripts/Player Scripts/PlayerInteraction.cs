@@ -1,26 +1,23 @@
-using System.Collections;
+/* using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInteraction : MonoBehaviour , IInteractable
+public class PlayerInteraction : MonoBehaviour
 {
     PlayerInventory playerInventory;
     BatteryStation batteryStation;
     public void Start()
     {
-
         playerInventory = GetComponent<PlayerInventory>();
 
-        if (playerInventory == null)
-        {
+        if (playerInventory == null) {
             Debug.LogWarning("PlayerInventory component not found on PlayerInteraction script.");
         }
     }
 
     public void Interact(int objectType, GameObject gameObject)
     {
-        switch (objectType)
-        {
+        switch (objectType) {
             case 0:
                 Debug.Log("Interacting with object type 0 (Equip Battery)");
                 EquipBattery(gameObject);
@@ -39,10 +36,9 @@ public class PlayerInteraction : MonoBehaviour , IInteractable
         }
     }
 
-    public void EquipBattery(GameObject gameObject)
+    public void EquipBattery(GameObject gameObject) // implemented in Battery.cs
     {
-        if (playerInventory.batteryCount >= 2)
-        {
+        if (playerInventory.batteryCount >= 2) {
             Debug.LogWarning("Battery count is at maximum.");
             return;
         }
@@ -51,7 +47,7 @@ public class PlayerInteraction : MonoBehaviour , IInteractable
         Debug.Log("Equipping object");
     }
 
-    public void UnequipBattery()
+    public void UnequipBattery() // not implemented
     {
         playerInventory.RemoveBattery();
         Debug.Log("Unequipping object");
@@ -60,14 +56,12 @@ public class PlayerInteraction : MonoBehaviour , IInteractable
     public void PlaceBattery(GameObject gameObject)
     {
         batteryStation = gameObject.GetComponent<BatteryStation>();
-        if (batteryStation.HoldingBattery())
-        {
+        if (batteryStation.HoldingBattery()) {
             Debug.Log("Battery Station is already full");
             ReturnBattery();
             return;
         }
-        if (!playerInventory.HasBattery())
-        {
+        if (!playerInventory.HasBattery()) {
             Debug.LogWarning("No Battery in inventory to place.");
             return;
         }
@@ -75,21 +69,18 @@ public class PlayerInteraction : MonoBehaviour , IInteractable
        
         playerInventory.RemoveBattery();
         
-        if (batteryStation != null)
-        {
+        if (batteryStation != null) {
             batteryStation.InsertBattery();
         }
-        else
-        {
+        else {
             Debug.LogWarning("BatteryStation component not found on object.");
         }
         Debug.Log("Placing object");
-    }
+    } 
 
     public void ReturnBattery()
     {
-        if (playerInventory.batteryCount == 2)
-        {
+        if (playerInventory.batteryCount == 2) {
             Debug.LogWarning("Inventory full.");
             return;
         }
@@ -98,4 +89,4 @@ public class PlayerInteraction : MonoBehaviour , IInteractable
         batteryStation.RemoveBattery();
         Debug.Log("Returning object");
     }
-}
+} */
