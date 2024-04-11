@@ -8,10 +8,8 @@ public class PlayerLocomotion : MonoBehaviour
     PlayerManager playerManager; //Reference to the PlayerManager script
 
     Vector3 moveDirection; //The direction the player is moving in
-    Vector3 playerVelocity; //The velocity of the player
+    CharacterController characterController; //Reference to the CharacterController component
     [SerializeField] private Transform playerCamera; //Reference to the camera object
-    [SerializeField] Rigidbody PlayerRB; //Reference to the rigidbody component
-
 
     public float moveSpeed = 7; //The speed the player is moving at
     public float rotationSpeed = 15; //The speed the player is rotating at
@@ -19,8 +17,10 @@ public class PlayerLocomotion : MonoBehaviour
     public float inAirTimer; //The time the player is in the air
     public float leapingVelocity; //The velocity of the player leaping
     public float fallingVelocity; //The velocity of the player falling
+
     public float rayCastHeightOffset = 0.5f; //The height offset of the raycast
     public float rayCastMaxDistance = 1; // The max distance of the raycast
+
     public LayerMask groundLayer; //The ground layer
 
     public bool isGrounded; //Bool for if the player is grounded
@@ -35,17 +35,21 @@ public class PlayerLocomotion : MonoBehaviour
     {
         playerManager = GetComponent<PlayerManager>();
         inputManager = GetComponent<InputManager>();
-        PlayerRB = GetComponent<Rigidbody>();
+        characterController = GetComponent<CharacterController>();
 
         playerCamera = GameObject.FindWithTag("PCCamera").GetComponent<Camera>().transform;
     }
+
+
     //Handles all movement of the PC Player
     public void HandleAllMovement()
     {
-        HandleFallingAndLanding();
+        CheckGrounded();
         HandleMovement();
         HandleRotation();
+        HandleFallingAndLanding();
     }
+
     //Handles the movement of the player
     private void HandleMovement()
     {
@@ -55,8 +59,7 @@ public class PlayerLocomotion : MonoBehaviour
         moveDirection.y = 0;
         moveDirection = moveDirection * moveSpeed;
 
-        Vector3 movementVelocity = moveDirection;
-        PlayerRB.velocity = movementVelocity;
+        characterController.Move(moveDirection * Time.deltaTime);
     }
 
     private void HandleRotation()
@@ -78,68 +81,57 @@ public class PlayerLocomotion : MonoBehaviour
 
     private void HandleFallingAndLanding()
     {
-        RaycastHit hit;
-        Vector3 rayCastOrigin = transform.position;
-        rayCastOrigin.y = rayCastOrigin.y + rayCastHeightOffset;
-
         if (!isGrounded && !isJumping)
         {
             inAirTimer = inAirTimer + Time.deltaTime;
-            PlayerRB.AddForce(transform.up * leapingVelocity);
-            PlayerRB.AddForce(-Vector3.up * fallingVelocity * inAirTimer);
+            characterController.Move(-Vector3.up * fallingVelocity * inAirTimer * Time.deltaTime);
         }
-        if (Physics.SphereCast(rayCastOrigin, 0.5f, -Vector3.up, out hit, rayCastMaxDistance, groundLayer))
+    }
+
+    private void CheckGrounded()
+    {
+        RaycastHit hit;
+        Vector3 raycastOrigin = transform.position + Vector3.up * rayCastHeightOffset;
+
+        if (Physics.Raycast(raycastOrigin, -Vector3.up, out hit, rayCastMaxDistance, groundLayer))
         {
-            inAirTimer = 0;
             isGrounded = true;
+            inAirTimer = 0;
         }
         else
         {
             isGrounded = false;
         }
+        Debug.DrawRay(raycastOrigin, -Vector3.up * rayCastMaxDistance, Color.red);
     }
 
     public void HandleJumping()
     {
         if (isGrounded)
         {
-            // Calculate the initial jump velocity based on the desired jump height and gravity
             float jumpVelocity = Mathf.Sqrt(-2 * gravityIntensity * jumpHeight);
+            float verticalVelocity = jumpVelocity;
 
-            // Set the initial vertical velocity of the player
-            playerVelocity.y = jumpVelocity;
-
-            // Calculate the time it takes to reach the peak of the jump
             float timeToPeak = Mathf.Abs(jumpVelocity / gravityIntensity);
-
-            // Calculate the time it takes to fall back down
             float timeToFall = Mathf.Sqrt(2 * jumpHeight / -gravityIntensity);
-
-            // Set the total air time for the jump
             float totalAirTime = timeToPeak + timeToFall;
+            totalAirTime *= 0.2f;
 
-            // Adjust the total air time to make the jump finish faster
-            totalAirTime *= 0.2f; // Change this value to adjust the jump duration
-
-            // Apply the jump velocity over the total air time
-            StartCoroutine(JumpCoroutine(totalAirTime));
+            StartCoroutine(JumpCoroutine(totalAirTime, verticalVelocity));
         }
     }
 
-    IEnumerator JumpCoroutine(float totalAirTime)
+    IEnumerator JumpCoroutine(float totalAirTime, float verticalVelocity)
     {
-    
         isJumping = true;
-
         float timeInAir = 0;
 
         while (timeInAir < totalAirTime)
         {
             float normalizedTime = timeInAir / totalAirTime;
-
             float jumpForce = Mathf.Lerp(jumpHeight, 0, normalizedTime);
 
-            PlayerRB.AddForce(transform.up * jumpForce);
+            characterController.Move(Vector3.up * jumpForce * Time.deltaTime);
 
             timeInAir += Time.deltaTime;
 

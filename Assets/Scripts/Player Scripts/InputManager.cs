@@ -18,6 +18,8 @@ public class InputManager : MonoBehaviour
     public float verticalInput; //Float for the vertical input
     public float horizontalInput; //Float for the horizontal input
 
+    public float InteractionRayOffset = 3f; //The offset of the interaction ray
+
     public bool jumpInput; //Bool for the jump input
     
     // Awake is called when the script instance is being loaded
@@ -88,11 +90,11 @@ public class InputManager : MonoBehaviour
     private void HandleInteraction()
     {
         // Create a ray that starts at the player's position and points in the direction the camera is facing
-        Ray ray = new Ray(transform.position, playerCamera.transform.forward);
+        Ray ray = new Ray(transform.position + new Vector3(0f, InteractionRayOffset, 0f), playerCamera.transform.forward);
         RaycastHit hit;
 
         // Perform the raycast with a range of 20 units
-        if (!Physics.Raycast(ray, out hit, 20f)) {
+        if (!Physics.Raycast(ray, out hit, 10f)) {
             Debug.Log("Interaction ray hit nothing");
             return;
         }

@@ -15,26 +15,29 @@ public class BatteryStation : MonoBehaviour, IInteractable
     public void Interact(GameObject player)
     {
         PlayerInventory inventory = player.GetComponent<PlayerInventory>();
+        IPowerable powerable = linkedObject.GetComponent<IPowerable>();
 
-        if (hasBattery) {
-            ReturnBattery(inventory);
-            return;
-        }
-        
-        if (!inventory.HasBattery()) {
-            Debug.Log("No battery in inventory.");
-            return;
-        }
-        
+        // check if the battery station has a linked object
         if (linkedObject == null) {
             Debug.LogWarning("No linked object");
             return;
         }
 
-        IPowerable powerable = linkedObject.GetComponent<IPowerable>();
-
+        // check if the linked object has the IPowerable interface
         if (powerable == null) {
             Debug.LogWarning("No IPowerable interface found on linked object");
+            return;
+        }
+        
+        // check if the battery station already has a battery
+        if (hasBattery) {
+            ReturnBattery(inventory, powerable);
+            return;
+        }
+        
+        // check if the player has a battery
+        if (!inventory.HasBattery()) {
+            Debug.Log("Inventory is Empty.");
             return;
         }
 
@@ -43,17 +46,11 @@ public class BatteryStation : MonoBehaviour, IInteractable
         hasBattery = true;
     }
 
-    public void ReturnBattery(PlayerInventory inventory)
-    {
+    public void ReturnBattery(PlayerInventory inventory, IPowerable powerable)
+    {    
+        // check if the player's inventory is full
         if (inventory.batteryCount >= 2) {
-            Debug.Log("Inventory is full.");
-            return;
-        }
-
-        IPowerable powerable = linkedObject.GetComponent<IPowerable>();
-
-        if (powerable == null) {
-            Debug.LogWarning("No IPowerable interface found on linked object");
+            Debug.Log("Inventory is Full.");
             return;
         }
 
