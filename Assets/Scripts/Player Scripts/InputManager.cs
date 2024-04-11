@@ -94,7 +94,7 @@ public class InputManager : MonoBehaviour
         RaycastHit hit;
 
         // Perform the raycast with a range of 20 units
-        if (!Physics.Raycast(ray, out hit, 20f)) {
+        if (!Physics.Raycast(ray, out hit, 10f)) {
             Debug.Log("Interaction ray hit nothing");
             return;
         }
