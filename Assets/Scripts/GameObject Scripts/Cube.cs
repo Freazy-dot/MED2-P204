@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour, IPowerable
 {
-    public void InteractWithBatteryStation()
+    public void PowerOn() // these two following methods are for testing purposes
     {
-        MoveCube();
+        MoveCube(1);
+    }
+
+    public void PowerOff()
+    {
+        MoveCube(2);
     }
     InstantiateCubes instantiateCubes; //Reference to the InstantiateCubes script
 
@@ -42,9 +47,16 @@ public class Cube : MonoBehaviour, IPowerable
             
         }
     }
-    public void MoveCube()
+    public void MoveCube(int type) //testing purposes
     {
-        Debug.Log("Moving Cube");
-
+        switch (type)
+        {
+            case 1:
+                Debug.Log("Moving Cube");
+                break;
+            case 2:
+                Debug.Log("Unmoving Cube");
+                break;
+        }
     }
 }

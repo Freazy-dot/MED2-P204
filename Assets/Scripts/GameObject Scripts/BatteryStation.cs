@@ -2,53 +2,63 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BatteryStation : MonoBehaviour
+public class BatteryStation : MonoBehaviour, IInteractable
 {
-    public bool holdingBattery = false;
+    public bool hasBattery = false;
     public GameObject linkedObject;
-    //PlayerInteraction playerInteraction;
 
-    private void Awake()
+    public bool HasBattery()
     {
-        //playerInteraction = FindObjectOfType<PlayerInteraction>();
-
+        return hasBattery;
     }
 
-    public bool HoldingBattery()
+    public void Interact(GameObject player)
     {
-        return holdingBattery;
-    }
-    public void InsertBattery()
-    {
-        holdingBattery = true;
-        PerformAction();
-    }
+        PlayerInventory inventory = player.GetComponent<PlayerInventory>();
 
-    public void PerformAction()
-    {
-        if (linkedObject != null)
-        {
-         IPowerable powerable = linkedObject.GetComponent<IPowerable>();
-
-            if (powerable != null)
-            {
-                powerable.InteractWithBatteryStation();
-            }
-            else
-            {
-                Debug.LogWarning("No IPowerable interface found on linked object");
-            }
+        if (hasBattery) {
+            ReturnBattery(inventory);
+            return;
         }
         
-        else
-        {
-            Debug.LogWarning("No linked object");
+        if (!inventory.HasBattery()) {
+            Debug.Log("No battery in inventory.");
+            return;
         }
+        
+        if (linkedObject == null) {
+            Debug.LogWarning("No linked object");
+            return;
+        }
+
+        IPowerable powerable = linkedObject.GetComponent<IPowerable>();
+
+        if (powerable == null) {
+            Debug.LogWarning("No IPowerable interface found on linked object");
+            return;
+        }
+
+        inventory.RemoveBattery();
+        powerable.PowerOn();
+        hasBattery = true;
     }
 
-    public void RemoveBattery()
+    public void ReturnBattery(PlayerInventory inventory)
     {
-        holdingBattery = false;
-        //playerInteraction.EquipBattery(gameObject);
+        if (inventory.batteryCount >= 2) {
+            Debug.Log("Inventory is full.");
+            return;
+        }
+
+        IPowerable powerable = linkedObject.GetComponent<IPowerable>();
+
+        if (powerable == null) {
+            Debug.LogWarning("No IPowerable interface found on linked object");
+            return;
+        }
+
+        inventory.AddBattery();
+        powerable.PowerOff();
+        hasBattery = false;
     }
 }
