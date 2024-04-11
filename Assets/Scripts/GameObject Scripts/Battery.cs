@@ -10,7 +10,7 @@ public class Battery : MonoBehaviour, IInteractable
     {
         PlayerInventory inventory = player.GetComponent<PlayerInventory>();
         if (inventory.batteryCount >= 2) {
-            Debug.LogWarning("Battery count is at maximum.");
+            Debug.LogWarning("Inventory is Full.");
             return;
         }
         inventory.AddBattery();
