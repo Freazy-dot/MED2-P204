@@ -13,7 +13,7 @@ public class Door : MonoBehaviour, IPowerable
 
     public void PowerOn()
     {
-        transform.Translate(Vector3.up * 2f); // Move the object upwards by 2 units
+        transform.Translate(Vector3.up * 4f); // Move the object upwards by 2 units
         Debug.Log("Opening Door");
     }
 

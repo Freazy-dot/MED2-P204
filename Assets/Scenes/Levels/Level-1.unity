@@ -2725,6 +2725,7 @@ GameObject:
   - component: {fileID: 1872949719}
   - component: {fileID: 1872949718}
   - component: {fileID: 1872949717}
+  - component: {fileID: 1872949720}
   m_Layer: 0
   m_Name: Battery_slot
   m_TagString: BatterySlot
@@ -2818,6 +2819,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1872949715}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1872949720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872949715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83caeb072c33ec649892a791ee290f36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasBattery: 0
+  linkedObject: {fileID: 2062954220}
 --- !u!1 &1884290928
 GameObject:
   m_ObjectHideFlags: 0
