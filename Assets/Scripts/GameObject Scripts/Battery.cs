@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Battery : MonoBehaviour, IInteractable
 {
-    // Update is called once per frame
     public void Interact(GameObject player)
     {
         PlayerInventory inventory = player.GetComponent<PlayerInventory>();
