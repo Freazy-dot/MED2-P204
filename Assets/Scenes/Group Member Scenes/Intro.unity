@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TitleScreen: 1
-  targetTime: 11
+  targetTime: 11.8
 --- !u!1 &610688105
 GameObject:
   m_ObjectHideFlags: 0

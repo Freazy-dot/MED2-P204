@@ -7,7 +7,7 @@ public class Scene_Intro_Shift : MonoBehaviour
 {
     
    public int TitleScreen = 1;
-   public float targetTime = 10.8f; 
+   public float targetTime = 11.8f; 
 
         void Update()
         {
