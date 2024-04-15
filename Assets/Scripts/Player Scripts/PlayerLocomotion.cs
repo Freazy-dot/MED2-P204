@@ -6,8 +6,9 @@ public class PlayerLocomotion : MonoBehaviour
 {
     InputManager inputManager; //Reference to the InputManager script
     PlayerManager playerManager; //Reference to the PlayerManager script
+    AnimationManager animationManager; //Reference to the AnimatorManager script
 
-    Vector3 moveDirection; //The direction the player is moving in
+    [HideInInspector]public Vector3 moveDirection; //The direction the player is moving in
     CharacterController characterController; //Reference to the CharacterController component
     [SerializeField] private Transform playerCamera; //Reference to the camera object
 
@@ -36,6 +37,7 @@ public class PlayerLocomotion : MonoBehaviour
         playerManager = GetComponent<PlayerManager>();
         inputManager = GetComponent<InputManager>();
         characterController = GetComponent<CharacterController>();
+        animationManager = GetComponentInChildren<AnimationManager>();
 
         playerCamera = GameObject.FindWithTag("PCCamera").GetComponent<Camera>().transform;
     }
@@ -44,10 +46,12 @@ public class PlayerLocomotion : MonoBehaviour
     //Handles all movement of the PC Player
     public void HandleAllMovement()
     {
+        HandleFallingAndLanding();
+
         CheckGrounded();
         HandleMovement();
         HandleRotation();
-        HandleFallingAndLanding();
+        
     }
 
     //Handles the movement of the player
@@ -83,6 +87,11 @@ public class PlayerLocomotion : MonoBehaviour
     {
         if (!isGrounded && !isJumping)
         {
+            if (!playerManager.isInteracting)
+            {
+                animationManager.PlayTargetAnimation("Ammy|JumpDown", true);
+                
+            }
             inAirTimer = inAirTimer + Time.deltaTime;
             characterController.Move(-Vector3.up * fallingVelocity * inAirTimer * Time.deltaTime);
         }
@@ -95,6 +104,10 @@ public class PlayerLocomotion : MonoBehaviour
 
         if (Physics.Raycast(raycastOrigin, -Vector3.up, out hit, rayCastMaxDistance, groundLayer))
         {
+            if (!isGrounded && !playerManager.isInteracting)
+            {
+                animationManager.PlayTargetAnimation("Ammy|JumpLand", true);
+            }
             isGrounded = true;
             inAirTimer = 0;
         }
@@ -109,6 +122,9 @@ public class PlayerLocomotion : MonoBehaviour
     {
         if (isGrounded)
         {
+            animationManager.animator.SetBool("isJumping", true);
+            animationManager.PlayTargetAnimation("Ammy|JumpUp", true);
+
             float jumpVelocity = Mathf.Sqrt(-2 * gravityIntensity * jumpHeight);
             float verticalVelocity = jumpVelocity;
 

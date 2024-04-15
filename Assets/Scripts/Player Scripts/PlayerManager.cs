@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour
     InputManager inputManager; //Reference to the InputManager script
     CameraManager cameraManager; //Reference to the CameraManager script
     PlayerLocomotion playerLocomotion; //Reference to the PlayerLocomotion script
+    Animator animator;
 
     public bool isInteracting;
 
@@ -15,7 +16,7 @@ public class PlayerManager : MonoBehaviour
     //Sets the references to the InputManager, CameraManager and PlayerLocomotion scripts
     private void Awake()
     {
-
+        animator = GetComponentInChildren<Animator>();  
         inputManager = GetComponent<InputManager>();
         cameraManager = FindObjectOfType<CameraManager>();
         playerLocomotion = GetComponent<PlayerLocomotion>();
@@ -38,5 +39,9 @@ public class PlayerManager : MonoBehaviour
     private void LateUpdate()
     {
         cameraManager.HandleAllCameraMovement();
+
+        isInteracting = animator.GetBool("isInteracting");
+        playerLocomotion.isJumping = animator.GetBool("isJumping");
+        animator.SetBool("isGrounded", playerLocomotion.isGrounded);
     }
 }
