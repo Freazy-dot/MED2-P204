@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TitleScreen: 1
-  targetTime: 11.8
+  targetTime: 12.6
 --- !u!1 &610688105
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,8 +623,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 14.584412, y: 22.91858}
+  m_SizeDelta: {x: 204.1829, y: 154.179}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1486709015
 MonoBehaviour:
@@ -810,7 +810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSounds:
   - name: IntroSound
-    clip: {fileID: 8300000, guid: 4acf86c02c1fa354992d666dbcc5731d, type: 3}
+    clip: {fileID: 8300000, guid: e92a3f1365a3ccf46bd59f73337fe06e, type: 3}
   sfxSounds: []
   musicsource: {fileID: 1798315645}
   sfxsource: {fileID: 1880926527}
