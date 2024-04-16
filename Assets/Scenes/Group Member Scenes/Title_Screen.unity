@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cbf5aa85696e694f97a6664c8c705be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level_1: 1
+  Main_screen: 1
   Options: 2
 --- !u!114 &108398080
 MonoBehaviour:
