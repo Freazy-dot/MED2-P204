@@ -16,9 +16,17 @@ public class PlayerInventory : MonoBehaviour
     public void AddBattery() {
         batteryCount++;
         Debug.Log("Battery added to inventory. Total: " + batteryCount);
+
+        UpdateBatteryVisuals();
     }
     public void RemoveBattery() {
         batteryCount--;
         Debug.Log("Battery removed from inventory. Total: " + batteryCount);
+
+        UpdateBatteryVisuals();
+    }
+
+    public void UpdateBatteryVisuals() {
+        // Update battery visuals here
     }
 }
