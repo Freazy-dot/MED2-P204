@@ -25,7 +25,7 @@ public class AnimationManager : MonoBehaviour
         float snappedVertical = verticalMovement < 0 ? -1 : verticalMovement > 0 ? 1 : 0;
         float snappedHorizontal = horizontalMovement < 0 ? -1 : horizontalMovement > 0 ? 1 : 0;
 
-        animator.SetFloat(vertical, snappedVertical, 0.1f, Time.deltaTime);
-        animator.SetFloat(horizontal, snappedHorizontal, 0.1f, Time.deltaTime);
+        animator.SetFloat(vertical, verticalMovement, 0.1f, Time.deltaTime);
+        animator.SetFloat(horizontal, horizontalMovement, 0.1f, Time.deltaTime);
     }
 }

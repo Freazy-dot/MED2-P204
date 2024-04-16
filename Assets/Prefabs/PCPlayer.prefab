@@ -170,7 +170,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 2, z: 0}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!95 &823951671713102814
 Animator:
   serializedVersion: 5
@@ -204,6 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5d8cd62f5412b24f84def7e6ad73962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1001 &4021313448967034687
 PrefabInstance:
   m_ObjectHideFlags: 0
