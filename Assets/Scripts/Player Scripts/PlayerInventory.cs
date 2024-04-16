@@ -6,6 +6,7 @@ public class PlayerInventory : MonoBehaviour
 {
     public int batteryCount = 0;
     [SerializeField] private int inventorySize = 2;
+    [SerializeField] private List<GameObject> batteryVisuals;
 
     public bool HasBattery() {
         return batteryCount > 0;
@@ -16,9 +17,23 @@ public class PlayerInventory : MonoBehaviour
     public void AddBattery() {
         batteryCount++;
         Debug.Log("Battery added to inventory. Total: " + batteryCount);
+
+        UpdateBatteryVisuals();
     }
     public void RemoveBattery() {
         batteryCount--;
         Debug.Log("Battery removed from inventory. Total: " + batteryCount);
+
+        UpdateBatteryVisuals();
+    }
+
+    public void UpdateBatteryVisuals() {
+        foreach (GameObject batteryVisual in batteryVisuals) {
+            batteryVisual.SetActive(false);
+        }
+
+        for (int i = 0; i < batteryCount; i++) {
+            batteryVisuals[i].SetActive(true);
+        }
     }
 }
