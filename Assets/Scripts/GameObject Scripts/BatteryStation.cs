@@ -49,7 +49,7 @@ public class BatteryStation : MonoBehaviour, IInteractable
     public void ReturnBattery(PlayerInventory inventory, IPowerable powerable)
     {    
         // check if the player's inventory is full
-        if (inventory.batteryCount >= 2) {
+        if (inventory.IsInventoryFull()) {
             Debug.Log("Inventory is Full.");
             return;
         }
