@@ -5,9 +5,13 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     public int batteryCount = 0;
+    [SerializeField] private int inventorySize = 2;
 
     public bool HasBattery() {
         return batteryCount > 0;
+    }
+    public bool IsInventoryFull() {
+        return batteryCount >= inventorySize;
     }
     public void AddBattery() {
         batteryCount++;

@@ -8,7 +8,7 @@ public class Battery : MonoBehaviour, IInteractable
     public void Interact(GameObject player)
     {
         PlayerInventory inventory = player.GetComponent<PlayerInventory>();
-        if (inventory.batteryCount >= 2) {
+        if (inventory.IsInventoryFull()) {
             Debug.LogWarning("Inventory is Full.");
             return;
         }
