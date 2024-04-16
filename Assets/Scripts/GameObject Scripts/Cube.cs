@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour, IPowerable
 {
+    public GameObject PCPlayer; //Reference to the PCPlayer GameObject
+
+    void Awake()
+    {
+        PCPlayer = GameObject.Find("PCPlayer");
+    }
     public void PowerOn() // these two following methods are for testing purposes
     {
         MoveCube(1);
@@ -57,6 +63,26 @@ public class Cube : MonoBehaviour, IPowerable
             case 2:
                 Debug.Log("Unmoving Cube");
                 break;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == PCPlayer)
+        {
+            // Attach the PCPlayer to the cube
+            PCPlayer.transform.parent = transform;
+            Debug.Log("Player is on the cube");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == PCPlayer)
+        {
+            // Detach the PCPlayer from the cube
+            PCPlayer.transform.parent = null;
+            Debug.Log("Player is off the cube");
         }
     }
 }
