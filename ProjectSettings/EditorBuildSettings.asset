@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Group Member Scenes/Title_Screen.unity
     guid: eb9a4318405b6f84195895bc0fc8640f
   - enabled: 1
-    path: Assets/Scenes/Group Member Scenes/Bjarke.unity
-    guid: 1c85d01d503215d48830332861d4328d
+    path: Assets/Scenes/Group Member Scenes/Settings.unity
+    guid: 7613c1cfa5af5b44e99c1182971bafca
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: cd44ba59c6383b543a28469516d16806, type: 2}
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 6cfc30c4b852a44488832b69b6f52875, type: 2}
