@@ -5,24 +5,31 @@ using UnityEngine;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.Events;
 
 public class InstantiateCubes : MonoBehaviour
 {
-    public UnityEvent onHoverEnterEvent;
     public CubeSpawnPoints[] cubeSpawnPoints; //Array of CubeSpawnPoints, which is set in the inspector
-    
+
+
     // Awake is called when the script instance is being loaded
     //Calls the SpawnCube method
     void Awake()
     {
-        //SpawnCube();
+        XRBaseInteractor interactor = GetComponent<XRBaseInteractor>();
+
+
     }
-    //Spawns the cube for each spawn point
-    private void OnHoverEnter(XRBaseInteractor interactor)
+
+    public void OnHoverEntered()
     {
-        Debug.Log("Hover Enter");
-        onHoverEnterEvent.Invoke();
+        SpawnCube();
+    }
+
+    //Spawns the cube for each spawn point
+
+
+    private void SpawnCube()
+    {
         foreach (CubeSpawnPoints cubeSpawnPoint in cubeSpawnPoints)
         {
             cubeSpawnPoint.SpawnCube();
