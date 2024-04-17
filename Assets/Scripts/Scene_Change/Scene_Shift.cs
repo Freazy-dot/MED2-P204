@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Scene_Shift : MonoBehaviour
 {
-    public int Level_1 = 2;
-    public int Options = 3;
-    public void StartGame()
+    public int Main_screen = 1;
+    public int Options = 2;
+    public void MainScreen()
     {
-        SceneManager.LoadScene(Level_1);
+        SceneManager.LoadScene(Main_screen);
     }
 
     public void OptionsMenu()

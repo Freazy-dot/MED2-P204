@@ -122,9 +122,10 @@ public class PlayerLocomotion : MonoBehaviour
     {
         if (isGrounded)
         {
+
             animationManager.animator.SetBool("isJumping", true);
             animationManager.PlayTargetAnimation("Ammy|JumpUp", true);
-
+            isGrounded = false;
             float jumpVelocity = Mathf.Sqrt(-2 * gravityIntensity * jumpHeight);
             float verticalVelocity = jumpVelocity;
 
@@ -133,6 +134,7 @@ public class PlayerLocomotion : MonoBehaviour
             float totalAirTime = timeToPeak + timeToFall;
             totalAirTime *= 0.2f;
 
+             
             StartCoroutine(JumpCoroutine(totalAirTime, verticalVelocity));
         }
     }
@@ -140,10 +142,12 @@ public class PlayerLocomotion : MonoBehaviour
     IEnumerator JumpCoroutine(float totalAirTime, float verticalVelocity)
     {
         isJumping = true;
+        
         float timeInAir = 0;
 
         while (timeInAir < totalAirTime)
         {
+            isGrounded = false;
             float normalizedTime = timeInAir / totalAirTime;
             float jumpForce = Mathf.Lerp(jumpHeight, 0, normalizedTime);
 
@@ -155,5 +159,6 @@ public class PlayerLocomotion : MonoBehaviour
         }
 
         isJumping = false;
+           
     }
 }
