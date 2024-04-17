@@ -65,24 +65,4 @@ public class Cube : MonoBehaviour, IPowerable
                 break;
         }
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject == PCPlayer)
-        {
-            // Attach the PCPlayer to the cube
-            PCPlayer.transform.parent = transform;
-            Debug.Log("Player is on the cube");
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject == PCPlayer)
-        {
-            // Detach the PCPlayer from the cube
-            PCPlayer.transform.parent = null;
-            Debug.Log("Player is off the cube");
-        }
-    }
 }
