@@ -21,7 +21,7 @@ public class Scene_Shift : MonoBehaviour
     public void Level1()
     {
         SceneManager.LoadScene(Level_1);
-    }
+    } 
 
 
     public void QuitGame()
