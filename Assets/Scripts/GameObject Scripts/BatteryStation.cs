@@ -7,6 +7,18 @@ public class BatteryStation : MonoBehaviour, IInteractable
     public bool hasBattery = false;
     public GameObject linkedObject;
 
+    // testing purpose things:
+    public Material material;
+    private Material originalMaterial;
+    private Renderer objectRenderer;
+
+    public void Start()
+    {
+        objectRenderer = GetComponent<Renderer>();
+        originalMaterial = objectRenderer.material;
+    }
+    // rest of tesing thing at the end of Interact() and ReturnBattery()
+
     public bool HasBattery()
     {
         return hasBattery;
@@ -44,6 +56,8 @@ public class BatteryStation : MonoBehaviour, IInteractable
         inventory.RemoveBattery();
         powerable.PowerOn();
         hasBattery = true;
+
+        objectRenderer.material = material; // testing purpose
     }
 
     public void ReturnBattery(PlayerInventory inventory, IPowerable powerable)
@@ -57,5 +71,7 @@ public class BatteryStation : MonoBehaviour, IInteractable
         inventory.AddBattery();
         powerable.PowerOff();
         hasBattery = false;
+
+        objectRenderer.material = originalMaterial; // testing purpose
     }
 }

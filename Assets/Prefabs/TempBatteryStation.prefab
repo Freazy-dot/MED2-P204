@@ -120,3 +120,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBattery: 0
   linkedObject: {fileID: 0}
+  material: {fileID: 2100000, guid: 10825180c2899f34ea4b93976c4431b4, type: 2}
