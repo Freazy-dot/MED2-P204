@@ -7,6 +7,7 @@ public class Scene_Shift : MonoBehaviour
 {
     public int Main_screen = 1;
     public int Options = 2;
+    public int Level_1 = 3;
     public void MainScreen()
     {
         SceneManager.LoadScene(Main_screen);
@@ -16,6 +17,12 @@ public class Scene_Shift : MonoBehaviour
     {
         SceneManager.LoadScene(Options);
     }
+
+    public void Level1()
+    {
+        SceneManager.LoadScene(Level_1);
+    }
+
 
     public void QuitGame()
     {
