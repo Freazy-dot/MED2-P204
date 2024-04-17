@@ -9,6 +9,7 @@ public class PlayerLocomotion : MonoBehaviour
     AnimationManager animationManager; //Reference to the AnimatorManager script
 
     [HideInInspector]public Vector3 moveDirection; //The direction the player is moving in
+    private Vector3 spawnPosition; //The spawn position of the player
     CharacterController characterController; //Reference to the CharacterController component
     [SerializeField] private Transform playerCamera; //Reference to the camera object
 
@@ -23,6 +24,7 @@ public class PlayerLocomotion : MonoBehaviour
     public float rayCastMaxDistance = 1; // The max distance of the raycast
 
     public LayerMask groundLayer; //The ground layer
+    public LayerMask VRgroundLayer; //The VR ground layer
 
     public bool isGrounded; //Bool for if the player is grounded
     public bool isJumping; //Bool for if the player is jumping
@@ -39,6 +41,8 @@ public class PlayerLocomotion : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         animationManager = GetComponentInChildren<AnimationManager>();
 
+        spawnPosition = transform.position;
+
         playerCamera = GameObject.FindWithTag("PCCamera").GetComponent<Camera>().transform;
     }
 
@@ -47,10 +51,10 @@ public class PlayerLocomotion : MonoBehaviour
     public void HandleAllMovement()
     {
         HandleFallingAndLanding();
-
         CheckGrounded();
         HandleMovement();
         HandleRotation();
+        ReturnPlayer();
         
     }
 
@@ -118,9 +122,20 @@ public class PlayerLocomotion : MonoBehaviour
         Debug.DrawRay(raycastOrigin, -Vector3.up * rayCastMaxDistance, Color.red);
     }
 
+    private void ReturnPlayer()
+    {
+        RaycastHit hit;
+        Vector3 raycastOrigin = transform.position + Vector3.up * rayCastHeightOffset;
+        if (Physics.Raycast(raycastOrigin, -Vector3.up, out hit, rayCastMaxDistance, VRgroundLayer))
+        {
+            transform.position = spawnPosition;
+        }    
+        
+    }
+
     public void HandleJumping()
     {
-        if (isGrounded)
+        if (isGrounded && !isJumping)
         {
 
             animationManager.animator.SetBool("isJumping", true);
@@ -142,12 +157,13 @@ public class PlayerLocomotion : MonoBehaviour
     IEnumerator JumpCoroutine(float totalAirTime, float verticalVelocity)
     {
         isJumping = true;
-        
+        isGrounded = false;
         float timeInAir = 0;
 
         while (timeInAir < totalAirTime)
         {
-            isGrounded = false;
+            
+            
             float normalizedTime = timeInAir / totalAirTime;
             float jumpForce = Mathf.Lerp(jumpHeight, 0, normalizedTime);
 

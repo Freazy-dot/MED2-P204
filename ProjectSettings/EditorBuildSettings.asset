@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Group Member Scenes/Settings.unity
     guid: 7613c1cfa5af5b44e99c1182971bafca
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level-1.unity
+    guid: 51327e16ee2042d49973905b94bca5b4
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: cd44ba59c6383b543a28469516d16806, type: 2}
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 6cfc30c4b852a44488832b69b6f52875, type: 2}

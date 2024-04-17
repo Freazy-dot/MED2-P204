@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
     CameraManager cameraManager; //Reference to the CameraManager script
     PlayerLocomotion playerLocomotion; //Reference to the PlayerLocomotion script
     Animator animator;
+    
 
     public bool isInteracting;
 
@@ -20,6 +21,7 @@ public class PlayerManager : MonoBehaviour
         inputManager = GetComponent<InputManager>();
         cameraManager = FindObjectOfType<CameraManager>();
         playerLocomotion = GetComponent<PlayerLocomotion>();
+        
     }
 
     // Update is called once per frame
@@ -27,6 +29,7 @@ public class PlayerManager : MonoBehaviour
     private void Update()
     {
         inputManager.HandleAllInputs();
+        
     }
     //FixedUpdate is called every fixed framerate frame
     //Handles all movement
@@ -44,4 +47,5 @@ public class PlayerManager : MonoBehaviour
         playerLocomotion.isJumping = animator.GetBool("isJumping");
         animator.SetBool("isGrounded", playerLocomotion.isGrounded);
     }
+
 }
