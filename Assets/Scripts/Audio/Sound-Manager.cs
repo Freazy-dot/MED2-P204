@@ -21,12 +21,19 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
 
-    private void Start()
+    void Start()
     {
         PlayMusic("IntroSound");
+    } 
+
+    public void levelmusic()
+    {
+        PlayMusic("GameSound");
     }
+
     public void PlayMusic(string name)
     {
         Sound s = Array.Find(musicSounds, x => x.name == name);
@@ -57,5 +64,4 @@ public class SoundManager : MonoBehaviour
         }
     }
 
- 
 }
