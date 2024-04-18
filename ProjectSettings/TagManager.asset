@@ -14,6 +14,7 @@ TagManager:
   - Door
   - Cube
   - AudioMan
+  - Wire
   layers:
   - Default
   - TransparentFX
