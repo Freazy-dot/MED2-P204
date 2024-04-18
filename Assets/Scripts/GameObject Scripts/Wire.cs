@@ -58,12 +58,22 @@ public class Wire : MonoBehaviour
             if(x==0)
             {
                 Destroy(tmp.GetComponent<CharacterJoint>());
+                if (snapFirst)
+                {
+                    tmp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                }
             }
             else
             {
                 tmp.GetComponent<CharacterJoint>().connectedBody = parentObject.transform.Find((parentObject.transform.childCount - 1).ToString()).GetComponent<Rigidbody>();
             }
         }
+
+        if(snapLast)
+        {
+            parentObject.transform.Find((parentObject.transform.childCount).ToString()).GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        }
+
     }
 
 
