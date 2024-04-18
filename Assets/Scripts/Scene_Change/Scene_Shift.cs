@@ -9,6 +9,27 @@ public class Scene_Shift : MonoBehaviour
     public int Main_screen = 1;
     public int Options = 2;
     public int Level_1 = 3;
+    public float targetTime = 5.0f; 
+    public bool Timer = false;
+
+    void Update()
+    {
+        if (Timer)
+        {
+            targetTime -= Time.deltaTime;  
+        } 
+         
+        if (targetTime <= 0.0f)
+        {
+            timerEnded();
+        }
+    }
+
+    void timerEnded()
+    {
+        SceneManager.LoadScene(Level_1);
+    }
+
 
     void Awake()
     {
@@ -27,7 +48,7 @@ public class Scene_Shift : MonoBehaviour
     public void Level1()
     {
         Soundman.levelmusic();
-        SceneManager.LoadScene(Level_1);
+        Timer = true;
     } 
 
     public void QuitGame()
