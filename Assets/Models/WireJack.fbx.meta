@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: d9a72a0ea5f8cc14bb0482dca97ba9b0
+guid: b10bd62ab53d8fd4fba3b93ebbbb155e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
   externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: WireColor_Material
-    second: {fileID: 2100000, guid: 5063f0674b76aa84fb1c524ac0bfa51a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -88,7 +83,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 0
+  importAnimation: 1
   humanDescription:
     serializedVersion: 3
     human: []
