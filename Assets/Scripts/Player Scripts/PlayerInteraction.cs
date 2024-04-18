@@ -1,92 +1,73 @@
-/* using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    PlayerInventory playerInventory;
-    BatteryStation batteryStation;
-    public void Start()
-    {
-        playerInventory = GetComponent<PlayerInventory>();
+    private Transform _highlight;
 
-        if (playerInventory == null) {
-            Debug.LogWarning("PlayerInventory component not found on PlayerInteraction script.");
-        }
+    public float InteractionRayOffset = 3f; //The offset of the interaction ray
+    public float rayDistance = 10f; //The distance of the ray
+
+    Transform playerCamera; //Reference to the camera
+
+    public void Awake()
+    {
+        playerCamera = GameObject.FindWithTag("PCCamera").GetComponent<Camera>().transform;
     }
 
-    public void Interact(int objectType, GameObject gameObject)
+    public void Update()
     {
-        switch (objectType) {
-            case 0:
-                Debug.Log("Interacting with object type 0 (Equip Battery)");
-                EquipBattery(gameObject);
-                break;
-            case 1:
-                Debug.Log("Interacting with object type 1 (Place Battery)");
-                PlaceBattery(gameObject);
-                break;
-            case 2:
-                Debug.Log("Interacting with object type 2 (Miscellaneous)");
-                // Do something else with gameObject
-                break;
-            default:
-                Debug.LogWarning("Interacting with object of invalid or missing type");
-                break;
+    /*    // Create a ray that starts at the player's position and points in the direction the camera is facing
+        Ray ray = new Ray(transform.position + new Vector3(0f, InteractionRayOffset, 0f), playerCamera.transform.forward);
+        RaycastHit hit;
+    
+        // Perform the raycast with a range of rayDistance units
+        if (Physics.Raycast(ray, out hit, rayDistance)) {
+            // Check if the object hit has the IInteractable component
+            IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
+            if (interactable != null) {
+                // The object hit is interactable, highlight it
+                Outline outline = hit.collider.gameObject.GetComponent<Outline>();
+                if (outline == null) {
+                    // If the object does not have an Outline component, add one
+                    outline = hit.collider.gameObject.AddComponent<Outline>();
+                }
+                outline.enabled = true;
+                // Update _highlight to the current object
+                _highlight = hit.collider.gameObject.transform;
+            }
         }
-    }
-
-    public void EquipBattery(GameObject gameObject) // implemented in Battery.cs
-    {
-        if (playerInventory.batteryCount >= 2) {
-            Debug.LogWarning("Battery count is at maximum.");
-            return;
-        }
-        playerInventory.AddBattery(gameObject);
-        Destroy(gameObject);
-        Debug.Log("Equipping object");
-    }
-
-    public void UnequipBattery() // not implemented
-    {
-        playerInventory.RemoveBattery();
-        Debug.Log("Unequipping object");
-    }
-
-    public void PlaceBattery(GameObject gameObject)
-    {
-        batteryStation = gameObject.GetComponent<BatteryStation>();
-        if (batteryStation.HoldingBattery()) {
-            Debug.Log("Battery Station is already full");
-            ReturnBattery();
-            return;
-        }
-        if (!playerInventory.HasBattery()) {
-            Debug.LogWarning("No Battery in inventory to place.");
-            return;
-        }
-        
-       
-        playerInventory.RemoveBattery();
-        
-        if (batteryStation != null) {
-            batteryStation.InsertBattery();
-        }
-        else {
-            Debug.LogWarning("BatteryStation component not found on object.");
-        }
-        Debug.Log("Placing object");
+    
+        // If the ray does not hit an interactable object, unhighlight the previous object
+        if (_highlight != null && (_highlight != hit.collider?.gameObject || hit.collider.gameObject.GetComponent<IInteractable>() == null)) {
+            Outline outline = _highlight.GetComponent<Outline>();
+            if (outline != null) {
+                outline.enabled = false;
+            }
+            _highlight = null;
+        } */
     } 
 
-    public void ReturnBattery()
+    public void HandleInteraction()
     {
-        if (playerInventory.batteryCount == 2) {
-            Debug.LogWarning("Inventory full.");
+        // Create a ray that starts at the player's position and points in the direction the camera is facing
+        Ray ray = new Ray(transform.position + new Vector3(0f, InteractionRayOffset, 0f), playerCamera.transform.forward);
+        RaycastHit hit;
+
+        if (!Physics.Raycast(ray, out hit, rayDistance)) {
+            Debug.Log("Interaction ray hit nothing");
             return;
         }
 
-        playerInventory.AddBattery(gameObject);
-        batteryStation.RemoveBattery();
-        Debug.Log("Returning object");
+        // Check if the object hit has the IInteractable component
+        IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
+        if (interactable == null) {
+            Debug.LogWarning("No IInteractable component found on object");
+            return;
+        }
+
+        // Interact with the object
+        interactable.Interact(this.gameObject);
     }
-} */
+}
