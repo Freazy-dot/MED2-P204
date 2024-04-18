@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4499174354294813938}
   - component: {fileID: 823951671713102814}
   - component: {fileID: 4107899384129335504}
+  - component: {fileID: -4952107578306815922}
   m_Layer: 0
   m_Name: PCPlayer
   m_TagString: Untagged
@@ -83,6 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   batteryCount: 0
+  inventorySize: 2
 --- !u!114 &6602497789091303064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,6 +109,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 1025
+  VRgroundLayer:
+    serializedVersion: 2
+    m_Bits: 0
   isGrounded: 0
   isJumping: 0
   jumpHeight: 15
@@ -143,7 +148,6 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   verticalInput: 0
   horizontalInput: 0
-  InteractionRayOffset: 3
   jumpInput: 0
 --- !u!143 &4499174354294813938
 CharacterController:
@@ -205,6 +209,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+--- !u!114 &-4952107578306815922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072509914880585361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bf46e48ad7194d229de9127fc07caba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractionRayOffset: 3
 --- !u!1001 &4021313448967034687
 PrefabInstance:
   m_ObjectHideFlags: 0
