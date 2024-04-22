@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI; // Add this line
 
@@ -19,10 +20,17 @@ public class Timer : MonoBehaviour
     {
         while (timeLeft > 0)
         {
-            timerText.text = "Time left: " + timeLeft; // Add this line
+            timerText.text = "Time left: " + timeLeft;
+            Debug.Log("Time left: " + timeLeft);
             yield return new WaitForSeconds(1);
             timeLeft--;
         }
-        timerText.text = "Time's up!"; // Add this line
+        timerText.text = "Time's up!"; 
+
+        foreach (Color color in Button.buttonCounts.Keys.ToList()) {
+            if (!Button.matchedColors.Contains(color)) {
+                Button.buttonCounts[color] = 0;
+            }
+        }
     }
 }

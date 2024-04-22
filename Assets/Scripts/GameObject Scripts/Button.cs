@@ -6,19 +6,32 @@ public class Button : MonoBehaviour, IInteractable
 {
     public Color buttonColor;
     private Timer timer;
-    private static Dictionary<Color, int> buttonCounts = new Dictionary<Color, int>();
+    public static Dictionary<Color, int> buttonCounts = new Dictionary<Color, int>();
+    public static HashSet<Color> matchedColors = new HashSet<Color>();
+    private bool hasBeenPressed;
 
     public void Interact(GameObject player)
     {
+        Debug.Log("Button pressed: " + buttonColor);
+        
         timer = player.GetComponent<Timer>();
 
-        if (timer.timeLeft <= 0) {
-            IncrementButtonCount(buttonColor);
+        if (timer.timeLeft <= 0) 
+        {
+            if (!hasBeenPressed)
+            {
+                IncrementButtonCount(buttonColor);
+                hasBeenPressed = true;
+            }
             timer.StartTimer();
             return;
         }
 
-        IncrementButtonCount(buttonColor); // Increment count as soon as button is pressed
+        if (!hasBeenPressed)
+        {
+            IncrementButtonCount(buttonColor);
+            hasBeenPressed = true;
+        }
     }
 
     private void IncrementButtonCount(Color color)
@@ -34,7 +47,15 @@ public class Button : MonoBehaviour, IInteractable
         if (buttonCounts[color] == 3)
         {
             Debug.Log("Pressed 3 buttons of the same color: " + color);
+            matchedColors.Add(color);
             buttonCounts[color] = 0; // Reset the count for this color
+            hasBeenPressed = false;
+
+            // Check if all three colors have been matched
+            if (matchedColors.Count == 3)
+            {
+                Debug.Log("All three colors have been matched!");
+            }
         }
     }
 }

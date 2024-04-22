@@ -82,7 +82,7 @@ public class PlayerLocomotion : MonoBehaviour
             targetDirection = transform.forward;
 
         Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
-        Quaternion playerRotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        Quaternion playerRotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
 
         transform.rotation = playerRotation;
     }
@@ -93,7 +93,7 @@ public class PlayerLocomotion : MonoBehaviour
         {
             if (!playerManager.isInteracting)
             {
-                animationManager.PlayTargetAnimation("Ammy|JumpDown", true);
+               animationManager.PlayTargetAnimation("Ammy|JumpDown", true);
                 
             }
             inAirTimer = inAirTimer + Time.deltaTime;
