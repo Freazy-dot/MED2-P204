@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "MED2-P204.sln"
+    "dotnet.defaultSolution": "MED2-P204.sln",
+    "dotnet.preferCSharpExtension": true
 }

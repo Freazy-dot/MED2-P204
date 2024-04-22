@@ -13,6 +13,8 @@ TagManager:
   - MiscellaneousInteractable
   - Door
   - Cube
+  - AudioMan
+  - Wire
   layers:
   - Default
   - TransparentFX
@@ -23,7 +25,7 @@ TagManager:
   - PCplayer
   - VRplayer
   - Walls
-  - 
+  - GrabAble
   - whatIsPCGround
   - whatIsVRGround
   - GlowCamera
