@@ -16,12 +16,14 @@ public class Keypad : MonoBehaviour
 
     public void CheckForBattery()
     {
-        if (BatteryCheck)
+        if (BatteryCheck) // og e bliver trykket på!!!!!
         {
+            //animation og keypad display kommer
             Debug.Log("YES BATTERY");
         }
         else
         {
+            //animation eller en text siger der ikke er strøm til
             Debug.Log("NO BATTERY");
         }
     }
