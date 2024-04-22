@@ -8,7 +8,7 @@ public class InputManager : MonoBehaviour
     PlayerInputMaster playerInput; //Reference to the PlayerInputMaster script
     PlayerLocomotion playerLocomotion; //Reference to the PlayerLocomotion script
     AnimationManager animatorManager; //Reference to the AnimatorManager script
-    // PlayerInteraction playerInteraction; //Reference to the PlayerInteraction script
+    PlayerInteraction playerInteraction; //Reference to the PlayerInteraction script
 
     public Vector2 movementInput; //Vector2 for the movement input
     public Vector2 cameraInput; //Vector2 for the camera input
@@ -21,8 +21,6 @@ public class InputManager : MonoBehaviour
     public float verticalInput; //Float for the vertical input
     public float horizontalInput; //Float for the horizontal input
 
-    public float InteractionRayOffset = 3f; //The offset of the interaction ray
-
     public bool jumpInput; //Bool for the jump input
     
     // Awake is called when the script instance is being loaded
@@ -30,7 +28,7 @@ public class InputManager : MonoBehaviour
     private void Awake()
     {
         playerLocomotion = GetComponent<PlayerLocomotion>();
-        // playerInteraction = GetComponent<PlayerInteraction>();
+        playerInteraction = GetComponent<PlayerInteraction>();
         playerCamera = GameObject.FindWithTag("PCCamera").GetComponent<Camera>().transform;
         animatorManager = GetComponent<AnimationManager>();
 
@@ -51,7 +49,7 @@ public class InputManager : MonoBehaviour
             playerInput.Player.Move.canceled += i => movementInput = Vector2.zero;
             playerInput.Player.Look.performed += i => cameraInput = i.ReadValue<Vector2>();
 
-            playerInput.Player.Interact.performed += i => HandleInteraction();
+            playerInput.Player.Interact.performed += i => playerInteraction.HandleInteraction();
 
             playerInput.Player.Jump.performed += i => jumpInput = true;
         }
@@ -94,29 +92,5 @@ public class InputManager : MonoBehaviour
             jumpInput = false;
             playerLocomotion.HandleJumping();
         }
-    }
-
-    //Handles the interaction input by calling the Interact method in the PlayerInteraction script
-    private void HandleInteraction()
-    {
-        // Create a ray that starts at the player's position and points in the direction the camera is facing
-        Ray ray = new Ray(transform.position + new Vector3(0f, InteractionRayOffset, 0f), playerCamera.transform.forward);
-        RaycastHit hit;
-
-        // Perform the raycast with a range of 20 units
-        if (!Physics.Raycast(ray, out hit, 10f)) {
-            Debug.Log("Interaction ray hit nothing");
-            return;
-        }
-
-        // Check if the object hit has the IInteractable component
-        IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
-        if (interactable == null) {
-            Debug.LogWarning("No IInteractable component found on object");
-            return;
-        }
-
-        // Interact with the object
-        interactable.Interact(this.gameObject);
     }
 }
