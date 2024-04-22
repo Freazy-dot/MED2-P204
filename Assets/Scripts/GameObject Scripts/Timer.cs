@@ -20,7 +20,8 @@ public class Timer : MonoBehaviour
     {
         while (timeLeft > 0)
         {
-            timerText.text = "Time left: " + timeLeft; // Add this line
+            timerText.text = "Time left: " + timeLeft;
+            Debug.Log("Time left: " + timeLeft);
             yield return new WaitForSeconds(1);
             timeLeft--;
         }
