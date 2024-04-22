@@ -4,19 +4,37 @@ using UnityEngine;
 
 public class Button : MonoBehaviour, IInteractable
 {
-private Timer timer;
-
-    public void Start()
-    {
-        timer = GetComponent<Timer>();
-    }
+    public Color buttonColor;
+    private Timer timer;
+    private static Dictionary<Color, int> buttonCounts = new Dictionary<Color, int>();
 
     public void Interact(GameObject player)
     {
-        if (timer.timeLeft > 0) {
-            
+        timer = player.GetComponent<Timer>();
+
+        if (timer.timeLeft <= 0) {
+            IncrementButtonCount(buttonColor);
+            timer.StartTimer();
+            return;
         }
 
-        timer.StartTimer();
+        IncrementButtonCount(buttonColor); // Increment count as soon as button is pressed
+    }
+
+    private void IncrementButtonCount(Color color)
+    {
+        if (!buttonCounts.ContainsKey(color))
+        {
+            buttonCounts[color] = 0;
+        }
+
+        buttonCounts[color]++;
+
+        // Check if the player has pressed 3 buttons of the same color
+        if (buttonCounts[color] == 3)
+        {
+            Debug.Log("Pressed 3 buttons of the same color: " + color);
+            buttonCounts[color] = 0; // Reset the count for this color
+        }
     }
 }
