@@ -12,6 +12,8 @@ public class Button : MonoBehaviour, IInteractable
 
     public void Interact(GameObject player)
     {
+        Debug.Log("Button pressed: " + buttonColor);
+        
         timer = player.GetComponent<Timer>();
 
         if (timer.timeLeft <= 0) 
