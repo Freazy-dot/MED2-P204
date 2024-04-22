@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI; // Add this line
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
     [SerializeField] private int _time = 0;
     public int timeLeft = 0;
     private Coroutine _countdown;
-    public Text timerText; // Add this line
+    public Text timerText;
+    public ButtonManager buttonManager; // Add this line
 
     public void StartTimer()
     {
@@ -25,12 +26,7 @@ public class Timer : MonoBehaviour
             yield return new WaitForSeconds(1);
             timeLeft--;
         }
-        timerText.text = "Time's up!"; 
-
-        foreach (Color color in Button.buttonCounts.Keys.ToList()) {
-            if (!Button.matchedColors.Contains(color)) {
-                Button.buttonCounts[color] = 0;
-            }
-        }
+        timerText.text = "Time's up!";
+        buttonManager.ResetButtonCounts(); // Call the ResetButtonCounts method in the ButtonManager
     }
 }
