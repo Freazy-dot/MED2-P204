@@ -11,6 +11,21 @@ public class Keypad : MonoBehaviour
     private string Code_Answer = "1273";
 
     private int Number_limit = 0;
+
+    public bool BatteryCheck;
+
+    public void CheckForBattery()
+    {
+        if (BatteryCheck)
+        {
+            Debug.Log("YES BATTERY");
+        }
+        else
+        {
+            Debug.Log("NO BATTERY");
+        }
+    }
+
     public void Number(int number)
     {
         if (Number_limit < 4)
