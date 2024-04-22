@@ -10,21 +10,30 @@ public class Keypad : MonoBehaviour
 
     private string Code_Answer = "1273";
 
+    private int Number_limit = 0;
     public void Number(int number)
     {
-        Ans.text += number.ToString();
+        if (Number_limit < 4)
+        {
+            Ans.text += number.ToString();
+            Number_limit = Number_limit + 1;
+        }
+            
     }
-
+  
     public void Clear_Num()
     {
-        Ans.text = null; 
+        Ans.text = null;
+        Number_limit = 0;
     }
+
     public void TryCode()
     {
         if (Ans.text == Code_Answer)
         {
             //Do thingy her
             Ans.text = "GET IN HERE BOI";
+            Number_limit = 0;
         }
         else
         {
@@ -37,5 +46,6 @@ public class Keypad : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         Ans.text = null;
+        Number_limit = 0;
     }
 }
