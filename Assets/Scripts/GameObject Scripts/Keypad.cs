@@ -10,21 +10,47 @@ public class Keypad : MonoBehaviour
 
     private string Code_Answer = "1273";
 
-    public void Number(int number)
+    private int Number_limit = 0;
+
+    public bool BatteryCheck;
+
+    public void CheckForBattery()
     {
-        Ans.text += number.ToString();
+        if (BatteryCheck) // og e bliver trykket på!!!!!
+        {
+            //animation og keypad display kommer
+            Debug.Log("YES BATTERY");
+        }
+        else
+        {
+            //animation eller en text siger der ikke er strøm til
+            Debug.Log("NO BATTERY");
+        }
     }
 
+    public void Number(int number)
+    {
+        if (Number_limit < 4)
+        {
+            Ans.text += number.ToString();
+            Number_limit = Number_limit + 1;
+        }
+            
+    }
+  
     public void Clear_Num()
     {
-        Ans.text = null; 
+        Ans.text = null;
+        Number_limit = 0;
     }
+
     public void TryCode()
     {
         if (Ans.text == Code_Answer)
         {
             //Do thingy her
             Ans.text = "GET IN HERE BOI";
+            Number_limit = 0;
         }
         else
         {
@@ -37,5 +63,6 @@ public class Keypad : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         Ans.text = null;
+        Number_limit = 0;
     }
 }
