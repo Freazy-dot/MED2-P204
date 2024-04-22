@@ -9,9 +9,9 @@ using static Unity.Burst.Intrinsics.X86.Avx;
 
 public class Wire1 : MonoBehaviour
 {
-    [SerializeField] GameObject wireStart;
+    [SerializeField] GameObject wireStart, wireEnd, socketCollider, lamp;
 
-
+    [SerializeField] Material colourLight;
 
 
 
@@ -26,7 +26,11 @@ public class Wire1 : MonoBehaviour
     void Update()
     { }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("collision");
+        lamp.GetComponent<MeshRenderer>().material = colourLight;
+    }
 
-  
 
 }
