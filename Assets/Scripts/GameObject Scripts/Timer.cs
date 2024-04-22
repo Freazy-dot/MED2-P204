@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI; // Add this line
 
@@ -23,6 +24,12 @@ public class Timer : MonoBehaviour
             yield return new WaitForSeconds(1);
             timeLeft--;
         }
-        timerText.text = "Time's up!"; // Add this line
+        timerText.text = "Time's up!"; 
+
+        foreach (Color color in Button.buttonCounts.Keys.ToList()) {
+            if (!Button.matchedColors.Contains(color)) {
+                Button.buttonCounts[color] = 0;
+            }
+        }
     }
 }
