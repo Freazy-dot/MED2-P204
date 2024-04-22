@@ -9,7 +9,14 @@ using static Unity.Burst.Intrinsics.X86.Avx;
 
 public class Wire1 : MonoBehaviour
 {
-    [SerializeField] GameObject wireStart, wireSecond;
+    [SerializeField] GameObject wireStart;
+
+
+
+
+
+
+
 
     void Start()
     {
