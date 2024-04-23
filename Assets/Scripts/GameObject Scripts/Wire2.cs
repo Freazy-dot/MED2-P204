@@ -7,14 +7,14 @@ using static Unity.Burst.Intrinsics.X86.Avx;
 //https://youtu.be/pKSUhsyrj_4?si=TK0DmCgr3koXpmD3
 
 
-public class Wire1 : MonoBehaviour
+public class Wire2 : MonoBehaviour
 {
-    [SerializeField] GameObject wireStart, wireEnd, socketCollider, lamp;
+    [SerializeField] GameObject lamp;
 
-    [SerializeField] Material colourLightOn;
+     public Material colourLightOn;
     Material colourLightOff;
 
-    [SerializeField] MeshRenderer lampMeshRenderer;
+    MeshRenderer lampMeshRenderer;
 
 
 
@@ -23,8 +23,8 @@ public class Wire1 : MonoBehaviour
 
     void Start()
     {
-        wireStart.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-
+       
+       // lamp.gameObject.GetComponent<Renderer>().material = colourLightOn;
         lampMeshRenderer = lamp.GetComponent<MeshRenderer>();
         colourLightOff = lampMeshRenderer.material;
         colourLightOn.mainTextureScale = colourLightOff.mainTextureScale;
@@ -33,7 +33,7 @@ public class Wire1 : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P)) { ChangeMaterial(); }
+        if(Input.GetKeyDown(KeyCode.P)) { lamp.gameObject.GetComponent<Renderer>().material = colourLightOn; }
     }
 
 
@@ -45,8 +45,8 @@ public class Wire1 : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("collision");
-     //   lamp.GetComponent<MeshRenderer>().material = colourLight;
+     
+        lamp.gameObject.GetComponent<Renderer>().material = colourLightOn;
     }
 
 
