@@ -4,50 +4,46 @@ using UnityEngine;
 using static Unity.Burst.Intrinsics.X86.Avx;
 
 
-//https://youtu.be/pKSUhsyrj_4?si=TK0DmCgr3koXpmD3
-
-
 public class Wire2 : MonoBehaviour
 {
-    [SerializeField] GameObject lamp;
+    [SerializeField] GameObject boxFront, boxBottom, boxRight, boxLeft, boxTop;
+    [SerializeField] GameObject wireRed, wireGreen, wireBlue, wireYellow, wirePurple, wirePink;
+    [SerializeField] Material material;
 
-     public Material colourLightOn;
-    Material colourLightOff;
-
-    MeshRenderer lampMeshRenderer;
-
-
-
-
-
-
-    void Start()
+        void Start()
     {
-       
-       // lamp.gameObject.GetComponent<Renderer>().material = colourLightOn;
-        lampMeshRenderer = lamp.GetComponent<MeshRenderer>();
-        colourLightOff = lampMeshRenderer.material;
-        colourLightOn.mainTextureScale = colourLightOff.mainTextureScale;
-
+        
+                boxFront.GetComponent<Rigidbody>().useGravity = false;
+                boxBottom.GetComponent<Rigidbody>().useGravity = false;
     }
 
-    void Update()
+  
+    private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P)) { lamp.gameObject.GetComponent<Renderer>().material = colourLightOn; }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+           boxFront.GetComponent<Rigidbody>().useGravity = true;
+           boxBottom.GetComponent<Rigidbody>().useGravity = true;
+
+           // boxFront.SetActive (false);
+           // boxBottom.SetActive (false);
+
+            wireRed.SetActive(true);
+            wireGreen.SetActive(true);
+            wireBlue.SetActive(true);
+            wireYellow.SetActive(true);
+            wirePurple.SetActive(true);
+            wirePink.SetActive(true);
+
+            boxRight.GetComponent<Renderer>().material = material;
+            boxLeft.GetComponent<Renderer>().material = material;
+            boxTop.GetComponent<Renderer>().material = material;
+        }
     }
 
-
-    public void ChangeMaterial()
+    public void ActivateWires()
     {
-        // lampMeshRenderer.material = lampMeshRenderer.material.name.StartsWith(colourLightOn.name) ? colourLightOff : colourLightOn;
-        lamp.gameObject.GetComponent<Renderer>().material = colourLightOn;
-    }
 
-
-    private void OnCollisionEnter(Collision collision)
-    {
-     
-        lamp.gameObject.GetComponent<Renderer>().material = colourLightOn;
     }
 
 

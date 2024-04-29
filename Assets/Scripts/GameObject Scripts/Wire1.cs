@@ -10,15 +10,14 @@ using static Unity.Burst.Intrinsics.X86.Avx;
 public class Wire1 : MonoBehaviour
 {
     [SerializeField] GameObject wire, wireStart, wireEnd, lamp;
-    
-
    
-
    
 
     void Start()
     {
         wireStart.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+
+      
     }
 
     /// <summary>
@@ -33,6 +32,8 @@ public class Wire1 : MonoBehaviour
             lamp.gameObject.GetComponent<MaterialSwitcher>().SwitchMaterial();
         }
     }
+
+ 
 
     public void ActivateWires()
     {
