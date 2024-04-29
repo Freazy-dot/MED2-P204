@@ -16,8 +16,6 @@ public class InstantiateCubes : MonoBehaviour
     void Awake()
     {
         XRBaseInteractor interactor = GetComponent<XRBaseInteractor>();
-
-
     }
 
     public void OnSelectEntered()
@@ -26,8 +24,6 @@ public class InstantiateCubes : MonoBehaviour
     }
 
     //Spawns the cube for each spawn point
-
-
     private void SpawnCube()
     {
         foreach (CubeSpawnPoints cubeSpawnPoint in cubeSpawnPoints)
