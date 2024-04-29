@@ -466,6 +466,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1111004502}
     - target: {fileID: 5757994118207794691, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757994118207794691, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: colourLight
       value: 
       objectReference: {fileID: 2100000, guid: 0f29e3c1c576f6641b9e474f6b194480, type: 2}
@@ -746,7 +750,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indexToSwitch: 1
-  newMaterial: {fileID: 2100000, guid: 6f9749bb86e1b784f9b91a504b6c3cf8, type: 2}
+  newMaterial: {fileID: 2100000, guid: 155e717f7e6f18640b82512409a92b94, type: 2}
+  oldMaterial: {fileID: 2100000, guid: ec85c989f3f39f948bab80bb8c7ff618, type: 2}
 --- !u!1 &502668866
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,7 +925,7 @@ PrefabInstance:
     - target: {fileID: -3887185075125053422, guid: 315928f5d5caddf459ac8f07bd189477, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 155e717f7e6f18640b82512409a92b94, type: 2}
+      objectReference: {fileID: 2100000, guid: ec85c989f3f39f948bab80bb8c7ff618, type: 2}
     - target: {fileID: 919132149155446097, guid: 315928f5d5caddf459ac8f07bd189477, type: 3}
       propertyPath: m_Name
       value: Button_New
@@ -933,6 +938,25 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 449134134}
   m_SourcePrefab: {fileID: 100100000, guid: 315928f5d5caddf459ac8f07bd189477, type: 3}
+--- !u!1 &604127425 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1555984344659753995, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
+  m_PrefabInstance: {fileID: 115542157256679738}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &604127428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604127425}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70065f00a9f50994e8a6e4b5d3d4f390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wireStart: {fileID: 1682121363}
+  lamp: {fileID: 449134131}
 --- !u!1 &632384763 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2936152904186678639, guid: 60f29e8671767804bb8a0eac044da670, type: 3}
@@ -2152,16 +2176,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1140853512}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70065f00a9f50994e8a6e4b5d3d4f390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   wireStart: {fileID: 0}
-  wireEnd: {fileID: 1140853512}
-  socketCollider: {fileID: 1585401004}
   lamp: {fileID: 449134131}
-  colourLightOn: {fileID: 0}
 --- !u!54 &1140853518
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3613,6 +3634,11 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!1 &1682121363 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 251787016799537958, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
+  m_PrefabInstance: {fileID: 115542157256679738}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1738447202 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5096837923674060123, guid: 60f29e8671767804bb8a0eac044da670, type: 3}
@@ -4038,9 +4064,9 @@ Transform:
   m_GameObject: {fileID: 1902484660}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0029993057, y: -1.0098923, z: 0}
-  m_LocalScale: {x: 1.5000001, y: 2.5806456, z: 1.5}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -0, y: -0.06, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.8602151, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2000654601}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
@@ -4168,6 +4194,7 @@ GameObject:
   - component: {fileID: 2000654600}
   - component: {fileID: 2000654599}
   - component: {fileID: 2000654598}
+  - component: {fileID: 2000654602}
   m_Layer: 0
   m_Name: Cylinder (3)
   m_TagString: Untagged
@@ -4190,7 +4217,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -4264,6 +4291,20 @@ Transform:
   - {fileID: 1902484665}
   m_Father: {fileID: 872058959}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &2000654602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000654597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70065f00a9f50994e8a6e4b5d3d4f390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wireStart: {fileID: 1682121363}
+  lamp: {fileID: 449134131}
 --- !u!1 &2024195333 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2392959195691354729, guid: 60f29e8671767804bb8a0eac044da670, type: 3}
@@ -4506,7 +4547,7 @@ PrefabInstance:
       objectReference: {fileID: 663590805}
     - target: {fileID: 5757994118207794691, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5757994118207794691, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: colourLightOn
@@ -4569,7 +4610,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6566696991957115240, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       insertIndex: 1
       addedObject: {fileID: 449134133}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1555984344659753995, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 604127428}
   m_SourcePrefab: {fileID: 100100000, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
 --- !u!1001 &2014181549275601001
 PrefabInstance:

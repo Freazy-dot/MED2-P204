@@ -9,15 +9,14 @@ using static Unity.Burst.Intrinsics.X86.Avx;
 
 public class Wire1 : MonoBehaviour
 {
-    [SerializeField] GameObject wireStart, wireEnd, socketCollider, lamp;
+    [SerializeField] GameObject wireStart, lamp;
 
-    [SerializeField] Material colourLightOn;
+   
 
    
 
     void Start()
     {
-
         wireStart.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
     }
 
@@ -32,8 +31,9 @@ public class Wire1 : MonoBehaviour
         lamp.gameObject.GetComponent<MaterialSwitcher>().SwitchMaterial();
     }
 
- /*   public void OnTriggerEnter(Collider collision)
+    private void OnTriggerExit(Collider other)
     {
-        lamp.GetComponent<MeshRenderer>().material = colourLightOn;
-    }*/
+        if (!lamp.gameObject.GetComponent<MaterialSwitcher>()) return;
+        lamp.gameObject.GetComponent<MaterialSwitcher>().RevertMaterialSwitch();
+    }
 }
