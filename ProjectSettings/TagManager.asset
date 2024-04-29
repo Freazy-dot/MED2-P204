@@ -17,6 +17,7 @@ TagManager:
   - Wire
   - Grab Interactable
   - XR Origin
+  - Red
   layers:
   - Default
   - TransparentFX
