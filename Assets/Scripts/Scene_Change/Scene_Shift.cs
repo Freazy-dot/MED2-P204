@@ -6,9 +6,6 @@ using UnityEngine.SceneManagement;
 public class Scene_Shift : MonoBehaviour
 {
     SoundManager Soundman;
-    public int Main_screen = 1;
-    public int Options = 2;
-    public int Level_1 = 3;
     public float targetTime = 5.0f; 
     public bool Timer = false;
 
@@ -27,7 +24,7 @@ public class Scene_Shift : MonoBehaviour
 
     void timerEnded()
     {
-        SceneManager.LoadScene(Level_1);
+        SceneManager.LoadScene("Level-1");
     }
 
 
@@ -35,21 +32,21 @@ public class Scene_Shift : MonoBehaviour
     {
         Soundman = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<SoundManager>();
     }
+
     public void MainScreen()
     {
-        SceneManager.LoadScene(Main_screen);
+        SceneManager.LoadScene("Title_Screen");
     }
 
     public void OptionsMenu()
     {
-        SceneManager.LoadScene(Options);
+        SceneManager.LoadScene("Settings");
     }
 
     public void Level1()
     {
-        Soundman.levelmusic();
-        Timer = true;
-    } 
+        SceneManager.LoadScene("Level-1");
+    }
 
     public void QuitGame()
     {

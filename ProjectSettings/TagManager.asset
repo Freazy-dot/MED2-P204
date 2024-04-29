@@ -17,6 +17,8 @@ TagManager:
   - Wire
   - Grab Interactable
   - XR Origin
+  - EndButton
+  - LevelLoader
   layers:
   - Default
   - TransparentFX
