@@ -20,7 +20,7 @@ public class InstantiateCubes : MonoBehaviour
 
     }
 
-    public void OnHoverEntered()
+    public void OnSelectEntered()
     {
         SpawnCube();
     }
