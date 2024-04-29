@@ -18,6 +18,11 @@ TagManager:
   - Grab Interactable
   - XR Origin
   - Red
+  - Green
+  - Yellow
+  - Blue
+  - Purple
+  - Pink
   layers:
   - Default
   - TransparentFX
