@@ -216,7 +216,7 @@ MonoBehaviour:
   - name: Flashlight_on
     clip: {fileID: 8300000, guid: 1e22e6980fa18a448aca41711e56cb02, type: 3}
   - name: Jump_player
-    clip: {fileID: 8300000, guid: 0521403e0b5d764429da1496218832da, type: 3}
+    clip: {fileID: 8300000, guid: 4a556a51976f34541aaa2175f999e650, type: 3}
   - name: Land_player
     clip: {fileID: 8300000, guid: 081340b798bc94947930000bd2130ef7, type: 3}
   - name: Pickup_battery

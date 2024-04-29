@@ -7,6 +7,7 @@ public class PlayerLocomotion : MonoBehaviour
     InputManager inputManager; //Reference to the InputManager script
     PlayerManager playerManager; //Reference to the PlayerManager script
     AnimationManager animationManager; //Reference to the AnimatorManager script
+    SoundManager Soundman;
 
     [HideInInspector]public Vector3 moveDirection; //The direction the player is moving in
     private Vector3 spawnPosition; //The spawn position of the player
@@ -40,9 +41,8 @@ public class PlayerLocomotion : MonoBehaviour
         inputManager = GetComponent<InputManager>();
         characterController = GetComponent<CharacterController>();
         animationManager = GetComponentInChildren<AnimationManager>();
-
+        Soundman = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<SoundManager>();
         spawnPosition = transform.position;
-
         playerCamera = GameObject.FindWithTag("PCCamera").GetComponent<Camera>().transform;
     }
 
@@ -137,7 +137,7 @@ public class PlayerLocomotion : MonoBehaviour
     {
         if (isGrounded && !isJumping)
         {
-
+            Soundman.playSFX("Jump_player");
             animationManager.animator.SetBool("isJumping", true);
             animationManager.PlayTargetAnimation("Ammy|JumpUp", true);
             isGrounded = false;
@@ -170,10 +170,9 @@ public class PlayerLocomotion : MonoBehaviour
             characterController.Move(Vector3.up * jumpForce * Time.deltaTime);
 
             timeInAir += Time.deltaTime;
-
+            
             yield return null;
         }
-
         isJumping = false;
            
     }
