@@ -2820,7 +2820,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indexToSwitch: 1
   newMaterial: {fileID: 2100000, guid: 155e717f7e6f18640b82512409a92b94, type: 2}
-  oldMaterial: {fileID: 2100000, guid: ec85c989f3f39f948bab80bb8c7ff618, type: 2}
+  oldMaterial: {fileID: 2100000, guid: d48ca24f064f6f24c87218f8c38c8405, type: 2}
 --- !u!4 &4583561308969484829 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 315928f5d5caddf459ac8f07bd189477, type: 3}
