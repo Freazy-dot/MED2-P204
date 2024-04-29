@@ -957,6 +957,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wireStart: {fileID: 1682121363}
   lamp: {fileID: 449134131}
+  socket: {fileID: 2000654597}
 --- !u!1 &632384763 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2936152904186678639, guid: 60f29e8671767804bb8a0eac044da670, type: 3}
@@ -2183,6 +2184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wireStart: {fileID: 0}
   lamp: {fileID: 449134131}
+  socket: {fileID: 0}
 --- !u!54 &1140853518
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4305,6 +4307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wireStart: {fileID: 1682121363}
   lamp: {fileID: 449134131}
+  socket: {fileID: 0}
 --- !u!1 &2024195333 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2392959195691354729, guid: 60f29e8671767804bb8a0eac044da670, type: 3}

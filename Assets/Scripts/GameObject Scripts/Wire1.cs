@@ -10,6 +10,7 @@ using static Unity.Burst.Intrinsics.X86.Avx;
 public class Wire1 : MonoBehaviour
 {
     [SerializeField] GameObject wireStart, lamp;
+    
 
    
 
@@ -27,8 +28,15 @@ public class Wire1 : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerEnter(Collider collision)
     {
-        if (!lamp.gameObject.GetComponent<MaterialSwitcher>()) return;
-        lamp.gameObject.GetComponent<MaterialSwitcher>().SwitchMaterial();
+       if(collision.tag==this.tag)
+        {
+            if (!lamp.gameObject.GetComponent<MaterialSwitcher>()) return;
+            lamp.gameObject.GetComponent<MaterialSwitcher>().SwitchMaterial();
+        }
+            
+     
+      
+  
     }
 
     private void OnTriggerExit(Collider other)
