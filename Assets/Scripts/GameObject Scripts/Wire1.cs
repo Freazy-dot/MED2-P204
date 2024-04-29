@@ -9,45 +9,31 @@ using static Unity.Burst.Intrinsics.X86.Avx;
 
 public class Wire1 : MonoBehaviour
 {
-    [SerializeField] GameObject wireStart, wireEnd, socketCollider, lamp;
+    [SerializeField] GameObject wireStart, lamp;
 
-    [SerializeField] Material colourLightOn;
-    Material colourLightOff;
+   
 
-    [SerializeField] MeshRenderer lampMeshRenderer;
-
-
-
-
-
+   
 
     void Start()
     {
         wireStart.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-
-        lampMeshRenderer = lamp.GetComponent<MeshRenderer>();
-        colourLightOff = lampMeshRenderer.material;
-        colourLightOn.mainTextureScale = colourLightOff.mainTextureScale;
-
     }
 
-    void Update()
+
+    /// <summary>
+    /// https://forum.unity.com/threads/how-to-change-a-single-material-at-an-object-which-has-multiple-materials.1261562/
+    /// </summary>
+    /// <param name="other"></param>
+    private void OnTriggerEnter(Collider collision)
     {
-        if(Input.GetKeyDown(KeyCode.P)) { ChangeMaterial(); }
+        if (!lamp.gameObject.GetComponent<MaterialSwitcher>()) return;
+        lamp.gameObject.GetComponent<MaterialSwitcher>().SwitchMaterial();
     }
 
-
-    public void ChangeMaterial()
+    private void OnTriggerExit(Collider other)
     {
-        lampMeshRenderer.material = lampMeshRenderer.material.name.StartsWith(colourLightOn.name) ? colourLightOff : colourLightOn;
+        if (!lamp.gameObject.GetComponent<MaterialSwitcher>()) return;
+        lamp.gameObject.GetComponent<MaterialSwitcher>().RevertMaterialSwitch();
     }
-
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("collision");
-     //   lamp.GetComponent<MeshRenderer>().material = colourLight;
-    }
-
-
 }
