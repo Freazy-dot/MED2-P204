@@ -39,7 +39,8 @@ public class Wire2 : MonoBehaviour
 
     public void ChangeMaterial()
     {
-        lampMeshRenderer.material = lampMeshRenderer.material.name.StartsWith(colourLightOn.name) ? colourLightOff : colourLightOn;
+        // lampMeshRenderer.material = lampMeshRenderer.material.name.StartsWith(colourLightOn.name) ? colourLightOff : colourLightOn;
+        lamp.gameObject.GetComponent<Renderer>().material = colourLightOn;
     }
 
 
