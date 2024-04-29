@@ -9,7 +9,7 @@ using static Unity.Burst.Intrinsics.X86.Avx;
 
 public class Wire1 : MonoBehaviour
 {
-    [SerializeField] GameObject wireStart, lamp;
+    [SerializeField] GameObject wire, wireStart, wireEnd, lamp;
     
 
    
@@ -20,7 +20,6 @@ public class Wire1 : MonoBehaviour
     {
         wireStart.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
     }
-
 
     /// <summary>
     /// https://forum.unity.com/threads/how-to-change-a-single-material-at-an-object-which-has-multiple-materials.1261562/
@@ -33,10 +32,11 @@ public class Wire1 : MonoBehaviour
             if (!lamp.gameObject.GetComponent<MaterialSwitcher>()) return;
             lamp.gameObject.GetComponent<MaterialSwitcher>().SwitchMaterial();
         }
-            
-     
-      
-  
+    }
+
+    public void ActivateWires()
+    {
+        
     }
 
     private void OnTriggerExit(Collider other)

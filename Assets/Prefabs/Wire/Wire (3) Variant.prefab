@@ -121,7 +121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70065f00a9f50994e8a6e4b5d3d4f390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wire: {fileID: 0}
   wireStart: {fileID: 251787016799537958}
+  wireEnd: {fileID: 0}
   lamp: {fileID: 3807727605812664487}
 --- !u!1 &5825315446818854419
 GameObject:
@@ -1330,12 +1332,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555984344659753995}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70065f00a9f50994e8a6e4b5d3d4f390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wire: {fileID: 1555984344659753995}
   wireStart: {fileID: 251787016799537958}
+  wireEnd: {fileID: 1032573714817815656}
   lamp: {fileID: 3807727605812664487}
 --- !u!54 &1762476789844299022 stripped
 Rigidbody:
