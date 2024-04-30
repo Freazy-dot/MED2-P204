@@ -41,7 +41,7 @@ public class PlayerLocomotion : MonoBehaviour
         inputManager = GetComponent<InputManager>();
         characterController = GetComponent<CharacterController>();
         animationManager = GetComponentInChildren<AnimationManager>();
-        Soundman = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<SoundManager>();
+        //Soundman = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<SoundManager>();
         spawnPosition = transform.position;
         playerCamera = GameObject.FindWithTag("PCCamera").GetComponent<Camera>().transform;
     }
