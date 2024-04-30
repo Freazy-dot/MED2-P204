@@ -138,7 +138,7 @@ public class PlayerLocomotion : MonoBehaviour
     {
         if (isGrounded && !isJumping)
         {
-            Soundman.playSFX("Jump_player");
+            
             animationManager.animator.SetBool("isJumping", true);
             animationManager.PlayTargetAnimation("Ammy|JumpUp", true);
             isGrounded = false;
@@ -149,8 +149,8 @@ public class PlayerLocomotion : MonoBehaviour
             float timeToFall = Mathf.Sqrt(2 * jumpHeight / -gravityIntensity);
             float totalAirTime = timeToPeak + timeToFall;
             totalAirTime *= 0.2f;
+            //Soundman.playSFX("Jump_player");
 
-             
             StartCoroutine(JumpCoroutine(totalAirTime, verticalVelocity));
         }
     }
