@@ -11,7 +11,7 @@ public class PlayerInventory : MonoBehaviour
 
     private void Start()
     {
-        Soundman = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<SoundManager>();
+        //Soundman = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<SoundManager>();
     }
     public bool HasBattery() {
         return batteryCount > 0;
@@ -22,7 +22,7 @@ public class PlayerInventory : MonoBehaviour
     public void AddBattery() {
         batteryCount++;
         Debug.Log("Battery added to inventory. Total: " + batteryCount);
-        Soundman.playSFX("Pickup_battery");
+        //Soundman.playSFX("Pickup_battery");
         UpdateBatteryVisuals();
     }
     public void RemoveBattery() {

@@ -11,7 +11,7 @@ public class Button : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        Soundman = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<SoundManager>();
+        //Soundman = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<SoundManager>();
     }
 
     public void Interact(GameObject player)
