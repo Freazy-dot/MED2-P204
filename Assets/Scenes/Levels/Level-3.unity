@@ -685,7 +685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1555984344659753995, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1555984344659753995, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: m_TagString
@@ -3459,7 +3459,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightsOn: 0
   animator: {fileID: 1021130827}
-  wire1: {fileID: 0}
   red: {fileID: 0}
   green: {fileID: 0}
   yellow: {fileID: 0}
