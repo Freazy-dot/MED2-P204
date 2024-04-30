@@ -41,7 +41,7 @@ public class PlayerLocomotion : MonoBehaviour
         inputManager = GetComponent<InputManager>();
         characterController = GetComponent<CharacterController>();
         animationManager = GetComponentInChildren<AnimationManager>();
-        //Soundman = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<SoundManager>();
+        Soundman = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<SoundManager>();
         spawnPosition = transform.position;
         playerCamera = GameObject.FindWithTag("PCCamera").GetComponent<Camera>().transform;
     }
@@ -111,7 +111,7 @@ public class PlayerLocomotion : MonoBehaviour
             if (!isGrounded && !playerManager.isInteracting)
             {
                 animationManager.PlayTargetAnimation("Ammy|JumpLand", true);
-                //Soundman.playSFX("Land_player");
+                Soundman.playSFX("Land_player");
             }
             isGrounded = true;
             inAirTimer = 0;
@@ -149,7 +149,7 @@ public class PlayerLocomotion : MonoBehaviour
             float timeToFall = Mathf.Sqrt(2 * jumpHeight / -gravityIntensity);
             float totalAirTime = timeToPeak + timeToFall;
             totalAirTime *= 0.2f;
-            //Soundman.playSFX("Jump_player");
+            Soundman.playSFX("Jump_player");
 
             StartCoroutine(JumpCoroutine(totalAirTime, verticalVelocity));
         }
