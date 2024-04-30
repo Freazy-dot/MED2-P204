@@ -18,6 +18,6 @@ public class Button : MonoBehaviour, IInteractable
     {
         Debug.Log("Button pressed: " + buttonColor);
         buttonManager.HandleButtonPress(buttonColor, player);
-        Soundman.playSFX("Button_click");
+        //Soundman.playSFX("Button_click");
     }
 }
