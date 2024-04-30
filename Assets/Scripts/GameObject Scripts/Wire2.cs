@@ -8,7 +8,7 @@ using static Unity.Burst.Intrinsics.X86.Avx;
 public class Wire2 : MonoBehaviour
 {
     [SerializeField] GameObject wireRed, wireGreen, wireBlue, wireYellow, wirePurple, wirePink;
-    Animator animator;
+    [SerializeField] Animator animator,rampAnimator;
 
         void Start()
     {
@@ -20,6 +20,7 @@ public class Wire2 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
+            rampAnimator.SetTrigger("Ramp");
             OpenBox();
         }
 
