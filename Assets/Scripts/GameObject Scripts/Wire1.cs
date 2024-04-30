@@ -10,14 +10,12 @@ using static Unity.Burst.Intrinsics.X86.Avx;
 public class Wire1 : MonoBehaviour
 {
     [SerializeField] GameObject wire, wireStart, wireEnd, lamp;
-   
-   
+    private int lightsON = 0;
+    [SerializeField] Animator animator;
 
     void Start()
     {
         wireStart.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-
-      
     }
 
     /// <summary>
@@ -30,19 +28,25 @@ public class Wire1 : MonoBehaviour
         {
             if (!lamp.gameObject.GetComponent<MaterialSwitcher>()) return;
             lamp.gameObject.GetComponent<MaterialSwitcher>().SwitchMaterial();
+
+            if (lightsON <6)
+            {
+                lightsON += 1;
+            }
+            else 
+            {
+                animator.SetTrigger("open");
+            }
+
+            Debug.Log(lightsON);
+
         }
-    }
-
- 
-
-    public void ActivateWires()
-    {
-        
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (!lamp.gameObject.GetComponent<MaterialSwitcher>()) return;
         lamp.gameObject.GetComponent<MaterialSwitcher>().RevertMaterialSwitch();
+        lightsON -= 1;
     }
 }
