@@ -8,9 +8,7 @@ using UnityEngine.UI;
 public class LevelLoader : MonoBehaviour
 {
     LightManager lightManager;
-    public GameObject loadingScreen;
-    public Slider slider;
-    
+
     private void Start()
     {
         lightManager = FindObjectOfType<LightManager>();
@@ -27,14 +25,14 @@ public class LevelLoader : MonoBehaviour
 
     IEnumerator LoadAsynchronously(int sceneIndex)
     {
+        yield return new WaitForSeconds(2f);
+        
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
-
-        loadingScreen.SetActive(true);
 
         while (!operation.isDone) {
             float progress = Mathf.Clamp01(operation.progress / .9f);
 
-            slider.value = progress;
+            Debug.Log("Loading progress: " + progress);
 
             yield return null;
         }

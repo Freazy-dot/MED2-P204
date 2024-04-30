@@ -7,7 +7,7 @@ public class LightManager : MonoBehaviour
     public Light[] lights;
     public float[] lightIntensities;
     public float brightenDuration = 5f;
-    public float dimDuration = 0.1f;
+    public float dimDuration = 0.01f;
 
     private void Awake()
     {
