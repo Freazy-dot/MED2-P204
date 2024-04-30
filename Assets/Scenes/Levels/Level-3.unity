@@ -742,7 +742,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1555984344659753995, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1555984344659753995, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: m_TagString
@@ -887,6 +887,10 @@ PrefabInstance:
     - target: {fileID: 8542894397197396908, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: m_TagString
       value: Pink
+      objectReference: {fileID: 0}
+    - target: {fileID: 8592492547609646910, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
+      propertyPath: m_AttachTransform
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8777968610624911224, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: m_TagString

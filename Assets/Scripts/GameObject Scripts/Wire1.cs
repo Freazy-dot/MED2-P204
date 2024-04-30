@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using static Unity.Burst.Intrinsics.X86.Avx;
 
@@ -10,13 +11,17 @@ using static Unity.Burst.Intrinsics.X86.Avx;
 public class Wire1 : MonoBehaviour
 {
     [SerializeField] GameObject wire, wireStart, wireEnd, lamp;
-    //private int lightsON = 0;
-   // [SerializeField] Animator animator;
-    [SerializeField] WirePuzzle wirePuzzle;
+ 
+    //[SerializeField] Animator animator;
+    //[SerializeField] WirePuzzle wirePuzzle;
+   
+
+
 
     void Start()
     {
         wireStart.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+       
     }
 
     /// <summary>
@@ -25,12 +30,14 @@ public class Wire1 : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerEnter(Collider collision)
     {
+
        if(collision.tag==this.tag)
         {
-            if (!lamp.gameObject.GetComponent<MaterialSwitcher>()) return;
+            //if (!lamp.gameObject.GetComponent<MaterialSwitcher>()) return;
             lamp.gameObject.GetComponent<MaterialSwitcher>().SwitchMaterial();
 
-            wirePuzzle.Add();
+
+           // wirePuzzle.Add();
         }
     }
 
@@ -39,6 +46,8 @@ public class Wire1 : MonoBehaviour
         if (!lamp.gameObject.GetComponent<MaterialSwitcher>()) return;
         lamp.gameObject.GetComponent<MaterialSwitcher>().RevertMaterialSwitch();
 
-        wirePuzzle.Decrease();
+       
+
+       // wirePuzzle.Decrease();
     }
 }

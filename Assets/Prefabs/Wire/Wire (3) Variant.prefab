@@ -103,7 +103,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5000001
   m_Height: 2
@@ -125,7 +125,6 @@ MonoBehaviour:
   wireStart: {fileID: 251787016799537958}
   wireEnd: {fileID: 0}
   lamp: {fileID: 3807727605812664487}
-  wirePuzzle: {fileID: 0}
 --- !u!1 &5825315446818854419
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,13 +260,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6064738285551594381}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.06, z: 0}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
+  m_LocalPosition: {x: 0.055, y: -3.25, z: 0.002}
   m_LocalScale: {x: 0.5, y: 0.8602151, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1464558996356474984}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!33 &6408591935924298554
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -587,6 +586,14 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7558897463891597645, guid: 60f29e8671767804bb8a0eac044da670, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7558897463891597645, guid: 60f29e8671767804bb8a0eac044da670, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7679391211452629203, guid: 60f29e8671767804bb8a0eac044da670, type: 3}
       propertyPath: m_Constraints
       value: 0
@@ -658,6 +665,38 @@ PrefabInstance:
     - target: {fileID: 8713804226670660266, guid: 60f29e8671767804bb8a0eac044da670, type: 3}
       propertyPath: m_Constraints
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002195935468975642, guid: 60f29e8671767804bb8a0eac044da670, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0004
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002195935468975642, guid: 60f29e8671767804bb8a0eac044da670, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0036
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002195935468975642, guid: 60f29e8671767804bb8a0eac044da670, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002195935468975642, guid: 60f29e8671767804bb8a0eac044da670, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002195935468975642, guid: 60f29e8671767804bb8a0eac044da670, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002195935468975642, guid: 60f29e8671767804bb8a0eac044da670, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002195935468975642, guid: 60f29e8671767804bb8a0eac044da670, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002195935468975642, guid: 60f29e8671767804bb8a0eac044da670, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 9113533941239292805, guid: 60f29e8671767804bb8a0eac044da670, type: 3}
       propertyPath: m_UseSpring
@@ -1342,7 +1381,6 @@ MonoBehaviour:
   wireStart: {fileID: 251787016799537958}
   wireEnd: {fileID: 1032573714817815656}
   lamp: {fileID: 3807727605812664487}
-  wirePuzzle: {fileID: 0}
 --- !u!54 &1762476789844299022 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 3971455982112568409, guid: 60f29e8671767804bb8a0eac044da670, type: 3}

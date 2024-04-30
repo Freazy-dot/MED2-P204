@@ -24,11 +24,11 @@ public class MaterialSwitcher : MonoBehaviour
     {
         Material currentMaterial = GetMeshMaterialAtIndex(indexToSwitch);
 
-        Debug.Log("Collison worked!");
+       // Debug.Log("Collison worked!");
 
         if (String.Equals(currentMaterial.name, newMaterial.name))
         {
-            Debug.Log("Material already swapped!");
+           // Debug.Log("Material already swapped!");
         }
         else
         {
@@ -44,18 +44,18 @@ public class MaterialSwitcher : MonoBehaviour
     {
         Material currentMaterial = GetMeshMaterialAtIndex(indexToSwitch);
 
-        Debug.Log("Collison worked!");
+       // Debug.Log("Collison worked!");
 
         if (String.Equals(currentMaterial.name, oldMaterial.name))
         {
-            Debug.Log("Material already swapped!");
+            //Debug.Log("Material already swapped!");
         }
         else
         {
             Material[] materials = GetComponent<Renderer>().materials;
             materials[indexToSwitch] = oldMaterial;
             GetComponent<Renderer>().materials = materials;
-            Debug.Log("Material swapped succesfully!");
+           Debug.Log("Material swapped succesfully!");
         }
     }
 }
