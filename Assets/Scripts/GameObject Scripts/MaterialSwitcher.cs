@@ -14,6 +14,8 @@ public class MaterialSwitcher : MonoBehaviour
     [SerializeField]
     Material newMaterial, oldMaterial;
 
+    public bool isOn;
+
 
     private Material GetMeshMaterialAtIndex(int index)
     {
@@ -28,6 +30,8 @@ public class MaterialSwitcher : MonoBehaviour
 
         if (String.Equals(currentMaterial.name, newMaterial.name))
         {
+            
+
            // Debug.Log("Material already swapped!");
         }
         else
@@ -37,6 +41,8 @@ public class MaterialSwitcher : MonoBehaviour
             GetComponent<Renderer>().materials = materials;
             Debug.Log("Material swapped succesfully!");
         }
+
+         isOn = true;
     }
 
 
@@ -49,6 +55,9 @@ public class MaterialSwitcher : MonoBehaviour
         if (String.Equals(currentMaterial.name, oldMaterial.name))
         {
             //Debug.Log("Material already swapped!");
+
+            
+
         }
         else
         {
@@ -57,5 +66,7 @@ public class MaterialSwitcher : MonoBehaviour
             GetComponent<Renderer>().materials = materials;
            Debug.Log("Material swapped succesfully!");
         }
+
+        isOn = false;
     }
 }

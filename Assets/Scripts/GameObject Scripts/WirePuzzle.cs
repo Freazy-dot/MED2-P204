@@ -5,49 +5,30 @@ using static UnityEngine.InputSystem.Controls.AxisControl;
 
 public class WirePuzzle : MonoBehaviour
 {
-    [SerializeField] int lightsOn;
-    public Animator animator;
-   // [SerializeField] Wire1 wire1;
-    [SerializeField] GameObject red, green, yellow, blue, purple, pink;
+    
+    Animator animator;
 
+    
+  [SerializeField] MaterialSwitcher mRed, mGreen, mYellow, mBlue, mPurple, mPink;
 
     private void Start()
     {
-        red.GetComponent<Wire1>();
-        green.GetComponent<Wire1>();
-        yellow.GetComponent<Wire1>();
-        blue.GetComponent<Wire1>();
-        purple.GetComponent<Wire1>();
-        pink.GetComponent<Wire1>();
-
-
-        animator = GetComponent<Animator>();
-        lightsOn = 0;
+      
+       animator = GetComponent<Animator>();
+        
     }
 
     private void Update()
     {
-       
 
-        if (lightsOn >=6)
+        if (mRed.isOn == true && mGreen.isOn == true && mYellow.isOn == true && mBlue.isOn == true && mPurple.isOn == true && mPink.isOn == true)
         {
             animator.SetTrigger("open");
+
         }
     }
 
-    public void Add()
-    {
-        Debug.Log(lightsOn);
-        lightsOn+=1;
-        
-    }
-
-    public void Decrease()
-    {
-        Debug.Log(lightsOn);
-        lightsOn-=1;
-       
-    }
+  
 
 
 }
