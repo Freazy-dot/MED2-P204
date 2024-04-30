@@ -6,8 +6,10 @@ public class LightManager : MonoBehaviour
 {
     public Light[] lights;
     public float[] lightIntensities;
+    public float brightenDuration = 5f;
+    public float dimDuration = 0.1f;
 
-    private void Start()
+    private void Awake()
     {
         lights = FindObjectsOfType<Light>();
         lightIntensities = new float[lights.Length];
@@ -15,11 +17,45 @@ public class LightManager : MonoBehaviour
             lightIntensities[i] = lights[i].intensity;
         }
     }
-
-    public void SetLightIntensityPercentage(float percentage)
+    
+    private void Start()
     {
         for (int i = 0; i < lights.Length; i++) {
-            lights[i].intensity = lights[i].intensity - (lightIntensities[i] * percentage);
+            lights[i].intensity = 0;
         }
+
+        StartCoroutine(BrightenLights());
+    }
+
+    private IEnumerator BrightenLights()
+    {
+        float startTime = Time.time;
+
+        while (Time.time - startTime <= brightenDuration) {
+            float t = (Time.time - startTime) / brightenDuration;
+
+            for (int i = 0; i < lights.Length; i++) {
+                lights[i].intensity = Mathf.Lerp(0, lightIntensities[i], t);
+            }
+            
+            yield return null;
+        }
+    }
+
+    public IEnumerator DimLights(System.Action callback)
+    {
+        float startTime = Time.time;
+
+        while (Time.time - startTime <= dimDuration) {
+            float t = (Time.time - startTime) / dimDuration;
+
+            for (int i = 0; i < lights.Length; i++) {
+                lights[i].intensity = Mathf.Lerp(lightIntensities[i], 0, t);
+            }
+
+            yield return null;
+        }
+
+        callback?.Invoke();
     }
 }
