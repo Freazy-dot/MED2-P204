@@ -12,11 +12,13 @@ public class BatteryStation : MonoBehaviour, IInteractable
     public Material material;
     private Material originalMaterial;
     private Renderer objectRenderer;
+    SoundManager Soundman;
 
     public void Start()
     {
         objectRenderer = GetComponent<Renderer>();
         originalMaterial = objectRenderer.material;
+        Soundman = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<SoundManager>();
     }
     // rest of tesing thing at the end of Interact() and ReturnBattery()
 
@@ -57,6 +59,7 @@ public class BatteryStation : MonoBehaviour, IInteractable
         inventory.RemoveBattery();
         powerable.PowerOn();
         hasBattery = true;
+        Soundman.playSFX("Battery_slot_sfx");
 
         objectRenderer.material = material; // testing purpose
     }
