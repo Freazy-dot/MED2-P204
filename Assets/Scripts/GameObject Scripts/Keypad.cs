@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Keypad : MonoBehaviour
 {
     [SerializeField] private Text Ans;
+    SoundManager Soundman;
 
     private string Code_Answer = "1273";
 
@@ -14,6 +15,10 @@ public class Keypad : MonoBehaviour
 
     public bool BatteryCheck;
 
+    private void Start()
+    {
+        Soundman = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<SoundManager>();
+    }
     public void CheckForBattery()
     {
         if (BatteryCheck) // og e bliver trykket på!!!!!
@@ -51,12 +56,13 @@ public class Keypad : MonoBehaviour
             //Do thingy her
             Ans.text = "GET IN HERE BOI";
             Number_limit = 0;
+            Soundman.playSFX("KeyCode_right");
         }
         else
         {
             Ans.text = "INCORRECT";
             StartCoroutine(Delay());
-            
+            Soundman.playSFX("KeyCode_wrong");
         }
     }
     private IEnumerator Delay()
