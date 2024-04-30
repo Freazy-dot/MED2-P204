@@ -9,7 +9,7 @@ public class Keypad : MonoBehaviour
     [SerializeField] private Text Ans;
     SoundManager Soundman;
 
-    private string Code_Answer = "1273";
+    private string Code_Answer = "204659";
 
     private int Number_limit = 0;
 
@@ -35,7 +35,7 @@ public class Keypad : MonoBehaviour
 
     public void Number(int number)
     {
-        if (Number_limit < 4)
+        if (Number_limit < 6)
         {
             Ans.text += number.ToString();
             Number_limit = Number_limit + 1;
