@@ -22,6 +22,10 @@ public class Wire2 : MonoBehaviour
         {
             OpenBox();
         }
+
+
+
+
     }
 
 
