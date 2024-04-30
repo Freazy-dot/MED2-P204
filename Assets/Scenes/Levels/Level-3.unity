@@ -696,6 +696,10 @@ PrefabInstance:
       value: Pink
       objectReference: {fileID: 0}
     - target: {fileID: 2213590530491171861, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2213590530491171861, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: af07a046fea7a7a49ac2e75f46eb88cc, type: 2}
@@ -1114,6 +1118,10 @@ PrefabInstance:
     - target: {fileID: 2183021584780184841, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: m_TagString
       value: Yellow
+      objectReference: {fileID: 0}
+    - target: {fileID: 2213590530491171861, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 2213590530491171861, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1668,6 +1676,10 @@ PrefabInstance:
       value: Green
       objectReference: {fileID: 0}
     - target: {fileID: 2213590530491171861, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2213590530491171861, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 79a5bb71b89765e47a00607a3152f0fd, type: 2}
@@ -2070,6 +2082,10 @@ PrefabInstance:
     - target: {fileID: 2183021584780184841, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: m_TagString
       value: Purple
+      objectReference: {fileID: 0}
+    - target: {fileID: 2213590530491171861, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 2213590530491171861, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3439,6 +3455,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightsOn: 0
   animator: {fileID: 1021130827}
+  wire1: {fileID: 0}
+  red: {fileID: 0}
+  green: {fileID: 0}
+  yellow: {fileID: 0}
+  blue: {fileID: 0}
+  purple: {fileID: 0}
+  pink: {fileID: 0}
 --- !u!1 &1030011862 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1555984344659753995, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
@@ -3666,7 +3689,35 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2187264710284308227, guid: 8dcc557331699ca47a2c1f82247bacdb, type: 3}
+      propertyPath: m_TargetEye
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187264710284308227, guid: 8dcc557331699ca47a2c1f82247bacdb, type: 3}
+      propertyPath: orthographic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187264710284308227, guid: 8dcc557331699ca47a2c1f82247bacdb, type: 3}
+      propertyPath: field of view
+      value: 59
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187264710284308227, guid: 8dcc557331699ca47a2c1f82247bacdb, type: 3}
       propertyPath: m_TargetDisplay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187264710284308227, guid: 8dcc557331699ca47a2c1f82247bacdb, type: 3}
+      propertyPath: near clip plane
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187264710284308227, guid: 8dcc557331699ca47a2c1f82247bacdb, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371165547913147482, guid: 8dcc557331699ca47a2c1f82247bacdb, type: 3}
+      propertyPath: m_MoveSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371165547913147482, guid: 8dcc557331699ca47a2c1f82247bacdb, type: 3}
+      propertyPath: m_EnableStrafe
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7641690444006833966, guid: 8dcc557331699ca47a2c1f82247bacdb, type: 3}
@@ -3894,6 +3945,10 @@ PrefabInstance:
     - target: {fileID: 2183021584780184841, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: m_TagString
       value: Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 2213590530491171861, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 2300844796518991660, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: m_TagString
@@ -4645,6 +4700,10 @@ PrefabInstance:
     - target: {fileID: 2183021584780184841, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: m_TagString
       value: Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 2213590530491171861, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 2213590530491171861, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -6363,6 +6422,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1634891137980882416, guid: 0210bf61d1fb07d4c8e4f22d35ee2f09, type: 3}
+      propertyPath: m_TargetEye
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2629163929331121809, guid: 0210bf61d1fb07d4c8e4f22d35ee2f09, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.91

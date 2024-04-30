@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelLoader : MonoBehaviour
 {
@@ -16,26 +17,22 @@ public class LevelLoader : MonoBehaviour
             Debug.LogError("LightManager not found in scene.");
         }
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player")) {
-            LoadLevel();
-        }
-    }
     
     public void LoadLevel()
     {
-        StartCoroutine(LoadAsynchronously(SceneManager.GetActiveScene().buildIndex + 1));
+        lightManager.StartCoroutine(lightManager.DimLights(() => StartCoroutine(LoadAsynchronously(SceneManager.GetActiveScene().buildIndex + 1))));
     }
 
     IEnumerator LoadAsynchronously(int sceneIndex)
     {
+        yield return new WaitForSeconds(2f);
+        
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
 
         while (!operation.isDone) {
             float progress = Mathf.Clamp01(operation.progress / .9f);
-            lightManager.SetLightIntensityPercentage(progress);
+
+            Debug.Log("Loading progress: " + progress);
 
             yield return null;
         }
