@@ -103,7 +103,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5000001
   m_Height: 2
@@ -125,7 +125,6 @@ MonoBehaviour:
   wireStart: {fileID: 251787016799537958}
   wireEnd: {fileID: 0}
   lamp: {fileID: 3807727605812664487}
-  wirePuzzle: {fileID: 0}
 --- !u!1 &5825315446818854419
 GameObject:
   m_ObjectHideFlags: 0
@@ -1342,7 +1341,6 @@ MonoBehaviour:
   wireStart: {fileID: 251787016799537958}
   wireEnd: {fileID: 1032573714817815656}
   lamp: {fileID: 3807727605812664487}
-  wirePuzzle: {fileID: 0}
 --- !u!54 &1762476789844299022 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 3971455982112568409, guid: 60f29e8671767804bb8a0eac044da670, type: 3}
