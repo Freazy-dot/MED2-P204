@@ -1,32 +1,66 @@
+using System;
 using System.Collections;
-using System.Linq;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] private int _time = 0;
-    public int timeLeft = 0;
-    private Coroutine _countdown;
-    public Text timerText;
-    public ButtonManager buttonManager; // Add this line
+    [SerializeField] private readonly int _timer = 20;
+    public int timer;
+    private IEnumerator _countdown;
 
+    [SerializeField] private TextMeshPro _timerText;
+
+    private void Start()
+    {
+        _timerText = GetComponent<TextMeshPro>();
+    }
+    
     public void StartTimer()
     {
-        timeLeft = _time;
-        _countdown = StartCoroutine(Countdown());
+        timer = _timer;
+        _countdown = Countdown();
+        StartCoroutine(_countdown);
+    }
+
+    public void StopTimer() 
+    {
+        StopCoroutine(_countdown);
+
+        _timerText.text = " ";
+    }
+
+    public void ResetTimer()
+    {
+        if (timer > 0) {
+            StopTimer();
+        }
+
+        StartTimer();
     }
 
     private IEnumerator Countdown()
     {
-        while (timeLeft > 0)
-        {
-            timerText.text = "Time left: " + timeLeft;
-            Debug.Log("Time left: " + timeLeft);
+        while (timer > 0) {
+            _timerText.text = timer.ToString();
+            Debug.Log(timer);
             yield return new WaitForSeconds(1);
-            timeLeft--;
+            timer--;
         }
-        timerText.text = "Time's up!";
-        buttonManager.ResetButtonCounts(); // Call the ResetButtonCounts method in the ButtonManager
+        onTimerDone();
+    }
+
+    public Action OnTimerDone;
+    private void onTimerDone()
+    {
+        _timerText.text = " ";
+        OnTimerDone?.Invoke();
+    }
+
+    public void OnPuzzleDone()
+    {
+        StopTimer();
+
+        _timerText.text = "finished puzzle well done idiot";
     }
 }
