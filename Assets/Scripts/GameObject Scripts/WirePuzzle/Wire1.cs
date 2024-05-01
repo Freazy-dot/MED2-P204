@@ -11,17 +11,17 @@ using static Unity.Burst.Intrinsics.X86.Avx;
 public class Wire1 : MonoBehaviour
 {
     [SerializeField] GameObject wire, wireStart, wireEnd, lamp;
- 
+    SoundManager Soundman;
     //[SerializeField] Animator animator;
     //[SerializeField] WirePuzzle wirePuzzle;
-   
+
 
 
 
     void Start()
     {
         wireStart.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-       
+        Soundman = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<SoundManager>();
     }
 
     /// <summary>
@@ -35,9 +35,9 @@ public class Wire1 : MonoBehaviour
         {
             //if (!lamp.gameObject.GetComponent<MaterialSwitcher>()) return;
             lamp.gameObject.GetComponent<MaterialSwitcher>().SwitchMaterial();
+            Soundman.playSFX("Cable_in");
 
-
-           // wirePuzzle.Add();
+            // wirePuzzle.Add();
         }
     }
 
@@ -45,9 +45,8 @@ public class Wire1 : MonoBehaviour
     {
         if (!lamp.gameObject.GetComponent<MaterialSwitcher>()) return;
         lamp.gameObject.GetComponent<MaterialSwitcher>().RevertMaterialSwitch();
+        Soundman.playSFX("Cable_out");
 
-       
-
-       // wirePuzzle.Decrease();
+        // wirePuzzle.Decrease();
     }
 }

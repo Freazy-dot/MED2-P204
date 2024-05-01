@@ -29,6 +29,7 @@ public class PlayerLocomotion : MonoBehaviour
 
     public bool isGrounded; //Bool for if the player is grounded
     public bool isJumping; //Bool for if the player is jumping
+    public bool Delay;
 
     public float jumpHeight; //The height of the jump
     public float gravityIntensity = -15; //The intensity of the gravity
@@ -44,6 +45,7 @@ public class PlayerLocomotion : MonoBehaviour
         Soundman = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<SoundManager>();
         spawnPosition = transform.position;
         playerCamera = GameObject.FindWithTag("PCCamera").GetComponent<Camera>().transform;
+        Delay = true;
     }
 
 
@@ -70,8 +72,26 @@ public class PlayerLocomotion : MonoBehaviour
         characterController.Move(moveDirection * Time.deltaTime);
         if (moveDirection.magnitude > 0 && isGrounded)
         {
-            Soundman.playSFX("Walking_player");
+            StartCoroutine(SoundWalk());
         }
+        else
+        {
+            Soundman.BreakSFX();
+            StopCoroutine(SoundWalk());
+            Delay = true;
+        }
+    }
+
+    IEnumerator SoundWalk()
+    {
+        if (Delay)
+        {
+            Soundman.playSFX("Walking_player");
+            Delay = false;
+        }
+        
+        yield return new WaitForSeconds(6f);
+        
     }
 
     private void HandleRotation()
