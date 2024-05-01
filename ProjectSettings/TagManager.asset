@@ -23,6 +23,7 @@ TagManager:
   - Blue
   - Purple
   - Pink
+  - Outline
   layers:
   - Default
   - TransparentFX
