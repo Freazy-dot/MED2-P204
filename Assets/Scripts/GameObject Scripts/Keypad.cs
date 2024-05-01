@@ -9,11 +9,15 @@ public class Keypad : MonoBehaviour, IPowerable, IInteractable
     [SerializeField] private Text Ans;
     SoundManager Soundman;
 
+    public Animator Panel;
+
     private string Code_Answer = "204659";
 
     private int Number_limit = 0;
 
     public bool keypadIsActive = false;
+
+    public bool Showkeypad;
 
     private void Start()
     {
@@ -37,10 +41,12 @@ public class Keypad : MonoBehaviour, IPowerable, IInteractable
         {
             //Keypad on camera
             Debug.Log("Keypad is Active");
+            Panel.Play("Show_NumPad");
         }
         else if (!keypadIsActive)
         {
             Debug.LogWarning("Keypad Not Active");
+            
         }
     }
     public void Number(int number)
