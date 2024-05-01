@@ -70,16 +70,16 @@ public class PlayerLocomotion : MonoBehaviour
         moveDirection = moveDirection * moveSpeed;
 
         characterController.Move(moveDirection * Time.deltaTime);
-        if (moveDirection.magnitude > 0 && isGrounded)
+
+        if (moveDirection.magnitude > 0 && isGrounded )
         {
             StartCoroutine(SoundWalk());
         }
-        else if (moveDirection.y == 0  && isGrounded)
+        else if (moveDirection.y == 0 && isGrounded)
         {
             Soundman.BreakSFX();
             StopCoroutine(SoundWalk());
             Delay = true;
-            return;
         }
     }
 
@@ -199,7 +199,6 @@ public class PlayerLocomotion : MonoBehaviour
             yield return null;
         }
         isJumping = false;
-        Soundman.playSFX("Land_player");
 
     }
 }
