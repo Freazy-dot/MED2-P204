@@ -11,7 +11,7 @@ public class PlayerInventory : MonoBehaviour
 
     private void Start()
     {
-        //Soundman = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<SoundManager>();
+        Soundman = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<SoundManager>();
     }
     public bool HasBattery() {
         return batteryCount > 0;
