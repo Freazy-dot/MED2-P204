@@ -76,9 +76,10 @@ public class PlayerLocomotion : MonoBehaviour
         }
         else if (moveDirection.y == 0  && isGrounded)
         {
-            //Soundman.BreakSFX();
+            Soundman.BreakSFX();
             StopCoroutine(SoundWalk());
             Delay = true;
+            return;
         }
     }
 
