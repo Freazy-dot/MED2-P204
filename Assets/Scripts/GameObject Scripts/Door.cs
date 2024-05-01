@@ -15,16 +15,18 @@ public class Door : MonoBehaviour, IPowerable
 
     public void PowerOn()
     {
+        Soundman.playSFX("Door_open");
         transform.Translate(Vector3.up * 4f); // Move the object upwards by 2 units
         Debug.Log("Opening Door");
-        Soundman.playSFX("Door_open");
+        
     }
 
     public void PowerOff()
     {
+        Soundman.playSFX("Door_closing");
         transform.position = originalPosition; // Return the object to its original position
         Debug.Log("Closing Door");
-        Soundman.playSFX("Door_closing");
+        
     }
 }
   

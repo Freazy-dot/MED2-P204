@@ -79,6 +79,7 @@ public class PlayerLocomotion : MonoBehaviour
             Soundman.BreakSFX();
             StopCoroutine(SoundWalk());
             Delay = true;
+            return;
         }
     }
 
