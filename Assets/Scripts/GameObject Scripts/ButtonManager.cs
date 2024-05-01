@@ -1,52 +1,97 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
 public class ButtonManager : MonoBehaviour
 {
-    private Dictionary<Color, int> buttonCounts = new Dictionary<Color, int>();
-    private HashSet<Color> matchedColors = new HashSet<Color>();
-    private Timer timer;
+    Timer timer;
 
-    public void HandleButtonPress(Color color, GameObject player)
+    private string _currentColour;
+    public string currentColour => _currentColour;
+
+    private Dictionary<string, HashSet<string>> _colourIdFinished = new Dictionary<string, HashSet<string>>(){
+        {"Red", new HashSet<string>()},
+        {"Blue", new HashSet<string>()},
+        {"Green", new HashSet<string>()}};
+    private Dictionary<string, bool> _colourFinished = new Dictionary<string, bool>(){
+        {"Red", false},
+        {"Blue", false},
+        {"Green", false}};
+
+    public bool isPuzzleSolved = false;
+
+    private void Start()
     {
-        timer = player.GetComponent<Timer>();
-
-        if (timer.timeLeft <= 0) 
-        {
-            timer.StartTimer();
-            ResetButtonCounts();
-        }
-
-        if (!buttonCounts.ContainsKey(color))
-        {
-            buttonCounts[color] = 0;
-        }
-
-        buttonCounts[color]++;
-
-        if (buttonCounts[color] == 3)
-        {
-            Debug.Log("Pressed 3 buttons of the same color: " + color);
-            matchedColors.Add(color);
-            buttonCounts[color] = 0;
-
-            if (matchedColors.Count == 3)
-            {
-                Debug.Log("All three colors have been matched!");
-            }
-        }
+        timer = GameObject.FindObjectOfType<Timer>();
+        timer.OnTimerDone += resetColour;
     }
 
-    public void ResetButtonCounts()
+    private void resetColour()
     {
-        foreach (Color color in buttonCounts.Keys.ToList())
-        {
-            if (!matchedColors.Contains(color))
-            {
-                buttonCounts[color] = 0;
-            }
+        if (_colourFinished[_currentColour] == false) {
+            _colourIdFinished[_currentColour].Clear();
+        }
+
+        // add failed sfx here
+        _currentColour = null;
+    }
+
+    public void HandleButtonPress(GameObject player, string colour, string buttonId)
+    {   
+        if (isPuzzleSolved) {
+            Debug.Log("Puzzle already solved");
+            return;
+        }
+        
+        // current colour becomes null when timer runs out or when colour is finished
+        if (_currentColour == null && _colourFinished[colour] == false) { 
+            _currentColour = colour;
+        }
+
+        if (_currentColour != colour) {
+            Debug.Log("Wrong colour");
+
+            // add wrong press sfx here
+            return;
+        }
+        
+        if (_colourFinished[colour] == true) {
+            Debug.Log(colour + " already finished");
+
+            // add wrong press sfx here
+            return;
+        }
+
+        if (_colourIdFinished[colour].Contains(buttonId)) {
+            Debug.Log("Button already pressed");
+
+            // add wrong press sfx here
+            return;
+        }
+
+        _colourIdFinished[colour].Add(buttonId);
+
+        if (_colourIdFinished[colour].Count == 3) {
+            _colourFinished[colour] = true;
+            timer.StopTimer();
+            resetColour();
+            isPuzzleSolvedCheck();
+            Debug.Log(colour + " finished");
+
+            // add correct sound sfx here
+            return;
+        }
+
+        timer.ResetTimer();
+    }
+
+    private void isPuzzleSolvedCheck()
+    {
+        if (_colourFinished.Values.All(x => x)) {
+            isPuzzleSolved = true;
+
+            // add puzzle solved sfx here
+            timer.OnPuzzleDone();
         }
     }
 }

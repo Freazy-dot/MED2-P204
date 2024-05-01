@@ -74,7 +74,7 @@ public class PlayerLocomotion : MonoBehaviour
         {
             StartCoroutine(SoundWalk());
         }
-        else
+        else if (moveDirection.y == 0  && isGrounded)
         {
             Soundman.BreakSFX();
             StopCoroutine(SoundWalk());
@@ -89,7 +89,6 @@ public class PlayerLocomotion : MonoBehaviour
             Soundman.playSFX("Walking_player");
             Delay = false;
         }
-        
         yield return new WaitForSeconds(6f);
         
     }
