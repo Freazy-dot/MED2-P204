@@ -23,6 +23,7 @@ TagManager:
   - Blue
   - Purple
   - Pink
+  - CameraManager
   layers:
   - Default
   - TransparentFX

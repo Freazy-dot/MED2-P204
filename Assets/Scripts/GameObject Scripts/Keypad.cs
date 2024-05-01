@@ -10,6 +10,7 @@ public class Keypad : MonoBehaviour, IPowerable, IInteractable
     SoundManager Soundman;
 
     public Animator Panel;
+    GameObject CameraManager;
 
     private string Code_Answer = "204659";
 
@@ -22,6 +23,7 @@ public class Keypad : MonoBehaviour, IPowerable, IInteractable
     private void Start()
     {
         Soundman = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<SoundManager>();
+        CameraManager = GameObject.FindGameObjectWithTag("CameraManager");
         
     }
 
@@ -42,6 +44,8 @@ public class Keypad : MonoBehaviour, IPowerable, IInteractable
             //Keypad on camera
             Debug.Log("Keypad is Active");
             Panel.Play("Show_NumPad");
+            CameraManager.SetActive(false);
+
         }
         else if (!keypadIsActive)
         {
