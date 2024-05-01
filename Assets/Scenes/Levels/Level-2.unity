@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.13276806, g: 0.13603553, b: 0.1469543, a: 1}
+  m_IndirectSpecularColor: {r: 0.13310102, g: 0.13662744, b: 0.14787957, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2350,8 +2350,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f124d49e9129f44f6aa93b907be43f90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonColor: {r: 1, g: 0, b: 0, a: 0}
-  buttonManager: {fileID: 1950629826}
 --- !u!1001 &282041676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2897,8 +2895,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f124d49e9129f44f6aa93b907be43f90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonColor: {r: 1, g: 0, b: 0, a: 0}
-  buttonManager: {fileID: 1950629826}
 --- !u!135 &409366905
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3532,8 +3528,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f124d49e9129f44f6aa93b907be43f90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonColor: {r: 0, g: 0, b: 1, a: 0}
-  buttonManager: {fileID: 1950629826}
 --- !u!1001 &496964755
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5424,8 +5418,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f124d49e9129f44f6aa93b907be43f90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonColor: {r: 0, g: 0, b: 1, a: 0}
-  buttonManager: {fileID: 1950629826}
 --- !u!1001 &696943784
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6833,8 +6825,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f124d49e9129f44f6aa93b907be43f90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonColor: {r: 1, g: 1, b: 0, a: 0}
-  buttonManager: {fileID: 1950629826}
 --- !u!4 &865023742 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 205e6ba8163215f4b8029fbb51cbd349, type: 3}
@@ -7588,8 +7578,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f124d49e9129f44f6aa93b907be43f90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonColor: {r: 1, g: 1, b: 0, a: 0}
-  buttonManager: {fileID: 1950629826}
 --- !u!1001 &994461591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10090,8 +10078,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f124d49e9129f44f6aa93b907be43f90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonColor: {r: 1, g: 0, b: 0, a: 0}
-  buttonManager: {fileID: 1950629826}
 --- !u!1 &1307659281
 GameObject:
   m_ObjectHideFlags: 0
@@ -10888,8 +10874,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f124d49e9129f44f6aa93b907be43f90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonColor: {r: 0, g: 0, b: 1, a: 0}
-  buttonManager: {fileID: 1950629826}
 --- !u!1 &1437655616
 GameObject:
   m_ObjectHideFlags: 0
@@ -11515,15 +11499,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3668289248736509648, guid: 445132e3a39d9594793907ade6558cc4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3668289248736509648, guid: 445132e3a39d9594793907ade6558cc4, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3668289248736509648, guid: 445132e3a39d9594793907ade6558cc4, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3668289248736509648, guid: 445132e3a39d9594793907ade6558cc4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14507,6 +14491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf45e37e6184b4d9a8a2fa53d9a075ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPuzzleSolved: 0
 --- !u!4 &1950629827
 Transform:
   m_ObjectHideFlags: 0
@@ -14745,8 +14730,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f124d49e9129f44f6aa93b907be43f90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonColor: {r: 1, g: 1, b: 0, a: 0}
-  buttonManager: {fileID: 1950629826}
 --- !u!1001 &1982199478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15470,18 +15453,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PCPlayer
       objectReference: {fileID: 0}
-    - target: {fileID: 1072509914880585361, guid: a4e1c428285ffc341bbc7d237c229f5b, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3590948898840845661, guid: a4e1c428285ffc341bbc7d237c229f5b, type: 3}
-      propertyPath: _time
-      value: 3000
-      objectReference: {fileID: 0}
-    - target: {fileID: 3590948898840845661, guid: a4e1c428285ffc341bbc7d237c229f5b, type: 3}
-      propertyPath: timerText
-      value: 
-      objectReference: {fileID: 1644328317}
     - target: {fileID: 5740833767312496381, guid: a4e1c428285ffc341bbc7d237c229f5b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.78
