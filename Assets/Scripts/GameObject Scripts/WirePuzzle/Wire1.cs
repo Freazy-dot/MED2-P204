@@ -12,11 +12,6 @@ public class Wire1 : MonoBehaviour
 {
     [SerializeField] GameObject wire, wireStart, wireEnd, lamp;
     SoundManager Soundman;
-    //[SerializeField] Animator animator;
-    //[SerializeField] WirePuzzle wirePuzzle;
-
-
-
 
     void Start()
     {
@@ -36,8 +31,6 @@ public class Wire1 : MonoBehaviour
             //if (!lamp.gameObject.GetComponent<MaterialSwitcher>()) return;
             lamp.gameObject.GetComponent<MaterialSwitcher>().SwitchMaterial();
             Soundman.playSFX("Cable_in");
-
-            // wirePuzzle.Add();
         }
     }
 
@@ -46,7 +39,5 @@ public class Wire1 : MonoBehaviour
         if (!lamp.gameObject.GetComponent<MaterialSwitcher>()) return;
         lamp.gameObject.GetComponent<MaterialSwitcher>().RevertMaterialSwitch();
         Soundman.playSFX("Cable_out");
-
-        // wirePuzzle.Decrease();
     }
 }
