@@ -17,6 +17,8 @@ public class BatteryStation : MonoBehaviour, IInteractable
     public void Start()
     {
       Soundman = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<SoundManager>();
+      GameObject player = GameObject.FindGameObjectWithTag("Player");
+      Interact(player);
     }
     // rest of tesing thing at the end of Interact() and ReturnBattery()
 
