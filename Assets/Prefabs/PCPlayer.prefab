@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 823951671713102814}
   - component: {fileID: 4107899384129335504}
   - component: {fileID: -4952107578306815922}
-  - component: {fileID: 3590948898840845661}
   - component: {fileID: 6201945935704230652}
   m_Layer: 0
   m_Name: PCPlayer
@@ -229,20 +228,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InteractionRayOffset: 3
   rayDistance: 10
---- !u!114 &3590948898840845661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072509914880585361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50a11b46190184cb3a03278b979db905, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timer: 0
-  _timerText: {fileID: 0}
 --- !u!136 &6201945935704230652
 CapsuleCollider:
   m_ObjectHideFlags: 0

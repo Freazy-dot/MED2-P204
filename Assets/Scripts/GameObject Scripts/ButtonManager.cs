@@ -12,11 +12,11 @@ public class ButtonManager : MonoBehaviour
     private Dictionary<string, HashSet<string>> _colourIdFinished = new Dictionary<string, HashSet<string>>(){
         {"Red", new HashSet<string>()},
         {"Blue", new HashSet<string>()},
-        {"Green", new HashSet<string>()}};
+        {"Yellow", new HashSet<string>()}};
     private Dictionary<string, bool> _colourFinished = new Dictionary<string, bool>(){
         {"Red", false},
         {"Blue", false},
-        {"Green", false}};
+        {"Yellow", false}};
 
     public bool isPuzzleSolved = false;
 
