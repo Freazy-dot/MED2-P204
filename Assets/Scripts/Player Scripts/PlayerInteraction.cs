@@ -35,7 +35,6 @@ public void Update()
 
     if (highlightable != null) {
         highlightable.OnLookAt();
-        Debug.Log("Looking at highlightable object");
     }
 
     _highlightInteractable = highlightable;

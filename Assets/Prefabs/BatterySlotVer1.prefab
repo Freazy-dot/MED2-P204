@@ -226,7 +226,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 84d16727ff5d041159ef80b6f14e7adf, type: 2}
     - target: {fileID: 919132149155446097, guid: 7d743b3c76d1e4740a0aaaaa48c6219a, type: 3}
       propertyPath: m_Name
-      value: BatterySlotVer1
+      value: Outline
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7d743b3c76d1e4740a0aaaaa48c6219a, type: 3}
       propertyPath: m_IsActive
