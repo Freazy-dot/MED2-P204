@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class BatteryButton : MonoBehaviour
 {
-    private bool batteryCollided = false;
+   // private bool batteryCollided = false;
+    [SerializeField] Animator animator;
 
-    private void Update()
+   /* private void Update()
     {
         if (batteryCollided)
         {
@@ -16,13 +17,19 @@ public class BatteryButton : MonoBehaviour
         {
             Debug.Log("Battery not found!");
         }   
+    } */
+
+    private void OnCollisionExit(Collision collision)
+    {
+        animator.SetTrigger("Open");
     }
 
-    private void OnTriggerEnter(Collider other)
+
+   /* private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Battery"))
         {
             batteryCollided = true;
         }
-    }
+    }*/
 }
