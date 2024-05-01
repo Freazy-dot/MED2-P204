@@ -10,7 +10,9 @@ public class Keypad : MonoBehaviour, IPowerable, IInteractable
     SoundManager Soundman;
 
     public Animator Panel;
-    GameObject CameraManager;
+
+    public GameObject linkedObject;
+   
 
     private string Code_Answer = "204659";
 
@@ -23,8 +25,17 @@ public class Keypad : MonoBehaviour, IPowerable, IInteractable
     private void Start()
     {
         Soundman = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<SoundManager>();
-        CameraManager = GameObject.FindGameObjectWithTag("CameraManager");
         
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Panel.Play("remove_pad");
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 
     public void PowerOn()
@@ -44,7 +55,9 @@ public class Keypad : MonoBehaviour, IPowerable, IInteractable
             //Keypad on camera
             Debug.Log("Keypad is Active");
             Panel.Play("Show_NumPad");
-            CameraManager.SetActive(false);
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+            
 
         }
         else if (!keypadIsActive)
@@ -53,6 +66,24 @@ public class Keypad : MonoBehaviour, IPowerable, IInteractable
             
         }
     }
+
+    public void PowerLinkedObject()
+    {
+        IPowerable powerable = linkedObject.GetComponent<IPowerable>(); 
+        if (linkedObject == null)
+        {
+            Debug.LogWarning("No linked object");
+            return;
+        }
+        if (powerable == null)
+        {
+            Debug.LogWarning("No IPowerable interface found on linked object");
+            return;
+        }
+
+        powerable.PowerOn();
+
+    }
     public void Number(int number)
     {
         if (Number_limit < 6)
@@ -60,7 +91,7 @@ public class Keypad : MonoBehaviour, IPowerable, IInteractable
             Ans.text += number.ToString();
             Number_limit = Number_limit + 1;
         }
-            
+
     }
   
     public void Clear_Num()
@@ -74,9 +105,13 @@ public class Keypad : MonoBehaviour, IPowerable, IInteractable
         if (Ans.text == Code_Answer)
         {
             //Do thingy her
-            Ans.text = "GET IN HERE BOI";
+            Ans.text = "CORRECT";
             Number_limit = 0;
             Soundman.playSFX("KeyCode_right");
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            PowerLinkedObject();
+            Panel.Play("remove_pad");
         }
         else
         {
