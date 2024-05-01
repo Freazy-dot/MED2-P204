@@ -66,10 +66,10 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.12550193
-  m_TransitionOffset: 0
-  m_ExitTime: 0.70000017
-  m_HasExitTime: 0
+  m_TransitionDuration: 0.040595174
+  m_TransitionOffset: 0.06358975
+  m_ExitTime: 0.7130072
+  m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -284,9 +284,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.17053929
-  m_TransitionOffset: 0
-  m_ExitTime: 0.586506
+  m_TransitionDuration: 0.08691457
+  m_TransitionOffset: 0.02389281
+  m_ExitTime: 0.662963
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -309,9 +309,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.097886264
-  m_TransitionOffset: 0
-  m_ExitTime: 0.8347873
+  m_TransitionDuration: 0.02051282
+  m_TransitionOffset: 0.087972134
+  m_ExitTime: 0.81415796
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -337,7 +337,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Ammy|JumpLand
-  m_Speed: 2
+  m_Speed: 3
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1260959883684852649}
@@ -373,9 +373,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.090093195
   m_TransitionOffset: 0
-  m_ExitTime: 0.70000005
+  m_ExitTime: 0.7000001
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0

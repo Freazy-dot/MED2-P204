@@ -175,7 +175,7 @@ public class PlayerLocomotion : MonoBehaviour
             float totalAirTime = timeToPeak + timeToFall;
             totalAirTime *= 0.2f;
             Soundman.playSFX("Jump_player");
-
+            
             StartCoroutine(JumpCoroutine(totalAirTime, verticalVelocity));
         }
     }
@@ -188,15 +188,14 @@ public class PlayerLocomotion : MonoBehaviour
 
         while (timeInAir < totalAirTime)
         {
-            
-            
             float normalizedTime = timeInAir / totalAirTime;
             float jumpForce = Mathf.Lerp(jumpHeight, 0, normalizedTime);
+
 
             characterController.Move(Vector3.up * jumpForce * Time.deltaTime);
 
             timeInAir += Time.deltaTime;
-            
+
             yield return null;
         }
         isJumping = false;
