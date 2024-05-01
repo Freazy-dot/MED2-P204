@@ -40,7 +40,7 @@ public class InputManager : MonoBehaviour
     //Sets up the player input
     private void OnEnable()
     {
-        if (playerInput == null)
+      if (playerInput == null)
         {
             playerInput = new PlayerInputMaster();
 
