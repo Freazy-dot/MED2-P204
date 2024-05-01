@@ -67,6 +67,7 @@ public class SoundManager : MonoBehaviour
     public void BreakSFX()
     {
         sfxsource.Stop();
+        return;
     }
 
 }

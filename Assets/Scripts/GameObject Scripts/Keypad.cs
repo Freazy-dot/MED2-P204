@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Keypad : MonoBehaviour
+public class Keypad : MonoBehaviour, IPowerable, IInteractable
 {
     [SerializeField] private Text Ans;
     SoundManager Soundman;
@@ -13,26 +13,36 @@ public class Keypad : MonoBehaviour
 
     private int Number_limit = 0;
 
-    public bool BatteryCheck;
+    public bool keypadIsActive = false;
 
     private void Start()
     {
         Soundman = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<SoundManager>();
-    }
-    public void CheckForBattery()
-    {
-        if (BatteryCheck) // og e bliver trykket på!!!!!
-        {
-            //animation og keypad display kommer
-            Debug.Log("YES BATTERY");
-        }
-        else
-        {
-            //animation eller en text siger der ikke er strøm til
-            Debug.Log("NO BATTERY");
-        }
+        
     }
 
+    public void PowerOn()
+    {
+        keypadIsActive = true;
+
+    }
+    public void PowerOff() 
+    { 
+        keypadIsActive = false;
+    }
+
+    public void Interact(GameObject Player)
+    { 
+        if (keypadIsActive) 
+        {
+            //Keypad on camera
+            Debug.Log("Keypad is Active");
+        }
+        else if (!keypadIsActive)
+        {
+            Debug.LogWarning("Keypad Not Active");
+        }
+    }
     public void Number(int number)
     {
         if (Number_limit < 6)
