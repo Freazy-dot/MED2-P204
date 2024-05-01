@@ -107,8 +107,8 @@ MonoBehaviour:
   moveSpeed: 7
   rotationSpeed: 15
   inAirTimer: 0
-  leapingVelocity: 30
-  fallingVelocity: 30
+  leapingVelocity: 100
+  fallingVelocity: 65
   rayCastHeightOffset: 0.5
   rayCastMaxDistance: 0.7
   groundLayer:
