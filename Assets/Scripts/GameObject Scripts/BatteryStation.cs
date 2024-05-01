@@ -7,18 +7,16 @@ public class BatteryStation : MonoBehaviour, IInteractable
 {
     public bool hasBattery = false;
     public GameObject linkedObject;
+    public int batteryCount = 0;
+    [SerializeField]private List<GameObject> batteryVisuals;
 
     // testing purpose things:
-    public Material material;
-    private Material originalMaterial;
-    private Renderer objectRenderer;
+   
     SoundManager Soundman;
 
     public void Start()
     {
-        objectRenderer = GetComponent<Renderer>();
-        originalMaterial = objectRenderer.material;
-        Soundman = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<SoundManager>();
+      Soundman = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<SoundManager>();
     }
     // rest of tesing thing at the end of Interact() and ReturnBattery()
 
@@ -47,6 +45,8 @@ public class BatteryStation : MonoBehaviour, IInteractable
         // check if the battery station already has a battery
         if (hasBattery) {
             ReturnBattery(inventory, powerable);
+            batteryCount--;
+            UpdateBatteryVisuals();
             return;
         }
         
@@ -59,9 +59,10 @@ public class BatteryStation : MonoBehaviour, IInteractable
         inventory.RemoveBattery();
         powerable.PowerOn();
         hasBattery = true;
+        batteryCount++;
+        UpdateBatteryVisuals();
         Soundman.playSFX("Battery_slot_sfx");
 
-        objectRenderer.material = material; // testing purpose
     }
 
     public void ReturnBattery(PlayerInventory inventory, IPowerable powerable)
@@ -76,6 +77,12 @@ public class BatteryStation : MonoBehaviour, IInteractable
         powerable.PowerOff();
         hasBattery = false;
 
-        objectRenderer.material = originalMaterial; // testing purpose
-    }
+     }
+    public void UpdateBatteryVisuals()
+    {
+        for (int i = 0; i < batteryVisuals.Count; i++)
+        {
+            batteryVisuals[i].SetActive(i < batteryCount);
+        }
+    }   
 }
