@@ -111,7 +111,7 @@ public class PlayerLocomotion : MonoBehaviour
             if (!isGrounded && !playerManager.isInteracting)
             {
                 animationManager.PlayTargetAnimation("Ammy|JumpLand", true);
-                Soundman.playSFX("Land_player");
+                
             }
             isGrounded = true;
             inAirTimer = 0;
@@ -175,6 +175,7 @@ public class PlayerLocomotion : MonoBehaviour
             yield return null;
         }
         isJumping = false;
-           
+        Soundman.playSFX("Land_player");
+
     }
 }
