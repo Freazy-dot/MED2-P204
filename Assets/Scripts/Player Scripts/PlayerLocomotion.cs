@@ -68,6 +68,10 @@ public class PlayerLocomotion : MonoBehaviour
         moveDirection = moveDirection * moveSpeed;
 
         characterController.Move(moveDirection * Time.deltaTime);
+        if (moveDirection.magnitude > 0 && isGrounded)
+        {
+            Soundman.playSFX("Walking_player");
+        }
     }
 
     private void HandleRotation()
@@ -121,6 +125,7 @@ public class PlayerLocomotion : MonoBehaviour
             isGrounded = false;
         }
         Debug.DrawRay(raycastOrigin, -Vector3.up * rayCastMaxDistance, Color.red);
+       
     }
 
     private void ReturnPlayer()
