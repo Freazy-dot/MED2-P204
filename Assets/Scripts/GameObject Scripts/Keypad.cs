@@ -6,26 +6,26 @@ using UnityEngine.UI;
 
 public class Keypad : MonoBehaviour, IPowerable, IInteractable
 {
-    [SerializeField] private Text Ans;
-    SoundManager Soundman;
 
     public Animator Panel;
-
+    public Keypad2D keypad2D;
     public GameObject linkedObject;
    
-
-    private string Code_Answer = "204659";
-
-    private int Number_limit = 0;
 
     public bool keypadIsActive = false;
 
     public bool Showkeypad;
 
+
+
     private void Start()
     {
-        Soundman = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<SoundManager>();
+        keypad2D.OnCodeCorrect += CodeCorrectHandler;
         
+    }
+    private void CodeCorrectHandler()
+    {
+       PowerLinkedObject();
     }
 
     private void Update()
@@ -69,12 +69,13 @@ public class Keypad : MonoBehaviour, IPowerable, IInteractable
 
     public void PowerLinkedObject()
     {
-        IPowerable powerable = linkedObject.GetComponent<IPowerable>(); 
         if (linkedObject == null)
         {
             Debug.LogWarning("No linked object");
             return;
         }
+
+        IPowerable powerable = linkedObject.GetComponent<IPowerable>();
         if (powerable == null)
         {
             Debug.LogWarning("No IPowerable interface found on linked object");
@@ -82,49 +83,6 @@ public class Keypad : MonoBehaviour, IPowerable, IInteractable
         }
 
         powerable.PowerOn();
-
-    }
-    public void Number(int number)
-    {
-        if (Number_limit < 6)
-        {
-            Ans.text += number.ToString();
-            Number_limit = Number_limit + 1;
-        }
-
-    }
-  
-    public void Clear_Num()
-    {
-        Ans.text = null;
-        Number_limit = 0;
     }
 
-    public void TryCode()
-    {
-        if (Ans.text == Code_Answer)
-        {
-            //Do thingy her
-            Ans.text = "CORRECT";
-            Number_limit = 0;
-            Soundman.playSFX("KeyCode_right");
-            StartCoroutine(Delay());
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            PowerLinkedObject();
-            Panel.Play("remove_pad");
-        }
-        else
-        {
-            Ans.text = "INCORRECT";
-            StartCoroutine(Delay());
-            Soundman.playSFX("KeyCode_wrong");
-        }
-    }
-    private IEnumerator Delay()
-    {
-        yield return new WaitForSeconds(3);
-        Ans.text = null;
-        Number_limit = 0;
-    }
 }

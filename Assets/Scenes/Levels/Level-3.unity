@@ -3776,8 +3776,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab1d92d952532649b012586c74979dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ans: {fileID: 0}
   Panel: {fileID: 42656184}
+  keypad2D: {fileID: 2014108819}
   linkedObject: {fileID: 737856374}
   keypadIsActive: 0
   Showkeypad: 0
@@ -3867,6 +3867,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6080180924587743760, guid: 6c3b304951735c848a99355ace76305f, type: 3}
   m_PrefabInstance: {fileID: 935127094}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &938681785 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6952666790133519900, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+  m_PrefabInstance: {fileID: 1033832496}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &951976739
 GameObject:
@@ -4301,6 +4306,90 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1165854743123896122, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2014108819}
+    - target: {fileID: 1165854743123896122, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Number
+      objectReference: {fileID: 0}
+    - target: {fileID: 1165854743123896122, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Keypad2D, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628708388015024897, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2014108819}
+    - target: {fileID: 2628708388015024897, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Number
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628708388015024897, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Keypad2D, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3758921470340573684, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2014108819}
+    - target: {fileID: 3758921470340573684, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Number
+      objectReference: {fileID: 0}
+    - target: {fileID: 3758921470340573684, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Keypad2D, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4651216440449346431, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2014108819}
+    - target: {fileID: 4651216440449346431, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Number
+      objectReference: {fileID: 0}
+    - target: {fileID: 4651216440449346431, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Keypad2D, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727522879940473722, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2014108819}
+    - target: {fileID: 4727522879940473722, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Number
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727522879940473722, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Keypad2D, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857636178876390324, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2014108819}
+    - target: {fileID: 4857636178876390324, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Number
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857636178876390324, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Keypad2D, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5557015598686257237, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2014108819}
+    - target: {fileID: 5557015598686257237, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Number
+      objectReference: {fileID: 0}
+    - target: {fileID: 5557015598686257237, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Keypad2D, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6566610654723743225, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -4313,6 +4402,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7326964588080723729, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2014108819}
+    - target: {fileID: 7326964588080723729, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Number
+      objectReference: {fileID: 0}
+    - target: {fileID: 7326964588080723729, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Keypad2D, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7907536459581021171, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
       propertyPath: Panel
       value: 
@@ -4324,12 +4425,64 @@ PrefabInstance:
     - target: {fileID: 7907536459581021171, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
       propertyPath: linkedObject
       value: 
-      objectReference: {fileID: 737856374}
-    m_RemovedComponents: []
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219750397794040514, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2014108819}
+    - target: {fileID: 8219750397794040514, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TryCode
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219750397794040514, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Keypad2D, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8400899380188720806, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2014108819}
+    - target: {fileID: 8400899380188720806, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Number
+      objectReference: {fileID: 0}
+    - target: {fileID: 8400899380188720806, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Keypad2D, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643916325805291981, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2014108819}
+    - target: {fileID: 8643916325805291981, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Clear_Num
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643916325805291981, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Keypad2D, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936461735966635481, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2014108819}
+    - target: {fileID: 8936461735966635481, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Number
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936461735966635481, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Keypad2D, Assembly-CSharp
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7907536459581021171, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
     m_RemovedGameObjects:
     - {fileID: 7116973271448033309, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6952666790133519900, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2014108819}
   m_SourcePrefab: {fileID: 100100000, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
 --- !u!1 &1039078230
 GameObject:
@@ -4559,8 +4712,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab1d92d952532649b012586c74979dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ans: {fileID: 0}
   Panel: {fileID: 42656184}
+  keypad2D: {fileID: 2014108819}
   linkedObject: {fileID: 1046431436}
   keypadIsActive: 0
   Showkeypad: 0
@@ -5270,8 +5423,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab1d92d952532649b012586c74979dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ans: {fileID: 0}
   Panel: {fileID: 42656184}
+  keypad2D: {fileID: 0}
   linkedObject: {fileID: 126363128}
   keypadIsActive: 0
   Showkeypad: 0
@@ -6606,8 +6759,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab1d92d952532649b012586c74979dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ans: {fileID: 0}
   Panel: {fileID: 42656184}
+  keypad2D: {fileID: 2014108819}
   linkedObject: {fileID: 1563079596}
   keypadIsActive: 0
   Showkeypad: 0
@@ -7410,6 +7563,20 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1087116929895013824, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
   m_PrefabInstance: {fileID: 1033832496}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2014108819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938681785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bc05d845d362e74aa8090680016996a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ans: {fileID: 2035483247}
+  Panel: {fileID: 42656184}
 --- !u!4 &2014780602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2261714908539097235, guid: d92c1304a31172b4f9ae9e360f0ce45f, type: 3}
@@ -7420,6 +7587,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6080180924587743760, guid: 6c3b304951735c848a99355ace76305f, type: 3}
   m_PrefabInstance: {fileID: 968911895}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2035483247 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7526989252628780473, guid: df2a3eb9619a2d24590a4df1b024c55a, type: 3}
+  m_PrefabInstance: {fileID: 1033832496}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2074186271
 GameObject:
   m_ObjectHideFlags: 0
