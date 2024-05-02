@@ -108,6 +108,7 @@ public class Keypad : MonoBehaviour, IPowerable, IInteractable
             Ans.text = "CORRECT";
             Number_limit = 0;
             Soundman.playSFX("KeyCode_right");
+            StartCoroutine(Delay());
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             PowerLinkedObject();
