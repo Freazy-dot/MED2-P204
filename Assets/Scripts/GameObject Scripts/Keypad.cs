@@ -16,22 +16,9 @@ public class Keypad : MonoBehaviour, IPowerable, IInteractable
 
     public bool Showkeypad;
 
-
-
-    private void Start()
-    {
-        keypad2D.OnCodeCorrect += CodeCorrectHandler;
-        
-    }
-    private void CodeCorrectHandler()
-    {
-       PowerLinkedObject();
-    }
-
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
             Panel.Play("remove_pad");
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -41,43 +28,38 @@ public class Keypad : MonoBehaviour, IPowerable, IInteractable
     public void PowerOn()
     {
         keypadIsActive = true;
-
+        keypad2D.OnCodeCorrect += PowerLinkedObject;
     }
     public void PowerOff() 
     { 
         keypadIsActive = false;
+        keypad2D.OnCodeCorrect -= PowerLinkedObject;
+
+        IPowerable powerable = linkedObject.GetComponent<IPowerable>();
+        powerable.PowerOff();
     }
 
     public void Interact(GameObject Player)
     { 
-        if (keypadIsActive) 
-        {
-            //Keypad on camera
-            Debug.Log("Keypad is Active");
-            Panel.Play("Show_NumPad");
-            Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = true;
-            
-
-        }
-        else if (!keypadIsActive)
-        {
+        if (!keypadIsActive) {
             Debug.LogWarning("Keypad Not Active");
-            
+            return;
         }
+
+        Debug.Log("Keypad is Active");
+        Panel.Play("Show_NumPad");
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
     }
 
     public void PowerLinkedObject()
     {
-        if (linkedObject == null)
-        {
+        if (linkedObject == null) {
             Debug.LogWarning("No linked object");
             return;
         }
-
         IPowerable powerable = linkedObject.GetComponent<IPowerable>();
-        if (powerable == null)
-        {
+        if (powerable == null) {
             Debug.LogWarning("No IPowerable interface found on linked object");
             return;
         }

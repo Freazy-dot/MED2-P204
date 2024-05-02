@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43830094, g: 0.48634183, b: 0.5666187, a: 1}
+  m_IndirectSpecularColor: {r: 0.43830064, g: 0.48634118, b: 0.5666177, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3586,6 +3586,23 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1555984344659753995, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
   m_PrefabInstance: {fileID: 320046641}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &865867219 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 986615134820594564, guid: 0210bf61d1fb07d4c8e4f22d35ee2f09, type: 3}
+  m_PrefabInstance: {fileID: 1980027922}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &865867223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865867219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96c069c89807e4c978f58aa7f218a477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &882262668
 GameObject:
   m_ObjectHideFlags: 0
@@ -6601,6 +6618,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6080180924587743760, guid: 6c3b304951735c848a99355ace76305f, type: 3}
   m_PrefabInstance: {fileID: 1485745985}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &1510162351 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1634891137980882416, guid: 0210bf61d1fb07d4c8e4f22d35ee2f09, type: 3}
+  m_PrefabInstance: {fileID: 1980027922}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1526671689
 GameObject:
   m_ObjectHideFlags: 0
@@ -7536,6 +7558,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7563498181345959970, guid: 0210bf61d1fb07d4c8e4f22d35ee2f09, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1510162351}
+    - target: {fileID: 7563498181345959970, guid: 0210bf61d1fb07d4c8e4f22d35ee2f09, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9091401637341350027, guid: 0210bf61d1fb07d4c8e4f22d35ee2f09, type: 3}
       propertyPath: m_Name
       value: Camera Manager
@@ -7551,7 +7581,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 986615134820594564, guid: 0210bf61d1fb07d4c8e4f22d35ee2f09, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 865867223}
   m_SourcePrefab: {fileID: 100100000, guid: 0210bf61d1fb07d4c8e4f22d35ee2f09, type: 3}
 --- !u!4 &1990334165 stripped
 Transform:
