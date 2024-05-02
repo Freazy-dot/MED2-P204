@@ -20,15 +20,8 @@ public class Door : MonoBehaviour, IPowerable
 
     public void PowerOn()
     {
-<<<<<<< Updated upstream
-        Soundman.playSFX("Door_open");
-        this.transform.Translate(Vector3.up * 4f); // Move the object upwards by 2 units
-        Debug.Log("Opening Door");
-                
-=======
         StopAllCoroutines();
         StartCoroutine(MoveDoor(openPosition));
->>>>>>> Stashed changes
     }
 
     public void PowerOff()
@@ -39,17 +32,19 @@ public class Door : MonoBehaviour, IPowerable
 
     private IEnumerator MoveDoor(Vector3 target)
     {
-        while (Vector3.Distance(transform.position, target) != 0) {
+        while (Vector3.Distance(transform.position, target) != 0)
+        {
             transform.position = Vector3.MoveTowards(transform.position, target, doorSpeed * Time.deltaTime);
             yield return null;
         }
 
-        if (target == openPosition) {
+        if (target == openPosition)
+        {
             Soundman.playSFX("Door_open");
-        } 
-        else if (target == originalPosition) {
+        }
+        else if (target == originalPosition)
+        {
             Soundman.playSFX("Door_closing");
         }
     }
 }
-  

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43830067, g: 0.48634148, b: 0.5666175, a: 1}
+  m_IndirectSpecularColor: {r: 0.43830094, g: 0.48634183, b: 0.5666187, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -304,7 +304,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -1935704345256331344, guid: 445132e3a39d9594793907ade6558cc4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -336,6 +337,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!1 &126363128 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2594964747060794443, guid: f80d5d43c73c3d044b506a8e46b87bb0, type: 3}
+  m_PrefabInstance: {fileID: 2114549255}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &178388413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5247,6 +5253,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef6d0ceb05cfd194da919ebd0e407655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1144548045 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4220936536087085360, guid: f80d5d43c73c3d044b506a8e46b87bb0, type: 3}
+  m_PrefabInstance: {fileID: 2114549255}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1144548049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144548045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab1d92d952532649b012586c74979dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ans: {fileID: 0}
+  Panel: {fileID: 42656184}
+  linkedObject: {fileID: 126363128}
+  keypadIsActive: 0
+  Showkeypad: 0
+--- !u!65 &1144548050
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144548045}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.011623924, y: 0.0038040732, z: 0.017357573}
+  m_Center: {x: 0, y: 0.00016466761, z: 0.00088501605}
 --- !u!1 &1151576377
 GameObject:
   m_ObjectHideFlags: 0
@@ -6482,6 +6531,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4358440596148370954, guid: f80d5d43c73c3d044b506a8e46b87bb0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5247927850792053338, guid: f80d5d43c73c3d044b506a8e46b87bb0, type: 3}
       propertyPath: m_Name
       value: Door_Keypad_2
@@ -7401,6 +7454,73 @@ Transform:
   - {fileID: 1990334165}
   m_Father: {fileID: 514763773}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2114549255
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3032966280357531589, guid: f80d5d43c73c3d044b506a8e46b87bb0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.772576
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032966280357531589, guid: f80d5d43c73c3d044b506a8e46b87bb0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.51518154
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032966280357531589, guid: f80d5d43c73c3d044b506a8e46b87bb0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.319683
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032966280357531589, guid: f80d5d43c73c3d044b506a8e46b87bb0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032966280357531589, guid: f80d5d43c73c3d044b506a8e46b87bb0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032966280357531589, guid: f80d5d43c73c3d044b506a8e46b87bb0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032966280357531589, guid: f80d5d43c73c3d044b506a8e46b87bb0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032966280357531589, guid: f80d5d43c73c3d044b506a8e46b87bb0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032966280357531589, guid: f80d5d43c73c3d044b506a8e46b87bb0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032966280357531589, guid: f80d5d43c73c3d044b506a8e46b87bb0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247927850792053338, guid: f80d5d43c73c3d044b506a8e46b87bb0, type: 3}
+      propertyPath: m_Name
+      value: Door_Keypad
+      objectReference: {fileID: 0}
+    - target: {fileID: 8944169149335685893, guid: f80d5d43c73c3d044b506a8e46b87bb0, type: 3}
+      propertyPath: linkedObject
+      value: 
+      objectReference: {fileID: 1144548045}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4220936536087085360, guid: f80d5d43c73c3d044b506a8e46b87bb0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1144548049}
+    - targetCorrespondingSourceObject: {fileID: 4220936536087085360, guid: f80d5d43c73c3d044b506a8e46b87bb0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1144548050}
+  m_SourcePrefab: {fileID: 100100000, guid: f80d5d43c73c3d044b506a8e46b87bb0, type: 3}
 --- !u!1001 &3392836404093775762
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7487,3 +7607,4 @@ SceneRoots:
   - {fileID: 1259470463}
   - {fileID: 215254145}
   - {fileID: 608649087}
+  - {fileID: 2114549255}
