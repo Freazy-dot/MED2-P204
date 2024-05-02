@@ -1575,7 +1575,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f387d1f750bf8444691647797d651f3d, type: 2}
+  - {fileID: 2100000, guid: 2b557211deebf0f419aecda1936d8847, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3122,7 +3122,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f387d1f750bf8444691647797d651f3d, type: 2}
+  - {fileID: 2100000, guid: 2b557211deebf0f419aecda1936d8847, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4994,6 +4994,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0992c6b23d02acb40bc46da5810c7cdb, type: 3}
       propertyPath: m_Name
       value: VR_Head
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0992c6b23d02acb40bc46da5810c7cdb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
