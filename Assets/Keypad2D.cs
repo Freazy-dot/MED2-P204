@@ -8,6 +8,7 @@ public class Keypad2D : MonoBehaviour
 {
     public delegate void CodeCorrectCallback();
     public event CodeCorrectCallback OnCodeCorrect;
+
     [SerializeField] private Text Ans;
     SoundManager Soundman;
     private string Code_Answer = "204659";
@@ -15,18 +16,18 @@ public class Keypad2D : MonoBehaviour
     private int Number_limit = 0;
     public Animator Panel;
 
+    private Keypad keypad;
+
     private void Awake()
     {
         Soundman = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<SoundManager>();
     }
     public void Number(int number)
     {
-        if (Number_limit < 6)
-        {
+        if (Number_limit < 6) {
             Ans.text += number.ToString();
             Number_limit = Number_limit + 1;
         }
-
     }
 
     public void Clear_Num()
@@ -37,8 +38,7 @@ public class Keypad2D : MonoBehaviour
 
     public void TryCode()
     {
-        if (Ans.text == Code_Answer)
-        {
+        if (Ans.text == Code_Answer) {
             //Do thingy her
             Ans.text = "CORRECT";
             Number_limit = 0;
@@ -48,14 +48,15 @@ public class Keypad2D : MonoBehaviour
             Cursor.visible = false;
             Panel.Play("remove_pad");
             OnCodeCorrect?.Invoke();
-        }
-        else
-        {
+        } else {
             Ans.text = "INCORRECT";
             StartCoroutine(Delay());
             Soundman.playSFX("KeyCode_wrong");
         }
     }
+
+    private bool isPasswordCorrect() => Ans.text == "CORRECT";
+
     private IEnumerator Delay()
     {
         yield return new WaitForSeconds(3);
