@@ -22,6 +22,8 @@ public class Door : MonoBehaviour, IPowerable
     {
         StopAllCoroutines();
         StartCoroutine(MoveDoor(openPosition));
+
+        Debug.Log("Opening: " + this.gameObject.name);
     }
 
     public void PowerOff()
