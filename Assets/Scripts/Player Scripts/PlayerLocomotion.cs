@@ -199,6 +199,7 @@ public class PlayerLocomotion : MonoBehaviour
             yield return null;
         }
         isJumping = false;
+        Soundman.playSFX("Land_player");
 
     }
 }
