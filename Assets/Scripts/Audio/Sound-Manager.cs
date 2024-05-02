@@ -7,8 +7,9 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
 
-    public Sound[] musicSounds, sfxSounds;
-    public AudioSource musicsource, sfxsource;
+    public Sound[] musicSounds, sfxSounds, walkSound;
+    public AudioSource musicsource, sfxsource, walksource;
+    public bool pause;
 
     private void Awake()
     {
@@ -64,10 +65,24 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public void playwalk(string name)
+    {
+        Sound s = Array.Find(walkSound, x => x.name == name);
+
+        if (s == null)
+        {
+            Debug.Log("Sound not found");
+        }
+        else
+        {
+            walksource.PlayOneShot(s.clip);
+        }
+    }
+
     public void BreakSFX()
     {
-        sfxsource.Stop();
-        return;
+        walksource.Stop();
     }
+
 
 }

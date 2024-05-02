@@ -68,14 +68,13 @@ public class PlayerLocomotion : MonoBehaviour
         moveDirection.Normalize();
         moveDirection.y = 0;
         moveDirection = moveDirection * moveSpeed;
-
         characterController.Move(moveDirection * Time.deltaTime);
 
-        if (moveDirection.magnitude > 0 && isGrounded )
+        if (moveDirection.magnitude > 0 && isGrounded)
         {
             StartCoroutine(SoundWalk());
         }
-        else if (moveDirection.y == 0 && isGrounded)
+        else if (moveDirection.magnitude == 0 && isGrounded || (isJumping))
         {
             Soundman.BreakSFX();
             StopCoroutine(SoundWalk());
@@ -87,11 +86,10 @@ public class PlayerLocomotion : MonoBehaviour
     {
         if (Delay)
         {
-            Soundman.playSFX("Walking_player");
+            Soundman.playwalk("Walk_player");
             Delay = false;
+            yield return null;
         }
-        yield return new WaitForSeconds(6f);
-        
     }
 
     private void HandleRotation()
@@ -175,7 +173,9 @@ public class PlayerLocomotion : MonoBehaviour
             float totalAirTime = timeToPeak + timeToFall;
             totalAirTime *= 0.2f;
             Soundman.playSFX("Jump_player");
-            
+
+
+
             StartCoroutine(JumpCoroutine(totalAirTime, verticalVelocity));
         }
     }
