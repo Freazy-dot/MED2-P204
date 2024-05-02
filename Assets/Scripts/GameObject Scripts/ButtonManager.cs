@@ -9,14 +9,13 @@ public class ButtonManager : MonoBehaviour
     private string _currentColour;
     public string currentColour => _currentColour;
 
-    private Dictionary<string, HashSet<string>> _colourIdFinished = new Dictionary<string, HashSet<string>>(){
-        {"Red", new HashSet<string>()},
-        {"Blue", new HashSet<string>()},
-        {"Yellow", new HashSet<string>()}};
-    private Dictionary<string, bool> _colourFinished = new Dictionary<string, bool>(){
-        {"Red", false},
-        {"Blue", false},
-        {"Yellow", false}};
+    public GameObject redDoor;
+    public GameObject blueDoor;
+    public GameObject yellowDoor;
+
+    private Dictionary<string, GameObject> _doors;
+    private Dictionary<string, HashSet<string>> _colourIdFinished;
+    private Dictionary<string, bool> _colourFinished;
 
     public bool isPuzzleSolved = false;
 
@@ -24,6 +23,24 @@ public class ButtonManager : MonoBehaviour
     {
         timer = GameObject.FindObjectOfType<Timer>();
         timer.OnTimerDone += resetColour;
+
+        _doors = new Dictionary<string, GameObject>() {
+            {"Red", redDoor},
+            {"Blue", blueDoor},
+            {"Yellow", yellowDoor}
+        };
+
+        _colourIdFinished = new Dictionary<string, HashSet<string>>() {
+            {"Red", new HashSet<string>()},
+            {"Blue", new HashSet<string>()},
+            {"Yellow", new HashSet<string>()}
+        };
+
+        _colourFinished = new Dictionary<string, bool>() {
+            {"Red", false},
+            {"Blue", false},
+            {"Yellow", false}
+        };
     }
 
     private void resetColour()
@@ -76,6 +93,7 @@ public class ButtonManager : MonoBehaviour
             timer.StopTimer();
             resetColour();
             isPuzzleSolvedCheck();
+            openDoor(colour);
             Debug.Log(colour + " finished");
 
             // add correct sound sfx here
@@ -90,8 +108,13 @@ public class ButtonManager : MonoBehaviour
         if (_colourFinished.Values.All(x => x)) {
             isPuzzleSolved = true;
 
-            // add puzzle solved sfx here
             timer.OnPuzzleDone();
         }
+    }
+
+    private void openDoor(string colour)
+    {
+        IPowerable powerable = _doors[colour].gameObject.GetComponent<IPowerable>();
+        powerable.PowerOn();
     }
 }

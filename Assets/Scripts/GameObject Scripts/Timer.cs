@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] private readonly int _timer = 20;
-    public int timer;
+    public int time = 20;
+    private int _timer;
     private IEnumerator _countdown;
 
-    [SerializeField] private TextMeshPro _timerText;
+    private TextMeshPro _timerText;
 
     private void Start()
     {
@@ -18,7 +18,7 @@ public class Timer : MonoBehaviour
     
     public void StartTimer()
     {
-        timer = _timer;
+        _timer = time;
         _countdown = Countdown();
         StartCoroutine(_countdown);
     }
@@ -32,7 +32,7 @@ public class Timer : MonoBehaviour
 
     public void ResetTimer()
     {
-        if (timer > 0) {
+        if (_timer > 0) {
             StopTimer();
         }
 
@@ -41,11 +41,11 @@ public class Timer : MonoBehaviour
 
     private IEnumerator Countdown()
     {
-        while (timer > 0) {
-            _timerText.text = timer.ToString();
-            Debug.Log(timer);
+        while (_timer > 0) {
+            _timerText.text = _timer.ToString();
+            Debug.Log(_timer);
             yield return new WaitForSeconds(1);
-            timer--;
+            _timer--;
         }
         onTimerDone();
     }
