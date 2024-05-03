@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.13310099, g: 0.13662747, b: 0.14787942, a: 1}
+  m_IndirectSpecularColor: {r: 0.13310102, g: 0.13662744, b: 0.14787957, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2449,8 +2449,16 @@ PrefabInstance:
       value: YellowThree
       objectReference: {fileID: 0}
     - target: {fileID: 954119450944784369, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 954119450944784369, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
       propertyPath: m_TagString
       value: Yellow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348756307644690908, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1348756307644690908, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
       propertyPath: m_IsActive
@@ -3087,8 +3095,16 @@ PrefabInstance:
       value: YellowTwo
       objectReference: {fileID: 0}
     - target: {fileID: 954119450944784369, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 954119450944784369, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
       propertyPath: m_TagString
       value: Yellow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348756307644690908, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1348756307644690908, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
       propertyPath: m_IsActive
@@ -6273,8 +6289,16 @@ PrefabInstance:
       value: RedThree
       objectReference: {fileID: 0}
     - target: {fileID: 954119450944784369, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 954119450944784369, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
       propertyPath: m_TagString
       value: Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348756307644690908, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1348756307644690908, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
       propertyPath: m_IsActive
@@ -9556,8 +9580,16 @@ PrefabInstance:
       value: BlueThree
       objectReference: {fileID: 0}
     - target: {fileID: 954119450944784369, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 954119450944784369, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
       propertyPath: m_TagString
       value: Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348756307644690908, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1348756307644690908, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
       propertyPath: m_IsActive
@@ -10466,8 +10498,16 @@ PrefabInstance:
       value: YellowOne
       objectReference: {fileID: 0}
     - target: {fileID: 954119450944784369, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 954119450944784369, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
       propertyPath: m_TagString
       value: Yellow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348756307644690908, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1348756307644690908, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
       propertyPath: m_IsActive
@@ -12600,8 +12640,16 @@ PrefabInstance:
       value: RedOne
       objectReference: {fileID: 0}
     - target: {fileID: 954119450944784369, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 954119450944784369, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
       propertyPath: m_TagString
       value: Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348756307644690908, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1348756307644690908, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
       propertyPath: m_IsActive
@@ -12992,8 +13040,16 @@ PrefabInstance:
       value: RedTwo
       objectReference: {fileID: 0}
     - target: {fileID: 954119450944784369, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 954119450944784369, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
       propertyPath: m_TagString
       value: Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348756307644690908, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1348756307644690908, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
       propertyPath: m_IsActive
@@ -13243,8 +13299,16 @@ PrefabInstance:
       value: BlueOne
       objectReference: {fileID: 0}
     - target: {fileID: 954119450944784369, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 954119450944784369, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
       propertyPath: m_TagString
       value: Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348756307644690908, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1348756307644690908, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
       propertyPath: m_IsActive
@@ -15762,8 +15826,8 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_Intensity: 2
   m_Range: 100
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 13.5
+  m_SpotAngle: 60
+  m_InnerSpotAngle: 6
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -17340,8 +17404,16 @@ PrefabInstance:
       value: BlueTwo
       objectReference: {fileID: 0}
     - target: {fileID: 954119450944784369, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 954119450944784369, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
       propertyPath: m_TagString
       value: Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348756307644690908, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1348756307644690908, guid: 6fc76d7ae27a7464397324943e72580a, type: 3}
       propertyPath: m_IsActive

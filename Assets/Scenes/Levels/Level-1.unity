@@ -4847,6 +4847,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6602497789091303064, guid: a4e1c428285ffc341bbc7d237c229f5b, type: 3}
+      propertyPath: jumpHeight
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6602497789091303064, guid: a4e1c428285ffc341bbc7d237c229f5b, type: 3}
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 1980027923}
