@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    public int time = 20;
+    public int time = 75;
     private int _timer;
     private IEnumerator _countdown;
 
