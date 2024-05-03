@@ -10,30 +10,13 @@ public class Wire2 : MonoBehaviour
     [SerializeField] GameObject wireRed, wireGreen, wireBlue, wireYellow, wirePurple, wirePink;
     [SerializeField] Animator animator,rampAnimator;
 
-        void Start()
-    {
-            animator = GetComponent<Animator>();
-    }
-
-  
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            rampAnimator.SetTrigger("Ramp");
-            OpenBox();
-        }
-
-
-
-
-    }
 
 
     public void OpenBox()
     {
         Debug.Log("button pushed");
         StartCoroutine(MyCoroutine());
+        rampAnimator.SetTrigger("Ramp");
     }
 
     IEnumerator MyCoroutine()
