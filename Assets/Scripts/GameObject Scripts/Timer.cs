@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    public int time = 20;
+    public int time = 75;
     private int _timer;
     private IEnumerator _countdown;
 
@@ -61,6 +61,6 @@ public class Timer : MonoBehaviour
     {
         StopTimer();
 
-        _timerText.text = "finished puzzle well done idiot";
+        _timerText.text = "0.0";
     }
 }
