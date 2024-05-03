@@ -7,7 +7,7 @@ public class PlayerInteraction : MonoBehaviour
 {
     private IHighlightable _highlightInteractable;
 
-    public float InteractionRayOffset = 3f; //The offset of the interaction ray
+    public float InteractionRayOffset = 5f; //The offset of the interaction ray
     public float rayDistance = 10f; //The distance of the ray
 
     Transform playerCamera; //Reference to the camera
@@ -21,7 +21,7 @@ public class PlayerInteraction : MonoBehaviour
 
     public void Update()
     {
-        Ray ray = new Ray(playerCamera.transform.position + new Vector3(0f, InteractionRayOffset, 0f), playerCamera.transform.forward);
+        Ray ray = new Ray(playerCamera.transform.position + playerCamera.transform.forward * InteractionRayOffset, playerCamera.transform.forward);
         RaycastHit hit;
 
         Debug.DrawRay(ray.origin, ray.direction * rayDistance, Color.red);
@@ -50,7 +50,7 @@ public class PlayerInteraction : MonoBehaviour
     public void HandleInteraction()
     {
         // Create a ray that starts at the player's position and points in the direction the camera is facing
-        Ray ray = new Ray(playerCamera.transform.position + new Vector3(0f, InteractionRayOffset, 0f), playerCamera.transform.forward);
+        Ray ray = new Ray(playerCamera.transform.position + playerCamera.transform.forward * InteractionRayOffset, playerCamera.transform.forward);
         RaycastHit hit;
 
         if (!Physics.Raycast(ray, out hit, rayDistance)) {
