@@ -7,10 +7,11 @@ public class VRFlashlight : MonoBehaviour, IInteractable, IPowerable
 {
     public bool hasBattery = false;
     public Light flashlight;
+    SoundManager Soundman;
     // Start is called before the first frame update
     void Start()
     {
-
+        Soundman = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<SoundManager>();
 
     }
 
@@ -49,12 +50,14 @@ public class VRFlashlight : MonoBehaviour, IInteractable, IPowerable
     {
        flashlight.enabled = true;
         Debug.Log("Flashlight On");
+        Soundman.playSFX("Flashlight_on");
     }
 
     public void PowerOff()
     {
         flashlight.enabled = false;
         Debug.Log("Flashlight Off");
+        Soundman.playSFX("Flashlight_off");
     }
     public void ReturnBattery(PlayerInventory inventory, IPowerable powerable)
     {
