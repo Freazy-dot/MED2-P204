@@ -25,6 +25,8 @@ public class Wire1 : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
 
+        Debug.Log("Collision");
+
        if(collision.tag==this.tag)
         {
             //if (!lamp.gameObject.GetComponent<MaterialSwitcher>()) return;
@@ -34,6 +36,8 @@ public class Wire1 : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        Debug.Log("collision exit");
+
         if (!lamp.gameObject.GetComponent<MaterialSwitcher>()) return;
         lamp.gameObject.GetComponent<MaterialSwitcher>().RevertMaterialSwitch();
     }
