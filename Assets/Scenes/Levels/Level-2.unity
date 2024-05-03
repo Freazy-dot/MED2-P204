@@ -13728,6 +13728,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -4.14
       objectReference: {fileID: 0}
+    - target: {fileID: 5418167838138555788, guid: 0210bf61d1fb07d4c8e4f22d35ee2f09, type: 3}
+      propertyPath: cameraCollsionOffset
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5418167838138555788, guid: 0210bf61d1fb07d4c8e4f22d35ee2f09, type: 3}
+      propertyPath: cameraCollisionRadius
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7433952246411423016, guid: 0210bf61d1fb07d4c8e4f22d35ee2f09, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.8430729
