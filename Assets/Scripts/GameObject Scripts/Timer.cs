@@ -61,6 +61,6 @@ public class Timer : MonoBehaviour
     {
         StopTimer();
 
-        _timerText.text = "finished puzzle well done idiot";
+        _timerText.text = "0.0";
     }
 }
