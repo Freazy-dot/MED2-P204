@@ -12,38 +12,45 @@ public class PlayerInteraction : MonoBehaviour
 
     Transform playerCamera; //Reference to the camera
 
+    public LayerMask ignorePlayerHitbox;
+
     public void Awake()
     {
         playerCamera = GameObject.FindWithTag("PCCamera").GetComponent<Camera>().transform;
     }
 
-public void Update()
-{
-    Ray ray = new Ray(transform.position + new Vector3(0f, InteractionRayOffset, 0f), playerCamera.transform.forward);
-    RaycastHit hit;
+    public void Update()
+    {
+        Ray ray = new Ray(playerCamera.transform.position + new Vector3(0f, InteractionRayOffset, 0f), playerCamera.transform.forward);
+        RaycastHit hit;
 
-    IHighlightable highlightable = null;
-    if (!Physics.Raycast(ray, out hit, rayDistance)) {
-        return;
+        Debug.DrawRay(ray.origin, ray.direction * rayDistance, Color.red);
+        
+        IHighlightable highlightable = null;
+        if (!Physics.Raycast(ray, out hit, rayDistance, ~ignorePlayerHitbox)) {
+            if (_highlightInteractable as MonoBehaviour != null) {
+                _highlightInteractable.OnLookAway();
+            }
+            return;
+        }
+
+        highlightable = hit.collider.gameObject.GetComponent<IHighlightable>();
+
+        if (_highlightInteractable as MonoBehaviour != null && _highlightInteractable != highlightable) {
+            _highlightInteractable.OnLookAway();
+        }
+
+        if (highlightable != null) {
+            highlightable.OnLookAt();
+        }
+
+        _highlightInteractable = highlightable;
     }
-
-    highlightable = hit.collider.gameObject.GetComponent<IHighlightable>();
-
-    if (_highlightInteractable as MonoBehaviour != null && _highlightInteractable != highlightable) {
-        _highlightInteractable.OnLookAway();
-    }
-
-    if (highlightable != null) {
-        highlightable.OnLookAt();
-    }
-
-    _highlightInteractable = highlightable;
-}
 
     public void HandleInteraction()
     {
         // Create a ray that starts at the player's position and points in the direction the camera is facing
-        Ray ray = new Ray(transform.position + new Vector3(0f, InteractionRayOffset, 0f), playerCamera.transform.forward);
+        Ray ray = new Ray(playerCamera.transform.position + new Vector3(0f, InteractionRayOffset, 0f), playerCamera.transform.forward);
         RaycastHit hit;
 
         if (!Physics.Raycast(ray, out hit, rayDistance)) {

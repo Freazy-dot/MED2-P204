@@ -15,7 +15,7 @@ public class Timer : MonoBehaviour
     {
         _timerText = GetComponent<TextMeshPro>();
     }
-    
+
     public void StartTimer()
     {
         _timer = time;
@@ -47,14 +47,14 @@ public class Timer : MonoBehaviour
             yield return new WaitForSeconds(1);
             _timer--;
         }
-        onTimerDone();
+        OnTimerDone();
     }
 
-    public Action OnTimerDone;
-    private void onTimerDone()
+    public Action onTimerDone;
+    private void OnTimerDone()
     {
         _timerText.text = " ";
-        OnTimerDone?.Invoke();
+        onTimerDone?.Invoke();
     }
 
     public void OnPuzzleDone()

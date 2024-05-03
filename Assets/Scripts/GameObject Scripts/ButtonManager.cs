@@ -7,7 +7,6 @@ public class ButtonManager : MonoBehaviour
     Timer timer;
 
     private string _currentColour;
-    public string currentColour => _currentColour;
 
     public GameObject redDoor;
     public GameObject blueDoor;
@@ -22,7 +21,7 @@ public class ButtonManager : MonoBehaviour
     private void Start()
     {
         timer = GameObject.FindObjectOfType<Timer>();
-        timer.OnTimerDone += resetColour;
+        timer.onTimerDone += resetColour;
 
         _doors = new Dictionary<string, GameObject>() {
             {"Red", redDoor},
@@ -63,6 +62,11 @@ public class ButtonManager : MonoBehaviour
         // current colour becomes null when timer runs out or when colour is finished
         if (_currentColour == null && _colourFinished[colour] == false) { 
             _currentColour = colour;
+        }
+
+        if (_currentColour == null) {
+            Debug.LogWarning("No current colour");
+            return;
         }
 
         if (_currentColour != colour) {
