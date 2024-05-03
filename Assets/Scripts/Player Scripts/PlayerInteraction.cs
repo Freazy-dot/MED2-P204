@@ -21,11 +21,16 @@ public class PlayerInteraction : MonoBehaviour
 
     public void Update()
     {
-        Ray ray = new Ray(transform.position + new Vector3(0f, InteractionRayOffset, 0f), playerCamera.transform.forward);
+        Ray ray = new Ray(playerCamera.transform.position + new Vector3(0f, InteractionRayOffset, 0f), playerCamera.transform.forward);
         RaycastHit hit;
 
+        Debug.DrawRay(ray.origin, ray.direction * rayDistance, Color.red);
+        
         IHighlightable highlightable = null;
         if (!Physics.Raycast(ray, out hit, rayDistance, ~ignorePlayerHitbox)) {
+            if (_highlightInteractable as MonoBehaviour != null) {
+                _highlightInteractable.OnLookAway();
+            }
             return;
         }
 
@@ -45,7 +50,7 @@ public class PlayerInteraction : MonoBehaviour
     public void HandleInteraction()
     {
         // Create a ray that starts at the player's position and points in the direction the camera is facing
-        Ray ray = new Ray(transform.position + new Vector3(0f, InteractionRayOffset, 0f), playerCamera.transform.forward);
+        Ray ray = new Ray(playerCamera.transform.position + new Vector3(0f, InteractionRayOffset, 0f), playerCamera.transform.forward);
         RaycastHit hit;
 
         if (!Physics.Raycast(ray, out hit, rayDistance)) {
