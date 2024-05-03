@@ -74,7 +74,7 @@ public class PlayerLocomotion : MonoBehaviour
         {
             StartCoroutine(SoundWalk());
         }
-        else if (moveDirection.magnitude == 0 && isGrounded || (isJumping))
+        else if (moveDirection.magnitude == 0 && isGrounded || isJumping )
         {
             Soundman.BreakSFX();
             StopCoroutine(SoundWalk());
