@@ -17802,7 +17802,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -4952107578306815922, guid: a4e1c428285ffc341bbc7d237c229f5b, type: 3}
       propertyPath: InteractionRayOffset
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1072509914880585361, guid: a4e1c428285ffc341bbc7d237c229f5b, type: 3}
       propertyPath: m_Name
