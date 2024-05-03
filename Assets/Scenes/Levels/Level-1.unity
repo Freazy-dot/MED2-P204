@@ -4746,8 +4746,12 @@ PrefabInstance:
       value: LevelLoader
       objectReference: {fileID: 0}
     - target: {fileID: 8500383447883044794, guid: fd9dfb9a86e884106827d727f48e89e2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3537
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500383447883044794, guid: fd9dfb9a86e884106827d727f48e89e2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.82642996
+      value: -6.6579
       objectReference: {fileID: 0}
     - target: {fileID: 8500383447883044794, guid: fd9dfb9a86e884106827d727f48e89e2, type: 3}
       propertyPath: m_LocalPosition.y
