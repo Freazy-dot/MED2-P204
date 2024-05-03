@@ -21,7 +21,7 @@ public class ButtonManager : MonoBehaviour
     private void Start()
     {
         timer = GameObject.FindObjectOfType<Timer>();
-        timer.OnTimerDone += resetColour;
+        timer.onTimerDone += resetColour;
 
         _doors = new Dictionary<string, GameObject>() {
             {"Red", redDoor},
