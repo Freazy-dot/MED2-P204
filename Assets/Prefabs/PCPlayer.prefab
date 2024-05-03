@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 4107899384129335504}
   - component: {fileID: -4952107578306815922}
   - component: {fileID: 6201945935704230652}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PCPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -228,6 +228,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InteractionRayOffset: 2.75
   rayDistance: 10
+  ignorePlayerHitbox:
+    serializedVersion: 2
+    m_Bits: 4
 --- !u!136 &6201945935704230652
 CapsuleCollider:
   m_ObjectHideFlags: 0
