@@ -21,6 +21,7 @@ public class Timer : MonoBehaviour
         _timer = time;
         _countdown = Countdown();
         StartCoroutine(_countdown);
+        //starttiktak
     }
 
     public void StopTimer() 
@@ -28,6 +29,8 @@ public class Timer : MonoBehaviour
         StopCoroutine(_countdown);
 
         _timerText.text = " ";
+
+        //stoplyd
     }
 
     public void ResetTimer()
@@ -48,6 +51,8 @@ public class Timer : MonoBehaviour
             _timer--;
         }
         OnTimerDone();
+
+        // stop timer lyd
     }
 
     public Action onTimerDone;
