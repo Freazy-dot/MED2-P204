@@ -12,7 +12,12 @@ public class ButtonManager : MonoBehaviour
     public GameObject blueDoor;
     public GameObject yellowDoor;
 
+    public GameObject redLight;
+    public GameObject blueLight;
+    public GameObject yellowLight;
+
     private Dictionary<string, GameObject> _doors;
+    private Dictionary<string, GameObject> _lights;
     private Dictionary<string, HashSet<string>> _colourIdFinished;
     private Dictionary<string, bool> _colourFinished;
 
@@ -31,6 +36,12 @@ public class ButtonManager : MonoBehaviour
             {"Red", redDoor},
             {"Blue", blueDoor},
             {"Yellow", yellowDoor}
+        };
+
+        _lights = new Dictionary<string, GameObject>() {
+            {"Red", redLight},
+            {"Blue", blueLight},
+            {"Yellow", yellowLight}
         };
 
         _colourIdFinished = new Dictionary<string, HashSet<string>>() {
@@ -53,6 +64,18 @@ public class ButtonManager : MonoBehaviour
         }
         Soundman.playSFX("KeyCode_wrong");
         _currentColour = null;
+        changeLight(_currentColour);
+    }
+
+    private void changeLight(string colour)
+    {
+        foreach (var light in _lights.Values) {
+                light.SetActive(false);
+            }
+
+        if (colour == null) return;
+
+        _lights[colour].SetActive(true);
     }
 
     public void HandleButtonPress(GameObject player, string colour, string buttonId)
@@ -65,6 +88,7 @@ public class ButtonManager : MonoBehaviour
         // current colour becomes null when timer runs out or when colour is finished
         if (_currentColour == null && _colourFinished[colour] == false) { 
             _currentColour = colour;
+            changeLight(_currentColour);
         }
 
         if (_currentColour == null) {
