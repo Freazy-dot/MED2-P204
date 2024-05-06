@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GUI;
 
 public class VRManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    //Disables the device view for vr, so we can test without building
+
     void Start()
     {
-        UnityEngine.XR.XRSettings.showDeviceView = false;
+        UnityEngine.XR.XRSettings.showDeviceView = false;  
+
+
     }
 }
+  
