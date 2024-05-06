@@ -46,7 +46,6 @@ public class BatteryStation : MonoBehaviour, IInteractable
         // check if the battery station already has a battery
         if (hasBattery) {
             ReturnBattery(inventory, powerable);
-            batteryCount--;
             UpdateBatteryVisuals();
             return;
         }
@@ -73,7 +72,8 @@ public class BatteryStation : MonoBehaviour, IInteractable
             Debug.Log("Inventory is Full.");
             return;
         }
-
+        
+        batteryCount--;
         inventory.AddBattery();
         powerable.PowerOff();
         hasBattery = false;
