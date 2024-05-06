@@ -39,9 +39,9 @@ TagManager:
   - whatIsVRGround
   - GlowCamera
   - Grab Interactable
-  - 
-  - 
-  - 
+  - VRCamera
+  - PCCamera
+  - Crosshair
   - 
   - 
   - 
