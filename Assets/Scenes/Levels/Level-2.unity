@@ -6571,6 +6571,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6303601591700100879, guid: d18c83b6f42b7ad46adf09aea0047889, type: 3}
+      propertyPath: sfxSounds.Array.size
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6303601591700100879, guid: d18c83b6f42b7ad46adf09aea0047889, type: 3}
+      propertyPath: sfxSounds.Array.data[17].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9887f0f8e6e9b814faee10ae214ca360, type: 3}
+    - target: {fileID: 6303601591700100879, guid: d18c83b6f42b7ad46adf09aea0047889, type: 3}
+      propertyPath: sfxSounds.Array.data[17].name
+      value: Time_tick
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
