@@ -280,7 +280,7 @@ PrefabInstance:
     - target: {fileID: 4342186471403524053, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: newMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 936dcacad80d97046b03a1b03fdfdeb1, type: 2}
+      objectReference: {fileID: 2100000, guid: 828c8d1f3cf5ebb4a9d65e29451b79bb, type: 2}
     - target: {fileID: 4399602453719710652, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: m_TagString
       value: Purple
@@ -1016,7 +1016,7 @@ PrefabInstance:
     - target: {fileID: 4342186471403524053, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: newMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: f71cd79c71b3a034ea79078839fd97b6, type: 2}
+      objectReference: {fileID: 2100000, guid: 48306b8ab1de7f34ebe37aa7fcfca620, type: 2}
     - target: {fileID: 4399602453719710652, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: m_TagString
       value: Green
@@ -1264,6 +1264,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 128792383}
     m_Modifications:
+    - target: {fileID: 4342186471403524053, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
+      propertyPath: newMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: c6651df618f4cb8438de15435c95d685, type: 2}
     - target: {fileID: 5794523807616777170, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: m_Name
       value: Wire (pink)
@@ -1599,7 +1603,7 @@ PrefabInstance:
     - target: {fileID: 4342186471403524053, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: newMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 51217da4ce4fbe14bb71b322ac1451de, type: 2}
+      objectReference: {fileID: 2100000, guid: faf8df68c96da7c4b8be99a69e05c948, type: 2}
     - target: {fileID: 4399602453719710652, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: m_TagString
       value: Yellow
@@ -2110,7 +2114,7 @@ PrefabInstance:
     - target: {fileID: 4342186471403524053, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: newMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 0f25e3b701adf77499740bdd6a403f83, type: 2}
+      objectReference: {fileID: 2100000, guid: e491d8ed06bef634b9f9fbe21d0513d8, type: 2}
     - target: {fileID: 4399602453719710652, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: m_TagString
       value: Blue
@@ -2644,7 +2648,7 @@ PrefabInstance:
     - target: {fileID: 4342186471403524053, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: newMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 0f068edb6f980eb478df6c8fcaa7aa8d, type: 2}
+      objectReference: {fileID: 2100000, guid: bff123c9e9de54e4a9e8ebb52452f7fe, type: 2}
     - target: {fileID: 4399602453719710652, guid: 764a4180469430549b0d4c2e747bc0ba, type: 3}
       propertyPath: m_TagString
       value: Red
