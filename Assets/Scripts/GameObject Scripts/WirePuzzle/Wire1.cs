@@ -34,11 +34,15 @@ public class Wire1 : MonoBehaviour
         }
     }
 
-   /* private void OnTriggerExit(Collider other)
+   private void OnTriggerExit(Collider collision)
     {
         Debug.Log("collision exit");
 
         if (!lamp.gameObject.GetComponent<MaterialSwitcher>()) return;
-        lamp.gameObject.GetComponent<MaterialSwitcher>().RevertMaterialSwitch();
-    }*/ 
+        if (collision.tag == this.tag)
+        {
+            lamp.gameObject.GetComponent<MaterialSwitcher>().RevertMaterialSwitch();
+        }
+        else return;
+    }
 }
