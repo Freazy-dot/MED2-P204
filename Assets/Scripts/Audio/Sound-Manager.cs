@@ -84,5 +84,10 @@ public class SoundManager : MonoBehaviour
         walksource.Stop();
     }
 
+    public void BreakSounds()
+    {
+        sfxsource.Stop();
+    }
+
 
 }

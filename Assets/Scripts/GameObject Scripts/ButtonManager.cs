@@ -16,12 +16,16 @@ public class ButtonManager : MonoBehaviour
     private Dictionary<string, HashSet<string>> _colourIdFinished;
     private Dictionary<string, bool> _colourFinished;
 
+    SoundManager Soundman;
+
     public bool isPuzzleSolved = false;
 
     private void Start()
     {
         timer = GameObject.FindObjectOfType<Timer>();
         timer.onTimerDone += resetColour;
+
+        Soundman = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<SoundManager>();
 
         _doors = new Dictionary<string, GameObject>() {
             {"Red", redDoor},
@@ -47,8 +51,7 @@ public class ButtonManager : MonoBehaviour
         if (_colourFinished[_currentColour] == false) {
             _colourIdFinished[_currentColour].Clear();
         }
-
-        // add failed sfx here
+        Soundman.playSFX("KeyCode_wrong");
         _currentColour = null;
     }
 
@@ -72,21 +75,21 @@ public class ButtonManager : MonoBehaviour
         if (_currentColour != colour) {
             Debug.Log("Wrong colour");
 
-            // add wrong press sfx here
+            Soundman.playSFX("KeyCode_wrong");
             return;
         }
         
         if (_colourFinished[colour] == true) {
             Debug.Log(colour + " already finished");
 
-            // add wrong press sfx here
+            Soundman.playSFX("KeyCode_wrong");
             return;
         }
 
         if (_colourIdFinished[colour].Contains(buttonId)) {
             Debug.Log("Button already pressed");
 
-            // add wrong press sfx here
+            Soundman.playSFX("KeyCode_wrong");
             return;
         }
 
@@ -100,7 +103,7 @@ public class ButtonManager : MonoBehaviour
             openDoor(colour);
             Debug.Log(colour + " finished");
 
-            // add correct sound sfx here
+            Soundman.playSFX("KeyCode_right");
             return;
         }
 

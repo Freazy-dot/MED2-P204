@@ -11,9 +11,12 @@ public class Timer : MonoBehaviour
 
     private TextMeshPro _timerText;
 
+    SoundManager Soundman;
+
     private void Start()
     {
         _timerText = GetComponent<TextMeshPro>();
+        Soundman = GameObject.FindGameObjectWithTag("AudioMan").GetComponent<SoundManager>();
     }
 
     public void StartTimer()
@@ -21,7 +24,7 @@ public class Timer : MonoBehaviour
         _timer = time;
         _countdown = Countdown();
         StartCoroutine(_countdown);
-        //starttiktak
+        Soundman.playSFX("Time_tick");
     }
 
     public void StopTimer() 
@@ -29,8 +32,8 @@ public class Timer : MonoBehaviour
         StopCoroutine(_countdown);
 
         _timerText.text = " ";
-
-        //stoplyd
+        
+        Soundman.BreakSounds();
     }
 
     public void ResetTimer()
@@ -51,8 +54,7 @@ public class Timer : MonoBehaviour
             _timer--;
         }
         OnTimerDone();
-
-        // stop timer lyd
+        Soundman.BreakSounds();
     }
 
     public Action onTimerDone;
